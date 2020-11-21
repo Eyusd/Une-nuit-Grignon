@@ -88,6 +88,34 @@ function Door (id, depth, imgs, x, y, width, height, key, onopen) {
 	}
 }
 
+function Img (id, depth, src, x, y ,width, height) {
+	this.id = id;
+	this.depth = depth;
+	this.src = src;
+	this.x = x*canvas.width/100;
+	this.y = y*canvas.height/100;
+	this.width = width*canvas.width/100;
+	this.height = height*canvas.height*16/900;
+
+	this.img = document.getElementById(this.src);
+
+	this.resize = function() {
+		this.x = x*canvas.width/100;
+		this.y = y*canvas.height/100;
+		this.width = width*canvas.width/100;
+		this.height = height*canvas.height*16/900;
+	}
+
+	this.draw = function() {
+		c.drawImage(this.img,this.x,this.y,this.width,this.height)
+	}
+
+	this.update = function() {
+		this.draw()
+	}
+	
+}
+
 
 function Collectible (id, depth, img, x, y, width, height) {
 
