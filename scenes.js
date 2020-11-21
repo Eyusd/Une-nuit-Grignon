@@ -1,3 +1,5 @@
+var infini = 2**64-1;
+
 function Scene () {
 	this.collection = [];
 	this.total = {};
@@ -46,8 +48,15 @@ function Scene () {
 		}
 	}
 
-	this.second = function() {
-		console.log('second');
-		this.collection = [new Button("button", 0, "source", 50,50,10,10,1, function () {scene.unload("second"); scene.startup()} )]
+	this.carriere = function() {
+		if ("carriere" in this.total) {
+			this.collection = Array.from(this.total["carriere"])
+		}
+		else {
+		var lumiere=function() {scene.unload("carriere");scene.startup()}
+		this.collection = [ new Img("carriere1",0,"carriere1",0,0,100,900/16),
+							new Button("vcarriere2",1,"button",10,10,10,10,infini,lumiere)];
+		this.sort()
+		}
 	}
 }

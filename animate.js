@@ -1,5 +1,5 @@
 var scene = new Scene();
-scene.startup();
+scene.carriere();
 resize();
 
 function animate() {
