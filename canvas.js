@@ -77,7 +77,10 @@ function GUI () {
 			if (this.slots[i] !== null) {
 				c.drawImage(this.slots[i].img,(canvas.width-this.l*this.size)/2+i*this.size, (canvas.height-this.size)*0.9, this.size, this.size)
 			}
-			c.strokeRect((canvas.width-this.l*this.size)/2+i*this.size, (canvas.height-this.size)*0.9, this.size, this.size)
+			c.fillStyle = 'rgba(150,150,150,0.7)';
+			c.fillRect((canvas.width-this.l*this.size)/2+i*this.size, (canvas.height-this.size)*0.9, this.size, this.size);
+			c.strokeStyle = "black";
+			c.strokeRect((canvas.width-this.l*this.size)/2+i*this.size, (canvas.height-this.size)*0.9, this.size, this.size);
 		}
 	}
 
