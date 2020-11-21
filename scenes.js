@@ -48,6 +48,6 @@ function Scene () {
 
 	this.second = function() {
 		console.log('second');
-		this.collection = [new Button("button", 0, "source", 50,50,10,10,1, function () {scene.unload("startup"); scene.startup()} )]
+		this.collection = [new Button("button", 0, "source", 50,50,10,10,1, function () {scene.unload("second"); scene.startup()} )]
 	}
 }
