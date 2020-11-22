@@ -53,9 +53,13 @@ function Scene () {
 			this.collection = Array.from(this.total["carriere"])
 		}
 		else {
-		var lumiere=function() {scene.unload("carriere");scene.startup()}
 		this.collection = [ new Img("carriere1",0,"carriere1",0,0,100,900/16),
-							new Button("vcarriere2",1,"button",10,10,10,10,infini,lumiere)];
+							new Button("vcarriere2",1,"button",10,10,10,10,infini,function () {gui.choicesBox([["bite"],
+																								["Choix 1", function() {gui.setTimer(10)}],
+																								["Choix 2", function() {gui.textBox(['Choix 2'])}],
+																								["Choix 3", function() {gui.textBox(['Choix 3'])}],
+																								["Choix 4", function() {gui.textBox(['Choix 4'])}]
+																							])})];
 		this.sort()
 		}
 	}
