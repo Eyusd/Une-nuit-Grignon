@@ -259,7 +259,7 @@ function GUI () {
 		}
 		if (this.mode == 'text') {
 			this.drawtext();
-			if (this.index - this.txtlength/4 < 0) {this.clickchecktext()}
+			if (this.index - this.txtlength/4.0 < 0) {this.clickchecktext()}
 		}
 		if (this.mode == 'choice') {
 			this.drawchoices();
