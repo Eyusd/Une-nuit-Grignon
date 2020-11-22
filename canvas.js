@@ -81,6 +81,7 @@ function GUI () {
 	this.index = 0;
 	this.time = null;
 	this.showtime = false;
+	this.onTimerEnd = function () {};
 
 	this.drawinv = function () {
 		c.lineWidth = 4;
@@ -206,6 +207,7 @@ function GUI () {
 
 	this.tick = function () {
 		if (this.time <= 0) {
+			this.onTimerEnd()
 			this.time = null
 			this.showtimer = false;
 		}
@@ -214,7 +216,8 @@ function GUI () {
 		}
 	}
 
-	this.setTimer = function (seconds) {
+	this.setTimer = function (seconds, timend) {
+		this.onTimerEnd = timend;
 		this.time = seconds;
 		this.showtime = true;
 	}
