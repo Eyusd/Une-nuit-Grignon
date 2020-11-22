@@ -175,7 +175,7 @@ function GUI () {
 				c.fillStyle = 'rgba(255,255,255,0.1)';
 				c.fillRect(canvas.width*0.7,canvas.height*0.6-(i-0.95)*canvas.height*0.1,canvas.width*0.2,canvas.height*0.08)
 				if (mouse.click == true && mouse.state == 'down') {
-					this.texts = [];
+					this.texts = Array.from([]);
 					this.index = 0;
 					this.txtlength = -1;
 					this.mode = 'inv';
