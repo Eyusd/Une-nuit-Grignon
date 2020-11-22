@@ -54,10 +54,9 @@ function Scene () {
 		}
 		else {
 		this.collection = [ new Img("carriere1",0,"carriere1",0,0,100,900/16),
-							new Button("vcarriere2",1,"button",10,10,10,10,infini,function () {gui.textBox(["texte 1"]), 
-																								gui.choicesBox([["bite"],
+							new Button("vcarriere2",1,"button",10,10,10,10,infini,function () {gui.choicesBox([["bite"],
 																								["Choix 1", function() {gui.setTimer(10, function () {})}],
-																								["Choix 2", function() {gui.textBox(['Choix 2'])}],
+																								["Choix 2", function() {gui.textBox(['Choix 2',"bravo",'enculé','fuck you','far away'])}],
 																								["Choix 3", function() {gui.textBox(['Choix 3'])}],
 																								["Choix 4", function() {gui.textBox(['Choix 4'])}]
 																							])})];
@@ -72,3 +71,5 @@ function Scene () {
 //["Choix 2", function() {gui.textBox(['Choix 2'])}],
 //["Choix 3", function() {gui.textBox(['Choix 3'])}],
 //["Choix 4", function() {gui.textBox(['Choix 4'])}]
+// Pour image, new Img("carriere1",0,"carriere1",0,0,100,900/16)
+// gui.stupidity += nb
