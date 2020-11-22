@@ -76,7 +76,7 @@ function GUI () {
 	this.l = this.slots.length;
 	this.mode = 'inv';
 	this.texts = [];
-	this.choices = [""];
+	this.choices = [];
 	this.txtlength = -1;
 	this.index = 0;
 	this.time = null;
@@ -98,15 +98,6 @@ function GUI () {
 	}
 
 	this.drawtext = function () {
-		if ((this.index)*4 > this.txtlength) {
-			if (this.choices.length == 0) {
-				this.mode = 'inv'; this.index = 0; this.texts = [""]; this.txtlenth = -1;
-			}
-			else {
-				this.mode = 'choice'; this.index = 0; this.texts = [""]; this.txtlength = -1;
-			}
-		}
-		else {
 			scene.pause = true;
 			c.lineWidth = 4;
 			c.fillStyle = 'rgba(150,150,150,0.7)';
@@ -124,7 +115,6 @@ function GUI () {
 				c.fillText(this.texts[4*this.index+j], canvas.width*0.12, canvas.height*0.758+j*1.2*num);
 				j++
 			}
-		}
 	}
 
 	this.drawchoices = function() {
@@ -200,13 +190,14 @@ function GUI () {
 
 	this.textBox = function (texts) {
 		this.mode = 'text';
-		this.texts = texts;
+		this.texts = Array.from(texts);
 		this.index = 0;
-		this.txtlength = this.texts.length;
+		this.txtlength = texts.length;
 	}
 
 	this.choicesBox = function (choices) {
-		this.mode = 'text';
+		if (this.txtlength == -1) {this.mode = 'choice';}
+		else {this.mode = 'text';}
 		this.choices = choices;
 	}
 
@@ -258,8 +249,18 @@ function GUI () {
 			this.drawinv()
 		}
 		if (this.mode == 'text') {
-			this.drawtext();
-			if (this.index - this.txtlength/4.0 < 0) {this.clickchecktext()}
+			if ((this.index)*4 > this.txtlength) {
+				if (this.choices.length == 0) {
+					this.mode = 'inv'; this.index = 0; this.texts = Array.from([]); this.txtlength = -1;
+				}
+				else {
+					this.mode = 'choice'; this.index = 0; this.texts = Array.from([]); this.txtlength = -1;
+				}
+			}
+			else {
+				this.drawtext();
+				if (this.index - this.txtlength/4.0 < 0) {this.clickchecktext()}
+			}
 		}
 		if (this.mode == 'choice') {
 			this.drawchoices();
