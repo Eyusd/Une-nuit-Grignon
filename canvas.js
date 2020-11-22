@@ -82,6 +82,7 @@ function GUI () {
 	this.time = null;
 	this.showtime = false;
 	this.onTimerEnd = function () {};
+	this.stupidity = 0;
 
 	this.drawinv = function () {
 		c.lineWidth = 4;
@@ -241,6 +242,16 @@ function GUI () {
 		}
 	}
 
+	this.stupidshow = function () {
+		var num = Math.floor(canvas.width/18);
+		var n = num.toString();
+		n = n.concat('', 'px Arial');
+		c.font = n;
+		c.fillStyle = 'red'
+		c.fillText(this.stupidity.toString(), canvas.width*0.05, canvas.height*0.1);
+	}
+
+
 	this.update = function () {
 		if (this.mode == 'inv') {
 			this.clickcheckinv();
@@ -257,6 +268,7 @@ function GUI () {
 		if (this.showtime) {
 			this.drawTimer()
 		}
+		this.stupidshow();
 	}
 }
 
