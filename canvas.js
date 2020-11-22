@@ -150,6 +150,10 @@ function GUI () {
 			c.strokeStyle = "black";
 			c.strokeRect(canvas.width*0.7,canvas.height*0.6-(i-0.95)*canvas.height*0.1,canvas.width*0.2,canvas.height*0.08);
 			c.fillStyle = 'white';
+			var num = Math.floor(canvas.width/38);
+			var n = num.toString();
+			n = n.concat('', 'px Arial');
+			c.font = n;
 			c.fillText(this.choices[i][0], canvas.width*0.71, canvas.height*0.655-(i-0.95)*canvas.height*0.1);
 		}
 	}
