@@ -112,7 +112,7 @@ function GUI () {
 			c.fillRect(canvas.width*0.1,canvas.height*0.7,canvas.width*0.8,canvas.height*0.25);
 			c.strokeStyle = "black";
 			c.strokeRect(canvas.width*0.1,canvas.height*0.7,canvas.width*0.8,canvas.height*0.25);
-			if (this.index - this.txtlength/4 < 0) {c.strokeRect(canvas.width*0.9,canvas.height*0.805,canvas.height*0.05,canvas.height*0.05);}	
+			if (this.index - this.txtlength/4.0 < 0) {c.strokeRect(canvas.width*0.9,canvas.height*0.805,canvas.height*0.05,canvas.height*0.05);}	
 			var num = Math.floor(canvas.width/38);
 			var n = num.toString();
 			n = n.concat('', 'px Arial');
