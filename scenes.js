@@ -55,7 +55,7 @@ function Scene () {
 		else {
 		this.collection = [ new Img("carriere1",0,"carriere1",0,0,100,900/16),
 							new Button("vcarriere12",1,"lumiere",5,30,10,10,infini,function () {scene.unload("carriere1"); scene.carriere2()},
-							new Button("vcarriere13",2,"lumiere",85,70,10,10,infini,function () {scene.unload("carriere1"); scene.carriere3()} ) )];
+							new Button("vcarriere13",2,"lumiere",50,50,10,10,infini,function () {scene.unload("carriere1"); scene.carriere3()} ) )];
 		this.sort()
 		}
 	}
@@ -66,7 +66,7 @@ function Scene () {
 		}
 		else {
 		this.collection = [ new Img("carriere2",0,"carriere2",0,0,100,900/16),
-							new Button("vcarriere21",1,"lumiere",50,85,1,1,infini,function () {scene.unload("carriere2"); scene.carriere1()} )];
+							new Button("vcarriere21",1,"lumiere",20,85,1,1,infini,function () {scene.unload("carriere2"); scene.carriere1()} )];
 		this.sort()
 		}
 	}
