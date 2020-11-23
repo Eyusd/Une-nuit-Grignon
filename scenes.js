@@ -77,8 +77,8 @@ function Scene () {
 		}
 		else {
 		this.collection = [ new Img("carriere3",0,"carriere3",0,0,100,900/16),
-							new Button("vcarriere31",1,"lumiere",50,85,1,1,infini,function () {scene.unload("carriere3"); scene.carriere1()},
-							new Button("vcarriere34",1,"lumiere",85,20,1,1,infini,function () {scene.unload("carriere3"); scene.carriere4()} ) )];
+							new Button("vcarriere31",1,"lumiere",50,85,1,1,infini,function () {scene.unload("carriere3"); scene.carriere1()}),
+							new Button("vcarriere34",1,"lumiere",85,20,1,1,infini,function () {scene.unload("carriere3"); scene.carriere4()} )];
 		this.sort()
 		}
 	}
