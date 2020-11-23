@@ -251,7 +251,7 @@ function GUI () {
 		if (this.mode == 'text') {
 			if ((this.index)*4 > this.txtlength) {
 				if (this.choices.length == 0) {
-					this.mode = 'inv'; this.index = 0; this.texts = Array.from([]); this.txtlength = -1;
+					this.mode = 'inv'; this.index = 0; this.texts = Array.from([]); this.txtlength = -1; scene.pause = false;
 				}
 				else {
 					this.mode = 'choice'; this.index = 0; this.texts = Array.from([]); this.txtlength = -1;
