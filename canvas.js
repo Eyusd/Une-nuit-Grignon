@@ -83,6 +83,7 @@ function GUI () {
 	this.showtime = false;
 	this.onTimerEnd = function () {};
 	this.stupidity = 0;
+	this.prompt = [];
 
 	this.drawinv = function () {
 		c.lineWidth = 4;
@@ -199,6 +200,18 @@ function GUI () {
 		if (this.txtlength == -1) {this.mode = 'choice';}
 		else {this.mode = 'text';}
 		this.choices = choices;
+	}
+
+	this.inputBox = function (txt,tries,listvalid,onvalid) {
+		var i = 0;
+		var retry = true;
+		while (i<tries && retry) {
+			var input = prompt(txt,"")
+			if (listvalid.includes(input)) {
+				retry = false
+				onvalid()
+			} else {i++}
+		}
 	}
 
 	this.tick = function () {

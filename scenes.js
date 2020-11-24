@@ -54,7 +54,7 @@ function Scene () {
 		}
 		else {
 		this.collection = [ new Img("carriere1",0,"carriere1",0,0,100,900/16),
-							new Button("vcarriere12",1,"lumiere",5,30,10,10,infini,function () {scene.unload("carriere1"); scene.carriere2()}),
+							new Button("vcarriere12",1,"lumiere",5,30,10,10,infini,function () {gui.inputBox("Bite",5,["teub","zob"],function () {scene.unload("carriere1"); scene.carriere2()})}),
 							new Button("vcarriere13",2,"lumiere",50,50,10,10,infini,function () {scene.unload("carriere1"); scene.carriere3()} )];
 		this.sort()
 		}
@@ -142,3 +142,4 @@ function Scene () {
 //["Choix 4", function() {gui.textBox(['Choix 4'])}]
 // Pour image, new Img("carriere1",0,"carriere1",0,0,100,900/16)
 // gui.stupidity +=nb
+// gui.inputBox("Question posée", Nombre d'essais, ["input valide1", "input valide2", ...], action_si_valide) {j'ai changé le premier bouton de carriere1}
