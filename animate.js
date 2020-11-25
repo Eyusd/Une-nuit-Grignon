@@ -1,7 +1,8 @@
 var scene = new Scene();
-scene.carriere1();
+scene.serre0();
 resize();
-gui.textBox(["[Sacha]","Ça y est, nous y voilà.", "Finissons cette histoire, et allons nous coucher."]);
+gui.textBox(["[Sasha]","*baillement* Hmm ? Mais qu’est-ce que je fous là ?","Pourquoi je suis devant ma chambre?"," Je devrais peut-être rentrer."]);
+gui.textBox(["[Sasha]","Ça y est, nous y voilà.", "Finissons cette histoire, et allons nous coucher."]);
 
 function animate() {
 	requestAnimationFrame(animate);
