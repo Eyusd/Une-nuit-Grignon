@@ -236,61 +236,61 @@ function Chest (id, depth, img, x, y, width, height) {
 }
 
 function Simon (listinputs, oncomplete) {
-	this.oncomplete = oncomplete;
+	
 	this.listinputs = listinputs;
-	this.mode = 'robot';
-	this.size = canvas.height*0.3;
-	this.offset = canvas.height/9.0;
-	this.x = canvas.width*0.28125;
-	this.y = canvas.height/9.0;
-	this.colors1 = ["rgb(0,0,200)","rgb(0,200,0)",'rgb(200,0,0)',"rgb(200,200,0)"];
-	this.colors2 = ["rgb(0,0,255)","rgb(0,255,0)","rgb(255,0,0)","rgb(255,255,0)"];
-	this.ordiindex = -1;
-	this.humanindex = -1;
+	this.oncomplete = oncomplete;
+	this.trutharray = [false,false,false,false];
+	var check = true;
+	this.d = 0;
+	this.index = 0;
+	this.showcurseur = 0;
+	this.usercurseur = 0;
+	this.buttons = [null,null,null,null];
+	this.colors1 = ["simon_red","simon_yellow","simon_green","simon_blue"];
+	this.colors2 = ["simon_red_clear","simon_yellow_clear","simon_green_clear","simon_blue_clear"];
 	scene.pause = true;
 
-	this.robotturn = function () {
-		this.ordiindex = 0;
-		var d = 0;
-		d++;
-		var i = this.listinputs[this.ordiindex];
-		c.fillStyle = this.colors2[i];
-		c.fillRect(this.x+(i%2)*(this.size+this.offset), this.y+(i/2)*(this.size+this.offset),this.size,this.size));
-		if (d%2000 == 0) {
-			this.ordiindex++
-			if (this.ordiindex > this.humanindex) {
-				this.mode = 'human';
-			}
-		}
-
+	for (i=0;i<scene.collection.length;i++) {
+		if (scene.collection[i].id == "simon_button_xxx_1") {check = false}
+	}
+	if (check) {
+		scene.collection.push(new Button("simon_button_xxx_1", 2**64-1, "simon_red",4,290/9,20,20,2**64-1,function () {for (i=0;i<scene.collection.length;i++) {if (scene.collection[i].id == "simon_obj") {scene.collection[i].trutharray[1] = false}}}));
+		scene.collection.push(new Button("simon_button_xxx_2", 2**64-1, "simon_yellow",28,290/9,20,20,2**64-1,function () {for (i=0;i<scene.collection.length;i++) {if (scene.collection[i].id == "simon_obj") {scene.collection[i].trutharray[2] = false}}})):
+		scene.collection.push(new Button("simon_button_xxx_3", 2**64-1, "simon_green",52,290/9,20,20,2**64-1,function () {for (i=0;i<scene.collection.length;i++) {if (scene.collection[i].id == "simon_obj") {scene.collection[i].trutharray[3] = false}}})):
+		scene.collection.push(new Button("simon_button_xxx_4", 2**64-1, "simon_blue",76,290/9,20,20,2**64-1,function () {for (i=0;i<scene.collection.length;i++) {if (scene.collection[i].id == "simon_obj") {scene.collection[i].trutharray[4] = false}}}))
+	}
+	for (i=0;i<scene.collection.length;i++) {
+		if (scene.collection[i].id == "simon_button_xxx_1") {this.button[0] = scene.collection[i].id}
+		if (scene.collection[i].id == "simon_button_xxx_2") {this.button[1] = scene.collection[i].id}
+		if (scene.collection[i].id == "simon_button_xxx_3") {this.button[2] = scene.collection[i].id}
+		if (scene.collection[i].id == "simon_button_xxx_4") {this.button[3] = scene.collection[i].id}
 	}
 
-	this.humanturn = function () {
-		this.humanindex = 0;
-		while (this.humanindex <= this.ordiindex) {
-			for (i=0; i<4; i++) {
-				if (recthitbox(this.x+(i%2)*(this.size+this.offset), this.y+(i/2)*(this.size+this.offset),mouse.x,mouse.y,this.size,this.size)) {
-					if (mouse.click == true && mouse.state == 'down') {
-						c.fillStyle = this.colors2[i];
-						c.fillRect(this.x+(i%2)*(this.size+this.offset), this.y+(i/2)*(this.size+this.offset),this.size,this.size));
+	this.draw = function () {
+		if (this.d == 0) {this.buttons[this.listinputs[this.showcurseur]].img = document.getElementById(this.colors2[i])}
+		if (this.d == 100) {for (i=0;i<4;i++) {this.buttons[i].img = document.getElementById(this.colors1[i])}}
+		if (this.d > 150) {
+			if (this.showcurseur <= this.index) {this.showcurseur++}
+			else {this.d = 0; this.showcurseur = 0; scene.pause = false}
+		}
+		this.d++
+	}
 
-						if (this.listinputs[this.humanindex] == i) {
-							this.humanindex++
-						}
+	this.update = function () {
+		if (mouse.click) {
+			for (i=0;i<4;i++) {
+				if (this.trutharray[i]) {
+					this.buttons[i].img = document.getElementById(this.colors2[i]);
+					if (this.listinputs[this.usercurseur] == i) {
+						if (this.usercurseur >= this.index) {
+							this.usercurseur = 0;
+							this.index ++;
+							scene.pause = false;
+							if (this.index >= this.listinputs.length) {this.oncomplet()}
+						} else {this.index = 0; this.showcurseur = 0; this.usercurseur = 0}
 					}
 				}
 			}
 		}
-		if (this.humanindex == this.listinputs.length) {this.oncomplete()}
-		else {this.mode = 'robot'}
-	}
-
-	this.draw = function () {
-		for (i=0;i<4,i++) {
-			c.fillStyle = this.colors1[i];
-			c.fillRect(this.x+(i%2)*(this.size+this.offset), this.y+(i/2)*(this.size+this.offset),this.size,this.size));
-		}
-		if (this.mode == 'robot') {this.robotturn()}
-		if (this.mode == 'human') {this.humanturn()}
 	}
 }

@@ -207,7 +207,7 @@ function GUI () {
 
 	this.playsound = function (soundid) {
 		this.currentlyPlaying = document.getElementById(soundid);
-		if (!this.currentlyPlaying.paused) {this.currentlyPlaying.play()}
+		if (this.currentlyPlaying.paused) {this.currentlyPlaying.play()}
 	}
 
 	this.choicesBox = function (choices) {
