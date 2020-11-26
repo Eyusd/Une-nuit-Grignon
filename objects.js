@@ -234,3 +234,63 @@ function Chest (id, depth, img, x, y, width, height) {
 		this.height = height*canvas.height*16/900;
 	}
 }
+
+function Simon (listinputs, oncomplete) {
+	this.oncomplete = oncomplete;
+	this.listinputs = listinputs;
+	this.mode = 'robot';
+	this.size = canvas.height*0.3;
+	this.offset = canvas.height/9.0;
+	this.x = canvas.width*0.28125;
+	this.y = canvas.height/9.0;
+	this.colors1 = ["rgb(0,0,200)","rgb(0,200,0)",'rgb(200,0,0)',"rgb(200,200,0)"];
+	this.colors2 = ["rgb(0,0,255)","rgb(0,255,0)","rgb(255,0,0)","rgb(255,255,0)"];
+	this.ordiindex = -1;
+	this.humanindex = -1;
+	scene.pause = true;
+
+	this.robotturn = function () {
+		this.ordiindex = 0;
+		var d = 0;
+		d++;
+		var i = this.listinputs[this.ordiindex];
+		c.fillStyle = this.colors2[i];
+		c.fillRect(this.x+(i%2)*(this.size+this.offset), this.y+(i/2)*(this.size+this.offset),this.size,this.size));
+		if (d%2000 == 0) {
+			this.ordiindex++
+			if (this.ordiindex > this.humanindex) {
+				this.mode = 'human';
+			}
+		}
+
+	}
+
+	this.humanturn = function () {
+		this.humanindex = 0;
+		while (this.humanindex <= this.ordiindex) {
+			for (i=0; i<4; i++) {
+				if (recthitbox(this.x+(i%2)*(this.size+this.offset), this.y+(i/2)*(this.size+this.offset),mouse.x,mouse.y,this.size,this.size)) {
+					if (mouse.click == true && mouse.state == 'down') {
+						c.fillStyle = this.colors2[i];
+						c.fillRect(this.x+(i%2)*(this.size+this.offset), this.y+(i/2)*(this.size+this.offset),this.size,this.size));
+
+						if (this.listinputs[this.humanindex] == i) {
+							this.humanindex++
+						}
+					}
+				}
+			}
+		}
+		if (this.humanindex == this.listinputs.length) {this.oncomplete()}
+		else {this.mode = 'robot'}
+	}
+
+	this.draw = function () {
+		for (i=0;i<4,i++) {
+			c.fillStyle = this.colors1[i];
+			c.fillRect(this.x+(i%2)*(this.size+this.offset), this.y+(i/2)*(this.size+this.offset),this.size,this.size));
+		}
+		if (this.mode == 'robot') {this.robotturn()}
+		if (this.mode == 'human') {this.humanturn()}
+	}
+}
