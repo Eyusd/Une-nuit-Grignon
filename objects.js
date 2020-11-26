@@ -193,3 +193,44 @@ function Collectible (id, depth, img, x, y, width, height) {
 		this.draw();
 	}
 }
+
+function Chest (id, depth, img, x, y, width, height) {
+
+	this.depth = depth;
+	this.id = id;
+	this.x = x*canvas.width/100;
+	this.y = y*canvas.height/100;
+	this.src = img;
+	this.width = width*canvas.width/100;
+	this.height = height*canvas.height*16/900;
+	this.img = document.getElementById(img);
+	this.slot = null;
+
+	this.draw = function () {
+		c.drawImage(this.img,this.x,this.y,this.width,this.height);
+		if (this.slots !== null) {
+			c.drawImage(this.slot.img,this.x, this.y, this.width, this.height)
+		}
+	}
+
+	this.clickcheckinv = function () {
+		if (this.slot !== null && mouse.click == true && mouse.state == 'down' && recthitbox(this.x,this.y,mouse.x,mouse.y,this.width, this.height)) {
+			this.slot.drag = 'onDrag';
+			scene.collection.push(this.slot);
+			scene.sort();
+			this.slot = null;
+		}
+	}
+
+	this.update = function () {
+		this.clickcheckinv();
+		this.draw()
+	}
+
+	this.resize = function() {
+		this.x = x*canvas.width/100;
+		this.y = y*canvas.height/100;
+		this.width = width*canvas.width/100;
+		this.height = height*canvas.height*16/900;
+	}
+}

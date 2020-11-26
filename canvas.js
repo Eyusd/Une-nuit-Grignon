@@ -84,6 +84,8 @@ function GUI () {
 	this.onTimerEnd = function () {};
 	this.stupidity = 0;
 	this.prompt = [];
+	this.audio = [];
+	this.currentlyPlaying = undefined;
 
 	this.drawinv = function () {
 		c.lineWidth = 4;
@@ -153,6 +155,9 @@ function GUI () {
 	this.clickchecktext = function () {
 		if (mouse.click == true && mouse.state == 'down' && recthitbox(canvas.width*0.9,canvas.height*0.805,mouse.x,mouse.y,canvas.height*0.05,canvas.height*0.05)) {
 				this.index++
+				if (this.index < this.audio.length) {
+					this.playsound(this.audio[this.index])
+				}
 		}
 		if (recthitbox(canvas.width*0.9,canvas.height*0.805,mouse.x,mouse.y,canvas.height*0.05,canvas.height*0.05)) {
 			c.fillStyle = 'black';
@@ -189,11 +194,20 @@ function GUI () {
 		}
 	}
 
-	this.textBox = function (texts) {
+	this.textBox = function (texts, sounds = []) {
 		this.mode = 'text';
 		this.texts = Array.from(texts);
 		this.index = 0;
 		this.txtlength = texts.length;
+		this.audio = sounds;
+		if (this.index < this.audio.length) {
+			this.playsound(this.audio[this.index])
+		}
+	}
+
+	this.playsound = function (soundid) {
+		this.currentlyPlaying = document.getElementById(soundid);
+		if (!this.currentlyPlaying.paused) {this.currentlyPlaying.play()}
 	}
 
 	this.choicesBox = function (choices) {
@@ -263,6 +277,8 @@ function GUI () {
 		}
 		if (this.mode == 'text') {
 			if ((this.index)*4 > this.txtlength) {
+				this.audio = [];
+				this.currentlyPlaying = undefined;
 				if (this.choices.length == 0) {
 					this.mode = 'inv'; this.index = 0; this.texts = Array.from([]); this.txtlength = -1; scene.pause = false;
 				}
