@@ -225,7 +225,7 @@ function GUI () {
 		this.choices = choices;
 	}
 
-	this.inputBox = function (txt,tries,listvalid,onvalid) {
+	this.inputBox = function (txt,tries,listvalid,onvalid,onnonvalid = function () {}) {
 		var i = 0;
 		var retry = true;
 		while (i<tries && retry) {
@@ -235,6 +235,7 @@ function GUI () {
 				onvalid()
 			} else {i++}
 		}
+		if (i == tries) {onnonvalid()}
 	}
 
 	this.tick = function () {
