@@ -194,7 +194,7 @@ function Scene () {
 		else {
 		this.collection = [ new Img("porteserre",0,"porteserre",0,0,100,900/16),
 							new Button("vporteserrejardin0",2,"lumiere",80,20,5,5,infini,function () {scene.unload("porteserre"); scene.jardin0()},
-							new Door("Porteferme", 1, ["vide1","vide1"],0,0,100,900/16,"cleserre", function() {scene.unload("porteserre"); scene.serre0()}) )];
+							new Door("Porteferme", 1, ["simon_blue","simon_yellow"],0,0,100,900/16,"cleserre", function() {scene.unload("porteserre"); scene.serre0()}) )];
 		this.sort()
 		}
 	}
