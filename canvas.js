@@ -28,9 +28,18 @@ var mouse = {
 	click: false,
 	drag: ['idle', ""]
 }
-window.addEventListener('mousemove', function(event) {mouse.x = event.x; mouse.y = event.y;});
-window.addEventListener('mousedown', function(event) {mouse.state = 'down'; mouse.click = true; mouse.x = event.x; mouse.y = event.y;});
-window.addEventListener('mouseup', function(event) {mouse.state = 'up'; mouse.click = false; mouse.x = event.x; mouse.y = event.y;});
+
+var mousetemp = {
+	x: 0,
+	y: 0,
+	state: "up",
+	click: false,
+	drag: ['idle', ""]
+}
+
+window.addEventListener('mousemove', function(event) {mousetemp.x = event.x; mousetemp.y = event.y;});
+window.addEventListener('mousedown', function(event) {mousetemp.state = 'down'; mousetemp.click = true; mousetemp.x = event.x; mousetemp.y = event.y;});
+window.addEventListener('mouseup', function(event) {mousetemp.state = 'up'; mousetemp.click = false; mousetemp.x = event.x; mousetemp.y = event.y;});
 window.addEventListener('resize', function() {
 	if (window.innerWidth/window.innerHeight < 16/9) {
 		canvas.width = window.innerWidth;
@@ -276,7 +285,7 @@ function GUI () {
 			this.drawinv()
 		}
 		if (this.mode == 'text') {
-			if ((this.index)*4 > this.txtlength) {
+			if ((this.index)*4 >= this.txtlength) {
 				this.audio = [];
 				this.currentlyPlaying = undefined;
 				if (this.choices.length == 0) {

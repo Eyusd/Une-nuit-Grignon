@@ -44,6 +44,8 @@ function Scene () {
 		else {
 		this.collection = [	new Collectible("simplekey", 10, "key",10,10,10,10),
 							new Door("door", 0, ["door1","door2"],30,10,10,20,"simplekey", function() {gui.textBox(['Bite','Un texte très long qui sert à voir des trucs de ouf','Encore bite','Teub'],["test"])} )];
+		//this.collection = [].concat(generateSimon([0,1,2,3],function () {console.log("completed")}));
+		//initSimon();
 		this.sort()
 		}
 	}
