@@ -55,9 +55,9 @@ function Scene () {
 		}
 		else {
 		this.collection = [ new Img("porte",0,"porte",0,0,100,900/16),
-							new Button("portesasha",1,"lumiere",30,57,10,10,infini,function () {gui.textBox(["Oh putain ça s’ouvre pas…","Qu’est-ce que j’ai foutu de mes clés ? Bon. ","Calme-toi Sasha. Réfléchis deux secondes."], [], function () {gui.textBox(['bite')})}),
-							new Button("portealex",2,"lumiere",65,45,10,10,infini,function () {gui.textBox(["[Alex]","Bah alors Sasha on a la tête dans le cul ce matin ? En même ","temps, t’étais vraiment un déchet hier soir, c’était pas beau à voir.","Mais trêve de bavardages, une meuf a oublié son éco-cup","chez moi hier. Comme t’es chargé de nettoyage", "et que j’ai la flemme de bouger mon cul, je te la file.","Eh sans rancune, hein !","","Sasha","Euuuuuuh... ok ? O_O"])} ), 
-							new Button("vporteU",1,"lumiere",80,87,10,10,infini,function () {scene.unload("porte"); scene.U()}) ];
+							new Button("portesasha",1,"lumiere",32,60,5,5,1,function () {gui.textBox(["[Sasha]","Oh putain ça s’ouvre pas…","Qu’est-ce que j’ai foutu de mes clés ? Bon. ","Calme-toi Sasha. Réfléchis deux secondes."], [], function () {gui.textBox(["Où est-ce que tu aurais pu ranger tes PUTAIN clés ?"], [], function () {gui.textBox(["Vous avez reçu un message de ALEX"], [], function () {gui.textBox(["[Sasha]","Mais qu’est-ce qu’il raconte ? Soirée ?", "Camille ? J’ai la tête dans le cul,", "je me rappelle plus de rien." ], [], function () {gui.textBox(["Vous avez reçu un message de ALEXANDRE HERVÉ"], [], function() {gui.textBox(["[Sasha]","Oh mince, j’étais censé aider à nettoyer le campus ce matin ?", "Je ferais mieux de m’y mettre immédiatement." ])})})} )})}  )}),
+							new Button("portealex",2,"lumiere",68,48,5,5,1,function () {gui.textBox(["[Alex]","Bah alors Sasha on a la tête dans le cul ce matin ? En même ","temps, t’étais vraiment un déchet hier soir, c’était pas beau à voir.","Mais trêve de bavardages, une meuf a oublié son éco-cup","chez moi hier. Comme t’es chargé de nettoyage", "et que j’ai la flemme de bouger mon cul, je te la file.","Eh sans rancune, hein !","","Sasha","Euuuuuuh... ok ? O_O"])} ), 
+							new Button("vporteU",1,"lumiere",80,87,5,5,infini,function () {scene.unload("porte"); scene.U()}) ];
 		this.sort()
 		}
 	}
@@ -68,8 +68,8 @@ function Scene () {
 		}
 		else {
 		this.collection = [ new Img("U",0,"U",0,0,100,900/16),
-							new Button("vUporte",1,"lumiere",22,48,5,5,infini,function () {scene.unload("U"); scene.porte()}),
-							new Button("vUDEP",2,"lumiere",10,80,5,5,infini,function () {scene.unload("U"); scene.dep()} )];
+							new Button("vUporte",1,"lumiere",25,52,5,5,infini,function () {scene.unload("U"); scene.porte()}),
+							new Button("vUDEP",2,"lumiere",8,77,5,5,infini,function () {scene.unload("U"); scene.dep()} )];
 		this.sort()
 		}
 	}
@@ -81,7 +81,7 @@ function Scene () {
 		else {
 		this.collection = [ new Img("dep",0,"dep",0,0,100,900/16),
 							new Button("vdepu",1,"lumiere",20,85,5,5,infini,function () {scene.unload("dep"); scene.U()}),
-							new Button("vdepamphitheatre",2,"lumiere",60,55,5,5,infini,function () {scene.unload("dep"); scene.amphitheatre()} )];
+							new Button("vdepamphitheatre",2,"lumiere",60,60,5,5,infini,function () {scene.unload("dep"); scene.amphitheatre()} )];
 		this.sort()
 		}
 	}
@@ -104,7 +104,7 @@ function Scene () {
 		}
 		else {
 		this.collection = [ new Img("amphi",0,"amphi",0,0,100,900/16),
-							new Button("vamphiamphitheatre",2,"lumiere",70,80,5,5,infini,function () {scene.unload("amphi"); scene.amphitheatre()} )];
+							new Button("vamphiamphitheatre",2,"lumiere",70,90,5,5,infini,function () {scene.unload("amphi"); scene.amphitheatre()} )];
 		this.sort()
 		}
 	}
