@@ -193,8 +193,8 @@ function Scene () {
 		}
 		else {
 		this.collection = [ new Img("porteserre",0,"porteserre",0,0,100,900/16),
-							new Button("vporteserrejardin0",2,"lumiere",80,20,5,5,infini,function () {scene.unload("porteserre"); scene.jardin0()},
-							new Door("Porteferme", 1, ["simon_blue","simon_yellow"],0,0,100,900/16,"cleserre", function() {scene.unload("porteserre"); scene.serre0()}) )];
+							new Button("vporteserrejardin0",2,"lumiere",80,20,5,5,infini,function () {scene.unload("porteserre"); scene.jardin0()}) ,
+							new Door("Porteferme", 1, ["Vide1","Vide1"],0,0,100,900/16,"cleserre", function() {scene.unload("porteserre"); scene.serre0()}) ];
 		this.sort()
 		}
 	}
@@ -483,5 +483,8 @@ function Scene () {
 // Pour image, new Img("carriere1",0,"carriere1",0,0,100,900/16)
 // gui.stupidity +=nb
 // gui.inputBox("Question posée", Nombre d'essais, ["input valide1", "input valide2", ...], action_si_valide) {j'ai changé le premier bouton de carriere1}
-//Pour input, new Button("vcarriere12",1,"lumiere",5,30,10,10,infini,function () {gui.inputBox("Bite",5,["teub","zob"],function () {scene.unload("carriere1"); scene.carriere2()}
-//2Musique /1 Objet case/ 3Objet Simon
+//Pour input, new Button("vcarriere12",1,"lumiere",5,30,10,10,infini,function () {gui.inputBox("Bite",5(nb d'essais),["teub","zob"],function () {scene.unload("carriere1"); scene.carriere2()}
+//2Musique/1 Objet case/ 3Objet Simon
+//gui.slots[0à4]=new....
+//scene.collection=scene.collection.concat([new Collectible]);
+		//scene.sort()
