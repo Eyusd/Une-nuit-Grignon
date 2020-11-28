@@ -25,7 +25,6 @@ function Scene () {
 		}
 	}
 	this.unload = function(key) {
-		console.log(this.collection);
 		this.total[key] = Array.from(this.collection);
 		for (i = 0; i < this.collection.length; i++) {delete this.collection[i]}
 		this.collection = []
