@@ -1,3 +1,8 @@
+window.addEventListener('load', function () {
+	console.log("It's loaded!")
+  })
+
+
 var scene = new Scene();
 scene.porte();
 gui.textBox(["[Sasha]","*baillement* Hmm ? Mais qu’est-ce que je fous là ?","Pourquoi je suis devant ma chambre?"," Je devrais peut-être rentrer."]);
@@ -11,5 +16,4 @@ function animate() {
 	gui.update();
 	if (mouse.click == true) {mouse.click = false; console.log('click'); mousetemp.click = false;};
 }
-
 animate();
