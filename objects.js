@@ -177,7 +177,7 @@ function Collectible (id, depth, img, x, y, width, height) {
 			}
 		}
 		for (i=0;i<scene.collection.length;i++) {
-			if (scene.collection[i].id == "chest") {
+			if (scene.collection[i].id.includes("ch3st")) {
 				if (scene.collection[i].slot == null && recthitbox(scene.collection[i].x,scene.collection[i].y,mouse.x,mouse.y,scene.collection[i].width, scene.collection[i].height)) {
 					mouse.drag = ['idle', ""];
 					mousetemp.drag = ['idle', ""];
