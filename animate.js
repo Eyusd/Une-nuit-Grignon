@@ -1,9 +1,7 @@
 var scene = new Scene();
-scene.startup();
-gui.textBox(["[Sasha]","*baillement* Hmm ? Mais qu’est-ce que je fous là ?","Pourquoi je suis devant ma chambre?"," Je devrais peut-être rentrer."], [], function () {console.log("bite")});
+scene.porte();
+gui.textBox(["[Sasha]","*baillement* Hmm ? Mais qu’est-ce que je fous là ?","Pourquoi je suis devant ma chambre?"," Je devrais peut-être rentrer."], [], function () {console.log('bite')});
 resize();
-//gui.textBox(["[Sasha]","*baillement* Hmm ? Mais qu’est-ce que je fous là ?","Pourquoi je suis devant ma chambre?"," Je devrais peut-être rentrer."]);
-//gui.textBox(["[Sasha]","Ça y est, nous y voilà.", "Finissons cette histoire, et allons nous coucher."]);
 
 function animate() {
 	mouse =  JSON.parse(JSON.stringify(mousetemp));

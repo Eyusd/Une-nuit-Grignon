@@ -55,7 +55,8 @@ function Scene () {
 		}
 		else {
 		this.collection = [ new Img("porte",0,"porte",0,0,100,900/16),
-							new Button("portesasha",1,"lumiere",30,57,10,10,infini,function () {gui.textBox(["[Sasha]","Oh putain ça s’ouvre pas…","Qu’est-ce que j’ai foutu de mes clés ? Bon. ","Calme-toi Sasha. Réfléchis deux secondes..","Où est-ce que tu aurais pu ranger tes PUTAIN clés ?"])}),
+							new Button("portesasha",1,"lumiere",30,57,10,10,infini,function () {gui.textBox(["[Sasha]","Oh putain ça s’ouvre pas…","Qu’est-ce que j’ai foutu de mes clés ? Bon. ","Calme-toi Sasha. Réfléchis deux secondes.."], ["test"],
+							function() {guitextBox(["Où est-ce que tu aurais pu ranger tes PUTAIN clés ?"],[])} )}),
 							new Button("portealex",2,"lumiere",65,45,10,10,infini,function () {gui.textBox(["[Alex]","Bah alors Sasha on a la tête dans le cul ce matin ? En même ","temps, t’étais vraiment un déchet hier soir, c’était pas beau à voir.","Mais trêve de bavardages, une meuf a oublié son éco-cup","chez moi hier. Comme t’es chargé de nettoyage", "et que j’ai la flemme de bouger mon cul, je te la file.","Eh sans rancune, hein !","","Sasha","Euuuuuuh... ok ? O_O"])} ), 
 							new Button("vporteU",1,"lumiere",80,87,10,10,infini,function () {scene.unload("porte"); scene.U()}) ];
 		this.sort()
@@ -192,8 +193,8 @@ function Scene () {
 		}
 		else {
 		this.collection = [ new Img("porteserre",0,"porteserre",0,0,100,900/16),
-							new Button("vporteserrejardin0",2,"lumiere",80,20,5,5,infini,function () {scene.unload("porteserre"); scene.jardin0()},
-							new Door("Porteferme", 1, ["simon_blue","simon_yellow"],0,0,100,900/16,"cleserre", function() {scene.unload("porteserre"); scene.serre0()}) )];
+							new Button("vporteserrejardin0",2,"lumiere",80,20,5,5,infini,function () {scene.unload("porteserre"); scene.jardin0()}) ,
+							new Door("Porteferme", 1, ["Vide1","Vide1"],0,0,100,900/16,"cleserre", function() {scene.unload("porteserre"); scene.serre0()}) ];
 		this.sort()
 		}
 	}
@@ -482,5 +483,30 @@ function Scene () {
 // Pour image, new Img("carriere1",0,"carriere1",0,0,100,900/16)
 // gui.stupidity +=nb
 // gui.inputBox("Question posée", Nombre d'essais, ["input valide1", "input valide2", ...], action_si_valide) {j'ai changé le premier bouton de carriere1}
-//Pour input, new Button("vcarriere12",1,"lumiere",5,30,10,10,infini,function () {gui.inputBox("Bite",5,["teub","zob"],function () {scene.unload("carriere1"); scene.carriere2()}
-//2Musique /1 Objet case/ 3Objet Simon
+//Pour input, new Button("vcarriere12",1,"lumiere",5,30,10,10,infini,function () {gui.inputBox("Bite",5(nb d'essais),["teub","zob"],function () {scene.unload("carriere1"); scene.carriere2()}
+//2Musique/1 Objet case/ 3Objet Simon
+//gui.slots[0à4]=new....
+//scene.collection=scene.collection.concat([new Collectible]);
+		//scene.sort()
+//new Chest("chest", -1000, "simon_red", 40,40,30,30,function (name) {if (name == "simplekey") {console.log('loul')
+//var ar=[null, null, null, null, null, null, null, null, null]
+//for (i=0; i<scene.collection.length; i++) {
+	//var elt= scene.collection[i];
+	//if (elt.id=="ch3st0") {
+		//if (elt.slot==null) {
+			//ar[0]=null
+		//} else {ar[0]=elt.slot.id}
+	//}
+//}
+//if (ar==[]) {scene.unload("scene actuelle"); scene.scenenouvelle()}
+
+//Supprimer Objet var newcollec =Array.from(scene.collection);
+	//for (i=0; i<scene.collection.length; i++) {
+		//var elt= scene.collection[i]; 
+		//if (elt.id=="ch3st0") {
+			//newcollec=arrayRemove(newcollec,elt)
+		//}
+	//}
+//scene.collection=Array.from(newcollec)
+//gui.textBox([],[], function() {}) pour le son
+//Musique gui.playsound("")
