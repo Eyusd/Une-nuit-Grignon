@@ -298,12 +298,13 @@ function GUI () {
 				this.audio = [];
 				this.currentlyPlaying = undefined;
 				if (this.choices.length == 0) {
-					this.mode = 'inv'; this.index = 0; this.texts = Array.from([]); this.txtlength = -1; scene.pause = false; this.toexecute = function () {};
+					this.mode = 'inv'; this.index = 0; this.texts = Array.from([]); this.txtlength = -1; scene.pause = false;
 				}
 				else {
-					this.mode = 'choice'; this.index = 0; this.texts = Array.from([]); this.txtlength = -1; this.toexecute = function () {};
+					this.mode = 'choice'; this.index = 0; this.texts = Array.from([]); this.txtlength = -1;
 				}
 				this.toexecute();
+				this.toexecute = function () {};
 			}
 			else {
 				this.drawtext();
