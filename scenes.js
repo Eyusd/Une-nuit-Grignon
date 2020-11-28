@@ -55,8 +55,7 @@ function Scene () {
 		}
 		else {
 		this.collection = [ new Img("porte",0,"porte",0,0,100,900/16),
-							new Button("portesasha",1,"lumiere",30,57,10,10,infini,function () {gui.textBox(["[Sasha]","Oh putain ça s’ouvre pas…","Qu’est-ce que j’ai foutu de mes clés ? Bon. ","Calme-toi Sasha. Réfléchis deux secondes.."], ["test"],
-							function() {guitextBox(["Où est-ce que tu aurais pu ranger tes PUTAIN clés ?"],[])} )}),
+							new Button("portesasha",1,"lumiere",30,57,10,10,infini,function () {gui.textBox(["Oh putain ça s’ouvre pas…","Qu’est-ce que j’ai foutu de mes clés ? Bon. ","Calme-toi Sasha. Réfléchis deux secondes."], [], function () {gui.textBox(['bite')})}),
 							new Button("portealex",2,"lumiere",65,45,10,10,infini,function () {gui.textBox(["[Alex]","Bah alors Sasha on a la tête dans le cul ce matin ? En même ","temps, t’étais vraiment un déchet hier soir, c’était pas beau à voir.","Mais trêve de bavardages, une meuf a oublié son éco-cup","chez moi hier. Comme t’es chargé de nettoyage", "et que j’ai la flemme de bouger mon cul, je te la file.","Eh sans rancune, hein !","","Sasha","Euuuuuuh... ok ? O_O"])} ), 
 							new Button("vporteU",1,"lumiere",80,87,10,10,infini,function () {scene.unload("porte"); scene.U()}) ];
 		this.sort()
