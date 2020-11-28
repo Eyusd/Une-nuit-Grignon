@@ -101,6 +101,7 @@ function GUI () {
 	this.prompt = [];
 	this.audio = [];
 	this.currentlyPlaying = undefined;
+	this.toexecute = function () {};
 
 	this.drawinv = function () {
 		c.lineWidth = 4;
@@ -209,7 +210,8 @@ function GUI () {
 		}
 	}
 
-	this.textBox = function (texts, sounds = []) {
+	this.textBox = function (texts, sounds = [], toexecute = function () {}) {
+		this.toexecute = toexecute;
 		this.mode = 'text';
 		this.texts = Array.from(texts);
 		this.index = 0;
@@ -293,13 +295,14 @@ function GUI () {
 		}
 		if (this.mode == 'text') {
 			if ((this.index)*4 >= this.txtlength) {
+				this.toexecute();
 				this.audio = [];
 				this.currentlyPlaying = undefined;
 				if (this.choices.length == 0) {
-					this.mode = 'inv'; this.index = 0; this.texts = Array.from([]); this.txtlength = -1; scene.pause = false;
+					this.mode = 'inv'; this.index = 0; this.texts = Array.from([]); this.txtlength = -1; scene.pause = false; this.toexecute = function () {};
 				}
 				else {
-					this.mode = 'choice'; this.index = 0; this.texts = Array.from([]); this.txtlength = -1;
+					this.mode = 'choice'; this.index = 0; this.texts = Array.from([]); this.txtlength = -1; this.toexecute = function () {};
 				}
 			}
 			else {
