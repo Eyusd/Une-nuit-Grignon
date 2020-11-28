@@ -295,7 +295,6 @@ function GUI () {
 		}
 		if (this.mode == 'text') {
 			if ((this.index)*4 >= this.txtlength) {
-				this.toexecute();
 				this.audio = [];
 				this.currentlyPlaying = undefined;
 				if (this.choices.length == 0) {
@@ -304,6 +303,7 @@ function GUI () {
 				else {
 					this.mode = 'choice'; this.index = 0; this.texts = Array.from([]); this.txtlength = -1; this.toexecute = function () {};
 				}
+				this.toexecute();
 			}
 			else {
 				this.drawtext();
