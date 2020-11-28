@@ -256,3 +256,12 @@ function Chest (id, depth, img, x, y, width, height, actio = function () {}) {
 	}
 }
 
+function supprime(A) {var newcollec =Array.from(scene.collection);
+	for (i=0; i<scene.collection.length; i++) {
+		var elt= scene.collection[i]; 
+		if (elt.id==A) {
+			newcollec=arrayRemove(newcollec,elt)
+		}
+	}
+	scene.collection=Array.from(newcollec)
+}
