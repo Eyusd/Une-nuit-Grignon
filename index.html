@@ -9,6 +9,9 @@
 	</style>
 </head>
 <body>
+	<div id="loadingscreen" class="hidden"></div>
+	<script type="text/javascript"> document.getElementById("loadingscreen").classList.remove("hidden")
+	</script>
 	<canvas></canvas>
 	<div style="display:none;">
 		<img id="button" src="./images/button.png">
@@ -70,5 +73,22 @@
 	<script src="objects.js"></script>
 	<script src="scenes.js"></script>
 	<script src="animate.js"></script>
+<script type="text/javascript">
+	window.addEventListener( 'load', onPageLoaded, false );
+	window.addEventListener("pageshow", onPageShown, false);
+	
+	/* special event handler for ios Safari */
+	function onPageShown(evt) {
+		// check if the page has been loaded from cache entirely
+		if (evt.persisted) {
+			// emulate the page loaded event
+			onPageLoaded();
+		}
+	}
+	
+	function onPageLoaded() {
+		document.getElementById("loadingscreen").classList.add("hidden");
+	}
+	</script>
 </body>
 </html>
