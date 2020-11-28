@@ -44,7 +44,7 @@ function Scene () {
 		else {
 		this.collection = [	new Collectible("simplekey", 10, "key",10,10,10,10),
 							new Door("door", 0, ["door1","door2"],30,10,10,20,"simplekey", function() {gui.textBox(['Bite','Un texte très long qui sert à voir des trucs de ouf','Encore bite','Teub'],["test"])} ),
-							new Chest("chest", -1000, "simon_red", 40,40,30,30,function (name) {if (name == "simplekey") {console.log('loul')}})];
+							new Chest("ch3st", -1000, "simon_red", 40,40,30,30,function (name) {if (name == "simplekey") {console.log('loul')}})];
 		this.sort()
 		}
 	}
