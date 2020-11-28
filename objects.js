@@ -30,7 +30,6 @@ function Button (id, depth, src, x, y, width, height, clickable, onclick) {
 	}
 
 	this.clickcheck = function() {
-		if (mouse.state == 'down') {console.log('sbrah')}
 		if (mouse.click && mouse.state == 'down' && recthitbox(this.x,this.y,mouse.x,mouse.y,this.width,this.height)) {
 			onclick();
 		}
@@ -132,7 +131,7 @@ function Collectible (id, depth, img, x, y, width, height) {
 	this.drag = 'idle';
 
 	this.dragcheck = function() {
-		if (this.drag == 'released') {this.drag = 'idle'; mouse.drag = ['idle', ""]}
+		if (this.drag == 'released') {this.drag = 'idle'; mouse.drag = ['idle', ""]; mousetemp.drag = ['idle', ""]}
 		if (mouse.click == true && mouse.state == 'down' && recthitbox(this.x,this.y,mouse.x,mouse.y,this.width, this.height)) {
 			this.drag = 'onDrag';
 			mouse.drag = ['onDrag', this.id]
@@ -177,6 +176,19 @@ function Collectible (id, depth, img, x, y, width, height) {
 				break;
 			}
 		}
+		for (i=0;i<scene.collection.length;i++) {
+			if (scene.collection[i].id == "chest") {
+				if (scene.collection[i].slot == null && recthitbox(scene.collection[i].x,scene.collection[i].y,mouse.x,mouse.y,scene.collection[i].width, scene.collection[i].height)) {
+					mouse.drag = ['idle', ""];
+					mousetemp.drag = ['idle', ""];
+					this.drag = 'idle';
+					scene.collection[i].slot = this;
+					var newcollec = arrayRemove(scene.collection, this);
+					scene.collection =  newcollec
+					break;
+				}
+			}
+		}
 	}
 
 	this.update = function() {
@@ -198,7 +210,7 @@ function Collectible (id, depth, img, x, y, width, height) {
 	}
 }
 
-function Chest (id, depth, img, x, y, width, height) {
+function Chest (id, depth, img, x, y, width, height, actio = function () {}) {
 
 	this.depth = depth;
 	this.id = id;
@@ -209,10 +221,12 @@ function Chest (id, depth, img, x, y, width, height) {
 	this.height = height*canvas.height*16/900;
 	this.img = document.getElementById(img);
 	this.slot = null;
+	this.action = actio;
+	this.previous = null;
 
 	this.draw = function () {
 		c.drawImage(this.img,this.x,this.y,this.width,this.height);
-		if (this.slots !== null) {
+		if (this.slot !== null) {
 			c.drawImage(this.slot.img,this.x, this.y, this.width, this.height)
 		}
 	}
@@ -227,6 +241,9 @@ function Chest (id, depth, img, x, y, width, height) {
 	}
 
 	this.update = function () {
+		if (this.slot !== null) {
+			if (this.slot.id !== this.previous) {this.previous = this.slot.id; this.action(this.slot.id)}
+		}
 		this.clickcheckinv();
 		this.draw()
 	}
@@ -239,79 +256,3 @@ function Chest (id, depth, img, x, y, width, height) {
 	}
 }
 
-function Simon (listinputs, oncomplete) {
-	
-	this.id = "simon_obj";
-	this.listinputs = listinputs;
-	this.oncomplete = oncomplete;
-	this.trutharray = [false,false,false,false];
-	this.d = 0;
-	this.index = 0;
-	this.showcurseur = 0;
-	this.usercurseur = 0;
-	this.buttons = [null,null,null,null];
-	this.colors1 = ["simon_red","simon_yellow","simon_green","simon_blue"];
-	this.colors2 = ["simon_red_clear","simon_yellow_clear","simon_green_clear","simon_blue_clear"];
-	scene.pause = true;
-
-	this.init = function () {
-		for (i=0;i<scene.collection.length;i++) {
-			if (scene.collection[i].id == "simon_button_xxx_1") {this.buttons[0] = scene.collection[i]}
-			if (scene.collection[i].id == "simon_button_xxx_2") {this.buttons[1] = scene.collection[i]}
-			if (scene.collection[i].id == "simon_button_xxx_3") {this.buttons[2] = scene.collection[i]}
-			if (scene.collection[i].id == "simon_button_xxx_4") {this.buttons[3] = scene.collection[i]}
-		}
-	}
-	this.draw = function () {
-		if (this.buttons[0] !== null) {
-			if (this.d == 0) {this.buttons[this.listinputs[this.showcurseur]].img = document.getElementById(this.colors2[i])}
-			if (this.d == 100) {for (i=0;i<4;i++) {this.buttons[i].img = document.getElementById(this.colors1[i])}}
-			if (this.d > 150) {
-				if (this.showcurseur <= this.index) {this.showcurseur++}
-				else {console.log("switched to human"); this.d = 0; this.showcurseur = 0; scene.pause = false}
-			}
-			this.d++
-		}
-	}
-
-	this.resize = function () {}
-
-	this.update = function () {
-		if (mouse.click) {
-			for (i=0;i<4;i++) {
-				if (this.trutharray[i]) {
-					console.log(i);
-					this.buttons[i].img = document.getElementById(this.colors2[i]);
-					if (this.listinputs[this.usercurseur] == i) {
-						if (this.usercurseur >= this.index) {
-							this.usercurseur = 0;
-							this.index ++;
-							scene.pause = false;
-							if (this.index >= this.listinputs.length) {this.oncomplet()}
-						} else {this.index = 0; this.showcurseur = 0; this.usercurseur = 0}
-					}
-				}
-			}
-		}
-	}
-}
-
-function generateSimon(listinputs, oncomplete) {
-	var check = true;
-	for (i=0;i<scene.collection.length;i++) {
-		if (scene.collection[i].id == "simon_button_xxx_1") {check = false}
-	}
-	if (check) {
-		var r = [new Button("simon_button_xxx_1", 100, "simon_red",4,290/9,20,20,2**64-1,function () {console.log("clicked"); for (i=0;i<scene.collection.length;i++) {if (scene.collection[i].id == "simon_obj") {scene.collection[i].trutharray[1] = true}}}),
-				new Button("simon_button_xxx_2", 100, "simon_yellow",28,290/9,20,20,2**64-1,function () {for (i=0;i<scene.collection.length;i++) {if (scene.collection[i].id == "simon_obj") {scene.collection[i].trutharray[2] = true}}}),
-				new Button("simon_button_xxx_3", 100, "simon_green",52,290/9,20,20,2**64-1,function () {for (i=0;i<scene.collection.length;i++) {if (scene.collection[i].id == "simon_obj") {scene.collection[i].trutharray[3] = true}}}),
-				new Button("simon_button_xxx_4", 100, "simon_blue",76,290/9,20,20,2**64-1,function () {for (i=0;i<scene.collection.length;i++) {if (scene.collection[i].id == "simon_obj") {scene.collection[i].trutharray[4] = true}}}),
-				new Simon(listinputs, oncomplete)]
-		return r
-	}
-
-}
-
-function initSimon() {
-	for (i=0;i<scene.collection.length;i++) {if (scene.collection[i].id == "simon_obj") {scene.collection[i].init()}}
-}

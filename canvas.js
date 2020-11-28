@@ -36,12 +36,18 @@ var mousetemp = {
 	click: false,
 	drag: ['idle', ""]
 }
+var rect = canvas.getBoundingClientRect();
+var padl = rect.left;
+var padr = rect.right;
+var padt = rect.top;
+var padb = rect.bottom;
 
-window.addEventListener('mousemove', function(event) {mousetemp.x = event.x; mousetemp.y = event.y;});
-window.addEventListener('mousedown', function(event) {mousetemp.state = 'down'; mousetemp.click = true; mousetemp.x = event.x; mousetemp.y = event.y;});
-window.addEventListener('mouseup', function(event) {mousetemp.state = 'up'; mousetemp.click = false; mousetemp.x = event.x; mousetemp.y = event.y;});
+function mouseMove(event) { mousetemp.x = (event.clientX - padl) / (padr - padl) * canvas.width; mousetemp.y = (event.clientY - padt) / (padb - padt) * canvas.height}
+window.addEventListener('mousemove', mouseMove, false);
+window.addEventListener('mousedown', function(event) {mousetemp.state = 'down'; mousetemp.click = true; mouseMove(event)});
+window.addEventListener('mouseup', function(event) {mousetemp.state = 'up'; mouseMove(event)});
 window.addEventListener('resize', function() {
-	if (window.innerWidth/window.innerHeight < 16/9) {
+	if (window.innerWidth/ window.innerHeight < 16/9) {
 		canvas.width = window.innerWidth;
 		canvas.height = canvas.width * 9/16
 	} 
@@ -49,7 +55,7 @@ window.addEventListener('resize', function() {
 		canvas.height = window.innerHeight;
 		canvas.width = canvas.height*16/9
 	}
-	resize() });
+	resize() }, false);
 
 /// Tri Fusion
 function fusionner(t1, t2) {  
@@ -225,7 +231,7 @@ function GUI () {
 		this.choices = choices;
 	}
 
-	this.inputBox = function (txt,tries,listvalid,onvalid) {
+	this.inputBox = function (txt,tries,listvalid,onvalid,onnonvalid = function () {}) {
 		var i = 0;
 		var retry = true;
 		while (i<tries && retry) {
@@ -235,6 +241,7 @@ function GUI () {
 				onvalid()
 			} else {i++}
 		}
+		if (i == tries) {onnonvalid()}
 	}
 
 	this.tick = function () {
@@ -331,4 +338,9 @@ function resize () {
 	for (i=0; i<scene.collection.length; i++) {
 		scene.collection[i].resize()
 	}
+	rect = canvas.getBoundingClientRect();
+	padl = rect.left;
+	padr = rect.right;
+	padt = rect.top;
+	padb = rect.bottom;
 }
