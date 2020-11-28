@@ -31,7 +31,8 @@ function Button (id, depth, src, x, y, width, height, clickable, onclick) {
 
 	this.clickcheck = function() {
 		if (mouse.click && mouse.state == 'down' && recthitbox(this.x,this.y,mouse.x,mouse.y,this.width,this.height)) {
-			onclick();
+			if (this.clicktimes <= this.clickable) {onclick()}
+			this.clicktimes++
 		}
 	}
 
