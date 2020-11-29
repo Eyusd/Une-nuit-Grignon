@@ -5,7 +5,7 @@ window.addEventListener('load', function () {
   })
 
 function begin() {
-scene.souvenir1();
+scene.porte();
 gui.textBox(["[Sasha]","*baillement* Hmm ? Mais qu’est-ce que je fous là ?","Pourquoi je suis devant ma chambre?"," Je devrais peut-être rentrer."], [], function() {var c=0});
 resize();
 
