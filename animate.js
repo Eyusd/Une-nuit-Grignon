@@ -2,11 +2,12 @@ var scene = new Scene();
 var loadingscreen = true;
 
 window.addEventListener('load', function () {
-	loadingscreen = false; console.log('done')
+	loadingscreen = false; scene.collection.push(new Button("startingbutton",100,"simon_red",45,67,10,5,100000,function () 
+		{scene.unload("loadingscreen"); gui.show = true; scene.porte(); gui.textBox(["[Sasha]","*baillement* Hmm ? Mais qu’est-ce que je fous là ?","Pourquoi je suis devant ma chambre?"," Je devrais peut-être rentrer."]);}))
   })
 
 scene.loadingscreen();
-//gui.textBox(["[Sasha]","*baillement* Hmm ? Mais qu’est-ce que je fous là ?","Pourquoi je suis devant ma chambre?"," Je devrais peut-être rentrer."]);
+
 resize();
 
 function animate() {
