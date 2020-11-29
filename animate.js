@@ -5,8 +5,8 @@ window.addEventListener('load', function () {
   })
 
 function begin() {
-scene.porte();
-gui.textBox(["[Sasha]","*baillement* Hmm ? Mais qu’est-ce que je fous là ?","Pourquoi je suis devant ma chambre?"," Je devrais peut-être rentrer."]);
+scene.souvenir1();
+gui.textBox(["[Sasha]","*baillement* Hmm ? Mais qu’est-ce que je fous là ?","Pourquoi je suis devant ma chambre?"," Je devrais peut-être rentrer."], [], function() {var c=0});
 resize();
 
 function animate() {
