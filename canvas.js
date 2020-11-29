@@ -102,6 +102,7 @@ function GUI () {
 	this.audio = [];
 	this.currentlyPlaying = undefined;
 	this.toexecute = function () {};
+	this.show = false;
 
 	this.drawinv = function () {
 		c.lineWidth = 4;
@@ -289,34 +290,36 @@ function GUI () {
 
 
 	this.update = function () {
-		if (this.mode == 'inv') {
-			this.clickcheckinv();
-			this.drawinv()
-		}
-		if (this.mode == 'text') {
-			if ((this.index)*4 >= this.txtlength) {
-				this.audio = [];
-				this.currentlyPlaying = undefined;
-				if (this.choices.length == 0) {
-					this.mode = 'inv'; this.index = 0; this.texts = Array.from([]); this.txtlength = -1; scene.pause = false;this.toexecute();
+		if (this.show) {
+			if (this.mode == 'inv') {
+				this.clickcheckinv();
+				this.drawinv()
+			}
+			if (this.mode == 'text') {
+				if ((this.index)*4 >= this.txtlength) {
+					this.audio = [];
+					this.currentlyPlaying = undefined;
+					if (this.choices.length == 0) {
+						this.mode = 'inv'; this.index = 0; this.texts = Array.from([]); this.txtlength = -1; scene.pause = false;this.toexecute();
+					}
+					else {
+						this.mode = 'choice'; this.index = 0; this.texts = Array.from([]); this.txtlength = -1;
+					}
 				}
 				else {
-					this.mode = 'choice'; this.index = 0; this.texts = Array.from([]); this.txtlength = -1;
+					this.drawtext();
+					if (this.index - this.txtlength/4.0 < 0) {this.clickchecktext()}
 				}
 			}
-			else {
-				this.drawtext();
-				if (this.index - this.txtlength/4.0 < 0) {this.clickchecktext()}
+			if (this.mode == 'choice') {
+				this.drawchoices();
+				this.clickcheckchoice();
 			}
+			if (this.showtime) {
+				this.drawTimer()
+			}
+			this.stupidshow();
 		}
-		if (this.mode == 'choice') {
-			this.drawchoices();
-			this.clickcheckchoice();
-		}
-		if (this.showtime) {
-			this.drawTimer()
-		}
-		this.stupidshow();
 	}
 }
 

@@ -257,6 +257,34 @@ function Chest (id, depth, img, x, y, width, height, actio = function () {}) {
 	}
 }
 
+function SplashText (id, depth, x, y, size, color, txt) {
+	this.id = id
+	this.depth = depth;
+	this.x = x;
+	this.y = y;
+	this.size =size;
+	this.color = color;
+	this.txt = txt;
+
+	this.resize = function() {
+		this.x = x*canvas.width/100;
+		this.y = y*canvas.height/100;
+	}
+
+	this.draw = function() {
+		var num = Math.floor(canvas.width*this.size/100);
+		var n = num.toString();
+		n = n.concat('', 'px Arial');
+		c.font = n;
+		c.fillStyle = this.color;
+		c.fillText(this.txt, this.x, this.y)
+	}
+
+	this.update = function() {
+		this.draw()
+	}
+}
+
 function supprime(A) {var newcollec =Array.from(scene.collection);
 	for (i=0; i<scene.collection.length; i++) {
 		var elt= scene.collection[i]; 
