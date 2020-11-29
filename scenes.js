@@ -35,6 +35,12 @@ function Scene () {
 
 /// Declare Scenes
 
+	this.loadingscreen = function() {
+		this.collection = [ new SplashText("splash1", 10, 11,30,9,'rgb(0,0,0)',"Une Nuit à Grignon"),
+							new SplashText("splash2", 10, 30,50,3,'rgb(0,0,0)', "Un jeu en cours de chargement."),
+							new SplashText("splash3", 10, 10,57,3,'rgb(0,0,0)', "On a environ 200Mo de données à charger, patiente un peu.")];
+	}
+
 	this.startup = function() {
 		console.log('startup');
 		if ("startup" in this.total) {
