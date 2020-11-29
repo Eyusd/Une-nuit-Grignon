@@ -31,6 +31,7 @@ function Scene () {
 	}
 	this.sort = function() {
 		this.collection = trier(this.collection);
+		this.resize();
 	}
 
 /// Declare Scenes
@@ -38,7 +39,8 @@ function Scene () {
 	this.loadingscreen = function() {
 		this.collection = [ new SplashText("splash1", 10, 11,30,9,'rgb(0,0,0)',"Une Nuit à Grignon"),
 							new SplashText("splash2", 10, 30,50,3,'rgb(0,0,0)', "Un jeu en cours de chargement."),
-							new SplashText("splash3", 10, 10,57,3,'rgb(0,0,0)', "On a environ 200Mo de données à charger, patiente un peu.")];
+							new SplashText("splash3", 10, 10,57,3,'rgb(0,0,0)', "On a environ 200Mo de données à charger, patiente un peu."),
+							new SplashText("splash4", 10, 40,95,1.5,'rgb(0,0,0)', "Réalisé par Clément Chardine @CS et Louis Pimont @APT pour le Bureau des Etoiles")];
 	}
 
 	this.startup = function() {

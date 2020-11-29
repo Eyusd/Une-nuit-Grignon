@@ -1,12 +1,12 @@
 var scene = new Scene();
 
 window.addEventListener('load', function () {
-	begin()
+	loadingscreen = false; scene.collection.push(new Button("startingbutton",100,"simon_red",45,67,10,5,100000,function () 
+		{scene.unload("loadingscreen"); gui.show = true; scene.porte(); gui.textBox(["[Sasha]","*baillement* Hmm ? Mais qu’est-ce que je fous là ?","Pourquoi je suis devant ma chambre?"," Je devrais peut-être rentrer."]);}))
   })
 
-function begin() {
-scene.porte();
-gui.textBox(["[Sasha]","*baillement* Hmm ? Mais qu’est-ce que je fous là ?","Pourquoi je suis devant ma chambre?"," Je devrais peut-être rentrer."], [], function() {var c=0});
+scene.loadingscreen();
+
 resize();
 
 function animate() {
@@ -17,4 +17,4 @@ function animate() {
 	gui.update();
 	if (mouse.click == true) {mouse.click = false; console.log('click'); mousetemp.click = false;};
 }
-animate();}
+animate();

@@ -205,8 +205,13 @@ function GUI () {
 			if (this.slots[i] !== null && mouse.click == true && mouse.state == 'down' && recthitbox((canvas.width-this.l*this.size)/2+i*this.size, (canvas.height-this.size)*0.9,mouse.x,mouse.y,this.size, this.size)) {
 				this.slots[i].drag = 'onDrag';
 				scene.collection.push(this.slots[i]);
+				var newslots = [null,null,null,null,null];
+				for (u=0;u<newslots.length;u++) {
+					if (i !== u) {newslots[u] = this.slots[u]}
+				}
+				console.log(newslots);
+				this.slots = Array.from(newslots);
 				scene.sort();
-				this.slots[i] = null;
 			}
 		}
 	}
@@ -330,7 +335,6 @@ window.setInterval(function () {gui.tick()}, 1000);
 /// Resize
 function resize () {
 	gui.size = 100*canvas.width/1500;
-	gui.l = gui.slots.length;
 	if (window.innerWidth/window.innerHeight < 16/9) {
 		canvas.width = window.innerWidth;
 		canvas.height = canvas.width * 9/16
