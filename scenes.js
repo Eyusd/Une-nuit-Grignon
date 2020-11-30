@@ -194,10 +194,15 @@ function Scene () {
 									}		
 								}
 								console.log(ar);
-								if (ar==["portable", "martens", "truelle", "banane", "ecocup", "capote", "briquet", "poppers", "bob"]) {gui.textBox(["[Sasha]","Une bonne chose de faite !", "J’espère que les gens penseront à venir récupérer", "leurs affaires dans leurs casiers." ], [], function () {gui.textBox(["[Sasha]","D’ailleurs, je me demande si j’ai des trucs à récupérer moi aussi.", "Voyons voir… hmm… tiens donc ? J’avais laissé ça là ?"], [], function () {scene.unload("casier1"); scene.souvenir1()})});
-								else if (c<15) {gui.stupidity+=3; c+=1}
+								if (ar==["portable", "martens", "truelle", "banane", "ecocup", "capote", "briquet", "poppers", "bob"]) {
+									gui.textBox(["[Sasha]","Une bonne chose de faite !", "J’espère que les gens penseront à venir récupérer", "leurs affaires dans leurs casiers." ], [], function () {
+										gui.textBox(["[Sasha]","D’ailleurs, je me demande si j’ai des trucs à récupérer moi aussi.", "Voyons voir… hmm… tiens donc ? J’avais laissé ça là ?"], [], function () {scene.unload("casier1"); scene.souvenir1()})
+									});
 								}
-			})];
+								else {if (c<15) {gui.stupidity+=3; c+=1}
+								}
+							})
+						];
 		this.sort()
 		}
 	}
