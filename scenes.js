@@ -194,10 +194,9 @@ function Scene () {
 									}		
 								}
 								console.log(ar);
-								if (ar==["portable", "martens", "truelle", "banane", "ecocup", "capote", "briquet", "poppers", "bob"]) {gui.textBox(["[Sasha]","Une bonne chose de faite !", "J’espère que les gens penseront à venir récupérer", "leurs affaires dans leurs casiers." ], [], function () {gui.textBox(["[Sasha]","D’ailleurs, je me demande si j’ai des trucs à récupérer moi aussi.", "Voyons voir… hmm… tiens donc ? J’avais laissé ça là ?"], [], function () {scene.unload("casier1"); scene.souvenir1()})});
-								else if (c<15) {gui.stupidity+=3; c+=1}
-								}
-			})];
+								if (ar==["portable", "martens", "truelle", "banane", "ecocup", "capote", "briquet", "poppers", "bob"]) {gui.textBox(["[Sasha]","Une bonne chose de faite !", "J’espère que les gens penseront à venir récupérer", "leurs affaires dans leurs casiers." ], [], function () {gui.textBox(["[Sasha]","D’ailleurs, je me demande si j’ai des trucs à récupérer moi aussi.", "Voyons voir… hmm… tiens donc ? J’avais laissé ça là ?"], [], function () {scene.unload("casier1"); scene.souvenir1()})})};
+								else {if (c<15) {gui.stupidity+=3; c+=1}};
+								})];
 		this.sort()
 		}
 	}
@@ -217,7 +216,7 @@ function Scene () {
 			this.collection = Array.from(this.total["souvenir2"])
 		}
 		else {
-		this.collection = [ new Button("souvenir2",2,"souvenir2",0,0,100,900/16,infini,function () {scene.unload("souvenir2"); scene.pullup()} )];
+		this.collection = [ new Button("souvenir2",2,"souvenir2",0,0,100,900/16,infini,function () {scene.unload("souvenir2"); scene.pullup1()} )];
 		this.sort()
 		}
 	}
@@ -237,7 +236,7 @@ function Scene () {
 			this.collection = Array.from(this.total["souvenir4"])
 		}
 		else {
-		this.collection = [ new Button("souvenir4",2,"souvenir4",0,0,100,900/16,infini,function () {scene.unload("souvenir4"); scene.ct()} )];
+		this.collection = [ new Button("souvenir4",2,"souvenir4",0,0,100,900/16,infini,function () {scene.unload("souvenir4"); scene.ct1()} )];
 		this.sort()
 		}
 	}
@@ -783,19 +782,46 @@ function Scene () {
 		}
 		else {
 		this.collection = [ new Img("bassin2",0,"bassin2",0,0,100,900/16),
-							new Chest("ch3st10", 1, "coffre", 13,5,5,5),
-							new Chest("ch3st11", 1, "coffre", 13,5,5,5),
-							new Chest("ch3st12", 1, "coffre", 40,5,5,5),
-							new Chest("ch3st13", 1, "coffre", 40,5,5,5),
-							new Collectible("intersexe", 10, "intersexe",50,80,10,10),
-							new Collectible("pansexuel", 10, "pansexuel",50,80,10,10),
-							new Collectible("banane", 10, "banane",50,80,10,10),
-							new Collectible("banane", 10, "banane",50,80,10,10),
-							new Button("dasexuel",2,"lumiere",70,90,5,5,infini,function () {gui.textBox(["Asexualité","Fascé de sable, d’acier, d’argent et de pourpre de quatres pièces." ])} ),
-							new Button("dintersexe",2,"lumiere",70,90,5,5,infini,function () {gui.textBox(["Intersexe","D’or à un anneau pourpre." ])} ),
-							new Button("dpolyamour",2,"lumiere",70,90,5,5,infini,function () {gui.textBox(["Polyamour","Tiercé en fasce d’azur, de gueules et de sable", "à une constante  d’archimède d’or." ])} ),
-							new Button("dpansexuel",2,"lumiere",70,90,5,5,infini,function () {gui.textBox(["Pansexualité","Tiercé en fasce de pourpre, d’or et d’azur." ])} ),
-							new Button("vamphicasier",2,"lumiere",30,50,5,5,infini,function () {scene.unload("amphi"); scene.casier1()} )];
+							new Chest("ch3st10", 1, "coffre", 50,10,8,8),
+							new Chest("ch3st11", 1, "coffre", 35,50,8,8),
+							new Chest("ch3st12", 1, "coffre", 72,50,8,8),
+							new Chest("ch3st13", 1, "coffre", 50,65,8,8),
+							new Collectible("intersexe", 10, "intersexe",5,5,5,5),
+							new Collectible("pansexuel", 10, "pansexuel",5,15,5,5),
+							new Collectible("asexuel", 10, "asexuel",5,25,5,5),
+							new Collectible("polyamour", 10, "polyamour",5,35,5,5),
+							new Button("dasexuel",2,"lumiere",50,20,5,5,infini,function () {gui.textBox(["Asexualité","Fascé de sable, d’acier, d’argent et de pourpre de quatres pièces." ])} ),
+							new Button("dintersexe",2,"lumiere",35,60,5,5,infini,function () {gui.textBox(["Intersexe","D’or à un anneau pourpre." ])} ),
+							new Button("dpolyamour",2,"lumiere",72,60,5,5,infini,function () {gui.textBox(["Polyamour","Tiercé en fasce d’azur, de gueules et de sable", "à une constante  d’archimède d’or." ])} ),
+							new Button("dpansexuel",2,"lumiere",50,75,5,5,infini,function () {gui.textBox(["Pansexualité","Tiercé en fasce de pourpre, d’or et d’azur." ])} ),
+							new Button("valider",3,"valider", 90,10,5,5, infini, function () {var ar=[null, null, null, null];
+								for (i=0; i<scene.collection.length; i++) {
+									var elt= scene.collection[i];
+									if (elt.id=="ch3st10") {
+										if (elt.slot==null) {
+											ar[0]=null}
+										else {ar[0]=elt.slot.id}
+									}
+									if (elt.id=="ch3st11") {
+										if (elt.slot==null) {
+											ar[1]=null}
+										else {ar[1]=elt.slot.id} 
+									}
+									if (elt.id=="ch3st12") {
+										if (elt.slot==null) {
+											ar[2]=null} 
+										else {ar[2]=elt.slot.id}
+									}
+									if (elt.id=="ch3st13") {
+										if (elt.slot==null) {
+											ar[3]=null} 
+										else {ar[3]=elt.slot.id}
+									}
+								}
+								console.log(ar);
+								if (ar==["asexuel", "intersexe", "asexuel", "polyamour"]) {gui.textBox(["[Sasha]","Hmm il me semble qu’AgroParisPride a laissé des paillettes", "dans le coin. Je me demande où elles peuvent être..." ], [], function () {scene.unload("bassin2"); scene.bassin3()})}
+								else {if (c<15) {gui.stupidity+=3; c+=1}}
+								})];
 		this.sort()
 		}
 	}
@@ -806,48 +832,45 @@ function Scene () {
 		}
 		else {
 		this.collection = [ new Img("bassin3",0,"bassin3",0,0,100,900/16),
-							new Button("vamphiamphitheatre",2,"lumiere",70,90,5,5,infini,function () {scene.unload("amphi"); scene.amphitheatre()} ),
-							new Button("vamphicasier",2,"lumiere",30,50,5,5,infini,function () {scene.unload("amphi"); scene.casier1()} ),
-							new Collectible("banane", 10, "banane",50,80,10,10)];
+							new Button("vsouvenir2",2,"Vide1",0,0,100,900/16,infini,function () {gui.textBox(["[Sasha]","Ah les voilà !" ], [], function () {gui.textBox(["[Sasha]","Tiens ça me rappelle..."], [], function() {scene.unload("bassin3"); scene.souvenir2()})}) }),
+							];
 		this.sort()
 		}
 	}
 
-	this.amphi= function() {
-		if ("amphi" in this.total) {
-			this.collection = Array.from(this.total["amphi"])
+	this.U3= function() {
+		if ("U3" in this.total) {
+			this.collection = Array.from(this.total["U3"])
 		}
 		else {
-		this.collection = [ new Img("amphi",0,"amphi",0,0,100,900/16),
-							new Button("vamphiamphitheatre",2,"lumiere",70,90,5,5,infini,function () {scene.unload("amphi"); scene.amphitheatre()} ),
-							new Button("vamphicasier",2,"lumiere",30,50,5,5,infini,function () {scene.unload("amphi"); scene.casier1()} ),
-							new Collectible("banane", 10, "banane",50,80,10,10)];
+		this.collection = [ new Img("U",0,"U",0,0,100,900/16),
+							new Button("vgastro1",2,"Vide1",70,90,5,5,infini,function () {gui.textBox(["[Sasha]","Définitivement, cette soirée n’a eu aucun sens." ], [], function () {gui.textBox(["[Auriane]","Bon Sasha, maintenant plus d'excuses,", "tu viens m’aider pour le pain." ], [], function() {gui.textBox(["[Sasha]","Bon ok j’arrive." ], [], function() {scene.unload("U3"); scene.gastro1()})})})} ),
+							];
 		this.sort()
 		}
 	}
 
-	this.amphi= function() {
-		if ("amphi" in this.total) {
-			this.collection = Array.from(this.total["amphi"])
+	this.gastro1= function() {
+		if ("gastro1" in this.total) {
+			this.collection = Array.from(this.total["gastro1"])
 		}
 		else {
-		this.collection = [ new Img("amphi",0,"amphi",0,0,100,900/16),
-							new Button("vamphiamphitheatre",2,"lumiere",70,90,5,5,infini,function () {scene.unload("amphi"); scene.amphitheatre()} ),
-							new Button("vamphicasier",2,"lumiere",30,50,5,5,infini,function () {scene.unload("amphi"); scene.casier1()} ),
-							new Collectible("banane", 10, "banane",50,80,10,10)];
+		this.collection = [ new Img("gastro",0,"gastro",0,0,100,900/16),
+							new Button("auriane",2,"auriane",50,60,15,20,infini,function () {gui.textBox(["[Auriane]","Oh c’est pas vrai…" ], [], function() {gui.textBox(["[Sasha]","Qu’est-ce qu’il se passe ?" ], [], function() {gui.textBox(["[Auriane]","J’ai tout mélangé… je retrouve plus le pain aux noix,", "c’était le seul qu’il me restait en un seul exemplaire en plus…" ], [], function() {gui.textBox(["[Sasha]","Mais attends on va arranger ça, je vais t’aider." ], [], function() {gui.textBox(["[Sasha]","Bien, si j’ai bien compris " ], [], function() {scene.unload("gastro1"); scene.enigmepain()})})})})})} ),
+							];
 		this.sort()
 		}
 	}
 
-	this.amphi= function() {
-		if ("amphi" in this.total) {
-			this.collection = Array.from(this.total["amphi"])
+	this.enigmepain= function() {
+		if ("enigmepain" in this.total) {
+			this.collection = Array.from(this.total["enigmepain"])
 		}
 		else {
-		this.collection = [ new Img("amphi",0,"amphi",0,0,100,900/16),
-							new Button("vamphiamphitheatre",2,"lumiere",70,90,5,5,infini,function () {scene.unload("amphi"); scene.amphitheatre()} ),
-							new Button("vamphicasier",2,"lumiere",30,50,5,5,infini,function () {scene.unload("amphi"); scene.casier1()} ),
-							new Collectible("banane", 10, "banane",50,80,10,10)];
+		this.collection = [ new Img("enigmepain",0,"enigmepain",0,0,100,900/16),
+							new Button("enigme",5,"Vide1",0,0,100,900/16,infini,function () {gui.textBox(["[Sasha]","Je dois trouver un pain qui n’existe qu’en", "UN SEUL exemplaire parmi des pains qui", "vont par PAIRES." ], [], function() {supprime("enigme")})} ),
+							new Button("pain",2,"pain",50,65,10,10,infini,function () {gui.textBox(["[Auriane]","Oh Sasha, merci infiniment !", "Le club Ko-pain a accompli", "sa mission du jour grâce à toi ! " ], [], function() {gui.textBox(["[Sasha]","Face à ce dur labeur, je crois", "qu’une petite pause s’impose !" ], [], function() {gui.textBox(["[Auriane]","L’autre jour je suis passé à la ferme et", "j’ai acheté un petit saucisson", "aux herbes dont tu me diras des nouvelles !" ], [], function() {gui.textBox(["[Sasha]","Mais il est trop bon ton saucisson !", " Aussi bon que celui que j’ai mangé à la CT hier !" ], [], function() {gui.textBox(["[Auriane]","Tu as mangé du saucisson à la CT hier ?" ], [], function() {gui.textBox(["[Sasha]"," Bah… je crois bien…" ], [], function() {scene.unload("enigmepain"); scene.souvenir4()})})})})})})} ),
+							];
 		this.sort()
 		}
 	}
