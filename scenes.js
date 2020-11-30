@@ -875,45 +875,105 @@ function Scene () {
 		}
 	}
 
-	this.amphi= function() {
-		if ("amphi" in this.total) {
-			this.collection = Array.from(this.total["amphi"])
+	this.pullup4= function() {
+		if ("pullup4" in this.total) {
+			this.collection = Array.from(this.total["pullup4"])
 		}
 		else {
-		this.collection = [ new Img("amphi",0,"amphi",0,0,100,900/16),
-							new Button("vamphiamphitheatre",2,"lumiere",70,90,5,5,infini,function () {scene.unload("amphi"); scene.amphitheatre()} ),
-							new Button("vamphicasier",2,"lumiere",30,50,5,5,infini,function () {scene.unload("amphi"); scene.casier1()} ),
-							new Collectible("banane", 10, "banane",50,80,10,10)];
+		this.collection = [ new Img("pullup",0,"pullup",0,0,100,900/16),
+							new Button("vfuite",2,"Vide1",0,0,100,900/16,infini,function () {gui.textBox(["[Sasha]","*soupir* L’alcool commence déjà à redescendre", "et les gens ont arrêté de danser…" ], [], function() {gui.textBox(["[Sasha]","Si seulement quelqu’un pouvait relancer la machine", "car là, on commence vraiment à s’ennuyer…" ], [], function() {gui.textBox(["Y a les flics putain. Courez !" ], [], function(){gui.textBox(["Planquez-vous dans la forêt !" ], [], function() {gui.textBox(["Jeanne, au secours !" ], [], function() {scene.unload("pullup4"); scene.foret1()})})})})})} )];
 		this.sort()
 		}
 	}
 
-	this.amphi= function() {
-		if ("amphi" in this.total) {
-			this.collection = Array.from(this.total["amphi"])
+	this.foret1= function() {
+		if ("foret1" in this.total) {
+			this.collection = Array.from(this.total["foret1"])
 		}
 		else {
-		this.collection = [ new Img("amphi",0,"amphi",0,0,100,900/16),
-							new Button("vamphiamphitheatre",2,"lumiere",70,90,5,5,infini,function () {scene.unload("amphi"); scene.amphitheatre()} ),
-							new Button("vamphicasier",2,"lumiere",30,50,5,5,infini,function () {scene.unload("amphi"); scene.casier1()} ),
-							new Collectible("banane", 10, "banane",50,80,10,10)];
+		this.collection = [ new Img("foret1",0,"foret1",0,0,100,900/16),
+							new Button("qte1",2,"Vide1",0,0,100,900/16,infini,function () {gui.textBox(["Il faut que je me dépêche"], [], function() {supprime("qte1");scene.collection.push(new Button("att1",5,"att",70,90,5,5,infini,function () {supprime("att1");scene.collection.push(new Button("att2",5,"att",7,87,5,5,infini,function () {supprime("att2"),scene.collection.push(new Button("att3",5,"att",47,55,5,5,infini,function () {scene.unload("foret1"); scene.foret2()}))}))}));gui.setTimer(7, function () {gui.stupidity +=220;gui.textBox(["Trop lent!"], [], function () {scene.unload("foret1"); scene.foret2()})}) })} ),
+							];
 		this.sort()
 		}
 	}
 
-	this.amphi= function() {
-		if ("amphi" in this.total) {
-			this.collection = Array.from(this.total["amphi"])
+	this.foret2= function() {
+		if ("foret2" in this.total) {
+			this.collection = Array.from(this.total["foret2"])
 		}
 		else {
-		this.collection = [ new Img("amphi",0,"amphi",0,0,100,900/16),
-							new Button("vamphiamphitheatre",2,"lumiere",70,90,5,5,infini,function () {scene.unload("amphi"); scene.amphitheatre()} ),
-							new Button("vamphicasier",2,"lumiere",30,50,5,5,infini,function () {scene.unload("amphi"); scene.casier1()} ),
-							new Collectible("banane", 10, "banane",50,80,10,10)];
+		this.collection = [ new Img("foret2",0,"2",0,0,100,900/16),
+							new Button("qte1",2,"Vide1",0,0,100,900/16,infini,function () {gui.textBox(["Plus vite!"], [], function() {supprime("qte1");scene.collection.push(new Button("att1",5,"att",58,7,5,5,infini,function () {supprime("att1");scene.collection.push(new Button("att2",5,"att",7,63,5,5,infini,function () {supprime("att2"),scene.collection.push(new Button("att3",5,"att",10,5,5,5,infini,function () {scene.unload("foret2"); scene.foret3()}))}))}));gui.setTimer(4, function () {gui.stupidity +=170;gui.textBox(["Trop lent!"], [], function () {scene.unload("foret2"); scene.foret3()})}) })} ),
+							];
 		this.sort()
 		}
 	}
 
+	this.foret3= function() {
+		if ("foret3" in this.total) {
+			this.collection = Array.from(this.total["foret3"])
+		}
+		else {
+		this.collection = [ new Img("foret3",0,"foret3",0,0,100,900/16),
+							new Button("qte1",2,"Vide1",0,0,100,900/16,infini,function () {gui.textBox(["Et on continue d'accélérer!"], [], function() {supprime("qte1");scene.collection.push(new Button("att1",5,"att",90,35,5,5,infini,function () {supprime("att1");scene.collection.push(new Button("att2",5,"att",7,67,5,5,infini,function () {supprime("att2"),scene.collection.push(new Button("att3",5,"att",36,8,5,5,infini,function () {scene.unload("foret3"); scene.foret4()}))}))}));gui.setTimer(2, function () {gui.stupidity +=120;gui.textBox(["Trop lent!"], [], function () {scene.unload("foret3"); scene.foret4()})}) })} ),
+							];
+		this.sort()
+		}
+	}
+
+	this.foret4= function() {
+		if ("foret4" in this.total) {
+			this.collection = Array.from(this.total["foret4"])
+		}
+		else {
+		this.collection = [ new Img("foret4",0,"foret4",0,0,100,900/16),
+							new Button("choix",2,"Vide1",0,0,100,900/16,infini,function () {gui.setTimer(5, function() {gui.stupidity +=120; gui.textBox(["[???]", "Je te tiens!", "Tu n'as nulle part où t'échapper"], [], function() {scene.unload("foret4"); scene.policier1()})});gui.choicesBox([["Que faire?"],
+							["Se jeter dans la fosse pédologique", function() {gui.stupidity +=117;gui.textBox(["[???]", "Je te tiens!", "Tu n'as nulle part où t'échapper"], [], function() {scene.unload("foret4"); scene.policier1()})}],
+							["Continuer à courir", function() {gui.stupidity +=137;gui.textBox(["[???]", "Je te tiens!", "Tu ne peux plus t'échapper!"], [], function() {scene.unload("foret4"); scene.policier1()})}],
+							])} )];
+							
+		this.sort()
+		}
+	}
+
+	this.policier1= function() {
+		if ("policier1" in this.total) {
+			this.collection = Array.from(this.total["policier1"])
+		}
+		else {
+		this.collection = [ new Img("foret5",0,"foret5",0,0,100,900/16),
+							new Img("policier",1,"policier",0,0,100,900/16),
+							new Button("choix",2,"Vide1",0,0,100,900/16,infini,function () {gui.textBox(["[Sasha]", "Me voilà dans de beaux draps.", "Je n'ai plus qu'une solution..."], [], function() {gui.choicesBox([["Que faire?"],
+							["le draguer", function() {gui.stupidity +=350;gui.textBox(["[???]", "Je te tiens!", "Tu n'as nulle part où t'échapper"], [], function() {scene.policier1("policier1"); scene.policier2()})}],
+							["le draguer", function() {gui.stupidity +=349;gui.textBox(["[???]", "Je te tiens!", "Tu ne peux plus t'échapper!"], [], function() {scene.unload("policier1"); scene.policier2()})}]
+		                    ])})})];
+		this.sort()
+		}
+	}
+
+	this.policier2= function() {
+		if ("policier2" in this.total) {
+			this.collection = Array.from(this.total["policier2"])
+		}
+		else {
+		this.collection = [ new Img("foret5",0,"foret5",0,0,100,900/16),
+							new Button("policier",1,"policier",0,0,100,900/16,infini,function () {gui.choicesBox([["Comment commencer?"],
+							["raconter ses rêves", function() {gui.textBox(["[Sasha]", " On m’a toujours dit de suivre mes rêves,", "alors ce soir je te suis."], [], function() {gui.stupidity +=40; gui.textBox(["*Pauline a pris la fuite*"], [], function() {scene.unload("draguep1"); scene.draguep2()})})}],
+							["évoquer le feu", function() {gui.textBox(["[Sasha]", "C’est moi où le feu est aussi chaud que l’atmosphère entre nous ?"], [], function() {scene.collection.push(new Img("pauline3",5,"pauline3",30,0,50,50));gui.stupidity +=20; gui.textBox(["[Pauline]", "Alors j’en perds mes mots"], [], function() {scene.unload("draguep1"); scene.draguep2()})})}],
+							["la comparer aux étoiles", function() {gui.textBox(["[Sasha]", "Tu es aussi rayonnante que les étoiles", "de la constellation du dragon."], [], function() {scene.collection.push(new Img("pauline2",5,"pauline2",30,0,50,50));gui.stupidity +=0; gui.textBox(["[Pauline]", "Oh ! Je suis hyper touchée"], [], function() {scene.unload("draguep1"); scene.draguep2()})})}],
+							["t'es bonne", function() {gui.textBox(["[Sasha]", "Vas y t'es tellement bonne que", "je t'échangerais contre ma daronne"], [], function() {scene.collection.push(new Img("pauline2",5,"pauline2",30,0,50,50));gui.stupidity +=80; gui.textBox(["[Pauline]", "J’me casse, sans cordialité aucune"], [], function() {scene.unload("draguep1"); scene.draguep2()})})}],
+							["proposer un bouche-à-bouche", function() {gui.textBox(["[Sasha]", "J’ai besoin d’un bouche-à-bouche car", "je viens de me noyer dans votre regard."], [], function() {scene.collection.push(new Img("pauline2",5,"pauline2",30,0,50,50));gui.stupidity +=10; gui.textBox(["[Pauline]", "Alors je pense que tu peux", "t’en sortir sans moi !"], [], function() {scene.unload("draguep1"); scene.draguep2()})})}]])} ),
+						];
+		this.sort()
+		}
+	}
+
+
+
+
+
+	
 	this.amphi= function() {
 		if ("amphi" in this.total) {
 			this.collection = Array.from(this.total["amphi"])
