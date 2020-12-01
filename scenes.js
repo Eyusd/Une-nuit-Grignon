@@ -1531,10 +1531,9 @@ function Scene () {
 		}
 		else {
 		this.collection = [ new Img("serre0",0,"serre0",0,0,100,900/16),
-							new Button("vjardin01",1,"lumiere",30,30,5,5,infini,function () {}),
-							new Button("vserre01",1,"lumiere",80,50,5,5,infini,function () {scene.unload("serre0"); scene.serre1()}),
-							new Button("vserre02",1,"lumiere",10,60,5,5,infini,function () {scene.unload("serre0"); scene.serre2()}),
-							new Button("vserre04",1,"lumiere",50,40,5,5,infini,function () {scene.unload("serre0"); scene.serre4()} )];
+							new Button("vserre01",1,"lumiere",80,90,5,5,infini,function () {scene.unload("serre0"); scene.serre1()}),
+							new Button("vserre02",1,"lumiere",5,60,5,5,infini,function () {scene.unload("serre0"); scene.serre2()}),
+							new Button("vserre04",1,"lumiere",10,40,5,5,infini,function () {scene.unload("serre0"); scene.serre4()} )];
 		this.sort()
 		}
 	}
