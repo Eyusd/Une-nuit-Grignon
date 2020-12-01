@@ -134,7 +134,7 @@ function Scene () {
 		}
 		else {
 		this.collection = [ new Img("casier",0,"casier",0,0,100,900/16),
-							new Button("casieramphi",2,"lumiere",10,90,5,5,infini,function () {scene.unload("casier1"); scene.amphi()} ),
+							new Button("casieramphi",2,"lumiere",10,90,5,5,infini,function () {scene.unload("casier1"); scene.amphi1()} ),
 							new Chest("ch3st0", 1, "simon_red", 13,5,5,5),
 							new Chest("ch3st1", 1, "simon_red", 40,5,5,5),
 							new Chest("ch3st2", 1, "simon_red", 70,5,5,5),
@@ -194,6 +194,7 @@ function Scene () {
 									}		
 								}
 								console.log(ar);
+								console.log(["portable", "martens", "truelle", "banane", "ecocup", "capote", "briquet", "poppers", "bob"]);
 								if (ar==["portable", "martens", "truelle", "banane", "ecocup", "capote", "briquet", "poppers", "bob"]) {
 									gui.textBox(["[Sasha]","Une bonne chose de faite !", "J’espère que les gens penseront à venir récupérer", "leurs affaires dans leurs casiers." ], [], function () {
 										gui.textBox(["[Sasha]","D’ailleurs, je me demande si j’ai des trucs à récupérer moi aussi.", "Voyons voir… hmm… tiens donc ? J’avais laissé ça là ?"], [], function () {scene.unload("casier1"); scene.souvenir1()})
@@ -1209,7 +1210,7 @@ function Scene () {
 			this.collection = Array.from(this.total["archive1"])
 		}
 		else {
-		this.collection = [ new Img("archive0",0,"archive0",0,0,100,900/16),
+		this.collection = [ new Img("archive",0,"archive",0,0,100,900/16),
 							new Button("blabla",7,"Vide1",0,0,100,900/16,infini,function () {gui.textBox(["[Sasha]","C’est donc à ça que ressemblent les archives.", "Je ferais bien de me mettre au travail." ], [], function() {gui.textBox(["Tiens..."], [], function() {supprime("blabla");scene.collection.push(new Button("article",5,"article",30,0,45,75, infini, function() {gui.textBox(["[Sasha]","Les serres abandonnées… j’en ai un", "vague souvenir dans mon esprit" ], [], function() {scene.unload("archive1"); scene.souvenir8()})}))})})} ),
 							];
 		this.sort()
@@ -1295,7 +1296,7 @@ function Scene () {
 			this.collection = Array.from(this.total["archive2"])
 		}
 		else {
-		this.collection = [ new Img("archive0",0,"archive0",0,0,100,900/16),
+		this.collection = [ new Img("archive",0,"archive",0,0,100,900/16),
 							new Button("blabla",7,"Vide1",0,0,100,900/16,infini,function () {supprime("blabla");gui.slots[0]=null;gui.slots[1]=null;gui.slots[2]=null;gui.slots[3]=null;gui.slots[4]=null;gui.textBox(["[Sasha]","Sasha : Oh tiens, il y a quelque chose qui dépasse", "de l’étagère. Mais on dirait le ", "second fragment de lettre."  ], [], function () {gui.slots[0]=new Collectible("lettre",3,"lettre",20,5,50,80);gui.slots[0]=new Collectible("photofaluniere",4,"photof",20,5,50,35)})} ),
 							new Button("vcarrière",1,"lumiere",50,50,5,5,infini,function () {gui.inputBox("Où se cacherait donc le trésor?",5,["falunière","faluniere","Faluniere","Falunière","carrière","carriere","Carrière","Carriere"],function () {scene.unload("archive2"); scene.carriere1()})} )];
 		this.sort()
