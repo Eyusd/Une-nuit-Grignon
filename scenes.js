@@ -65,7 +65,7 @@ function Scene () {
 		}
 		else {
 		this.collection = [ new Img("porte",0,"porte",0,0,100,900/16),
-							new Button("portesasha",1,"lumiere",32,60,5,5,1,function () {gui.textBox(["[Sasha]","Oh putain ça s’ouvre pas…","Qu’est-ce que j’ai foutu de mes clés ? Bon. ","Calme-toi Sasha. Réfléchis deux secondes."], [], function () {gui.textBox(["Où est-ce que tu aurais pu ranger tes PUTAIN clés ?"], [], function () {scene.collection.push(new Img("messagealex",5,"messagealex",30,0,45,45)) ; gui.textBox(["Vous avez reçu un message de ALEX"], [], function () {gui.textBox(["[Sasha]","Mais qu’est-ce qu’il raconte ? Soirée ?", "Camille ? J’ai la tête dans le cul,", "je me rappelle plus de rien." ], [], function () {scene.collection.push(new Img("messageherve",5,"messageherve",30,0,45,45)) ; gui.textBox(["Vous avez reçu un message de ALEXANDRE HERVÉ"], [], function() {supprime("portesacha") ; supprime("messageherve"); supprime("messagealex"); gui.textBox(["[Sasha]","Oh mince, j’étais censé aider à nettoyer le campus ce matin ?", "Je ferais mieux de m’y mettre immédiatement." ])})})} )})}  )}),
+							new Button("portesasha",1,"lumiere",32,60,5,5,1,function () {gui.textBox(["[Sasha]","Oh putain ça s’ouvre pas…","Qu’est-ce que j’ai foutu de mes clés ? Bon. ","Calme-toi Sasha. Réfléchis deux secondes."], [], function () {gui.textBox(["Où est-ce que tu aurais pu ranger tes PUTAIN clés ?"], [], function () {scene.collection.push(new Img("messagealex",5,"messagealex",30,0,45,45)) ; gui.textBox(["Vous avez reçu un message de ALEX"], [], function () {gui.textBox(["[Sasha]","Mais qu’est-ce qu’il raconte ? Soirée ?", "Camille ? J’ai la tête dans le cul,", "je me rappelle plus de rien." ], [], function () {scene.collection.push(new Img("messageherve",5,"messageherve",30,0,45,45)) ; gui.textBox(["Vous avez reçu un message de ALEXANDRE HERVÉ"], [], function() {supprime("portesasha") ; supprime("messageherve"); supprime("messagealex"); gui.textBox(["[Sasha]","Oh mince, j’étais censé aider à nettoyer le campus ce matin ?", "Je ferais mieux de m’y mettre immédiatement." ])})})} )})}  )}),
 							new Button("portealex",2,"lumiere",68,48,5,5,1,function () {gui.textBox(["[Alex]","Bah alors Sasha on a la tête dans le cul ce matin ? En même ","temps, t’étais vraiment un déchet hier soir, c’était pas beau à voir.","Mais trêve de bavardages, une meuf a oublié son éco-cup"], [], function() {scene.collection.push(new Img("alex1",5,"alex1",30,0,50,50)) ; gui.textBox(["[Alex]", "chez moi hier. Comme t’es chargé de nettoyage", "et que j’ai la flemme de bouger mon cul, je te la file.","Eh sans rancune, hein !"], [], function() {supprime("alex1"),gui.textBox(["Sasha","Euuuuuuh... ok ? O_O"], [], function() {supprime("portealex"); scene.collection.push(new Collectible("ecocup", 10, "ecocup",68,48,5,5))})})})}), 
 							new Button("vporteU",1,"lumiere",80,87,5,5,infini,function () {scene.unload("porte1"); scene.U1()}) ];
 		this.sort()
@@ -135,15 +135,15 @@ function Scene () {
 		else {
 		this.collection = [ new Img("casier",0,"casier",0,0,100,900/16),
 							new Button("casieramphi",2,"lumiere",10,90,5,5,infini,function () {scene.unload("casier1"); scene.amphi1()} ),
-							new Chest("ch3st0", 1, "simon_red", 13,5,5,5),
-							new Chest("ch3st1", 1, "simon_red", 40,5,5,5),
-							new Chest("ch3st2", 1, "simon_red", 70,5,5,5),
-							new Chest("ch3st3", 1, "simon_red", 13,27,5,5),
-							new Chest("ch3st4", 1, "simon_red", 40,27,5,5),
-							new Chest("ch3st5", 1, "simon_red", 70,27,5,5),
-							new Chest("ch3st6", 1, "simon_red", 13,42,5,5),
-							new Chest("ch3st7", 1, "simon_red", 40,42,5,5),
-							new Chest("ch3st8", 1, "simon_red", 70,42,5,5),
+							new Chest("ch3st0", 1, "coffre", 13,5,5,5),
+							new Chest("ch3st1", 1, "coffre", 40,5,5,5),
+							new Chest("ch3st2", 1, "coffre", 70,5,5,5),
+							new Chest("ch3st3", 1, "coffre", 13,27,5,5),
+							new Chest("ch3st4", 1, "coffre", 40,27,5,5),
+							new Chest("ch3st5", 1, "coffre", 70,27,5,5),
+							new Chest("ch3st6", 1, "coffre", 13,42,5,5),
+							new Chest("ch3st7", 1, "coffre", 40,42,5,5),
+							new Chest("ch3st8", 1, "coffre", 70,42,5,5),
 							new Button("valider",3,"valider", 95,55,5,5, infini, function () {var ar=[null, null, null, null, null, null, null, null, null];
 								for (i=0; i<scene.collection.length; i++) {
 									var elt= scene.collection[i];
@@ -195,7 +195,7 @@ function Scene () {
 								}
 								console.log(ar);
 								console.log(["portable", "martens", "truelle", "banane", "ecocup", "capote", "briquet", "poppers", "bob"]);
-								if (ar==["portable", "martens", "truelle", "banane", "ecocup", "capote", "briquet", "poppers", "bob"]) {
+								if (arrayEquals(ar,["portable", "martens", "truelle", "banane", "ecocup", "capote", "briquet", "poppers", "bob"])) {
 									gui.textBox(["[Sasha]","Une bonne chose de faite !", "J’espère que les gens penseront à venir récupérer", "leurs affaires dans leurs casiers." ], [], function () {
 										gui.textBox(["[Sasha]","D’ailleurs, je me demande si j’ai des trucs à récupérer moi aussi.", "Voyons voir… hmm… tiens donc ? J’avais laissé ça là ?"], [], function () {scene.unload("casier1"); scene.souvenir1()})
 									});
@@ -789,10 +789,10 @@ function Scene () {
 		}
 		else {
 		this.collection = [ new Img("bassin2",0,"bassin2",0,0,100,900/16),
-							new Chest("ch3st10", 1, "simon_red", 50,10,8,8),
-							new Chest("ch3st11", 1, "simon_red", 35,50,8,8),
-							new Chest("ch3st12", 1, "simon_red", 72,50,8,8),
-							new Chest("ch3st13", 1, "simon_red", 50,65,8,8),
+							new Chest("ch3st10", 1, "coffre", 50,10,8,8),
+							new Chest("ch3st11", 1, "coffre", 35,50,8,8),
+							new Chest("ch3st12", 1, "coffre", 72,50,8,8),
+							new Chest("ch3st13", 1, "coffre", 50,65,8,8),
 							new Collectible("intersexe", 10, "intersexe",5,5,5,5),
 							new Collectible("pansexuel", 10, "pansexuel",5,15,5,5),
 							new Collectible("asexuel", 10, "asexuel",5,25,5,5),
@@ -826,7 +826,7 @@ function Scene () {
 									}
 								}
 								console.log(ar);
-								if (ar==["asexuel", "intersexe", "asexuel", "polyamour"]) {gui.textBox(["[Sasha]","Hmm il me semble qu’AgroParisPride a laissé des paillettes", "dans le coin. Je me demande où elles peuvent être..." ], [], function () {scene.unload("bassin2"); scene.bassin3()})}
+								if (arrayEquals(ar,["asexuel", "intersexe", "asexuel", "polyamour"])) {gui.textBox(["[Sasha]","Hmm il me semble qu’AgroParisPride a laissé des paillettes", "dans le coin. Je me demande où elles peuvent être..." ], [], function () {scene.unload("bassin2"); scene.bassin3()})}
 								else {if (c<15) {gui.stupidity+=3; c+=1}}
 								})];
 		this.sort()
@@ -1058,22 +1058,22 @@ function Scene () {
 		this.collection = [ new Img("eau2",0,"eau2",0,0,100,900/16),
 							new Img("code",3,"code",30,0,45,45),
 							new Button("explication",10,"Vide1",0,0,100,900/16,infini,function () {supprime("explication");gui.textBox(["Pour déverrouiller le portable de Camille", "Il faut placer les croix sur le code.", "Celui-ci comporte le premier point", "en haut à gauche."])} ),
-							new Chest("ch3st01", 5, "simon_red", 30,10,3,3),
-							new Chest("ch3st02", 5, "simon_red", 35,10,3,3),
-							new Chest("ch3st03", 5, "simon_red", 40,10,3,3),
-							new Chest("ch3st04", 5, "simon_red", 45,10,3,3),
-							new Chest("ch3st05", 5, "simon_red", 30,15,3,3),
-							new Chest("ch3st06", 5, "simon_red", 35,15,3,3),
-							new Chest("ch3st07", 5, "simon_red", 40,15,3,3),
-							new Chest("ch3st08", 5, "simon_red", 45,15,3,3),
-							new Chest("ch3st09", 5, "simon_red", 30,25,3,3),
-							new Chest("ch3st010", 5, "simon_red", 35,25,3,3),
-							new Chest("ch3st011", 5, "simon_red", 40,25,3,3),
-							new Chest("ch3st012", 5, "simon_red", 45,25,3,3),
-							new Chest("ch3st013", 5, "simon_red", 30,35,3,3),
-							new Chest("ch3st014", 5, "simon_red", 35,35,3,3),
-							new Chest("ch3st015", 5, "simon_red", 40,35,3,3),
-							new Chest("ch3st016", 5, "simon_red", 45,35,3,3),
+							new Chest("ch3st01", 5, "coffre", 30,10,3,3),
+							new Chest("ch3st02", 5, "coffre", 35,10,3,3),
+							new Chest("ch3st03", 5, "coffre", 40,10,3,3),
+							new Chest("ch3st04", 5, "coffre", 45,10,3,3),
+							new Chest("ch3st05", 5, "coffre", 30,15,3,3),
+							new Chest("ch3st06", 5, "coffre", 35,15,3,3),
+							new Chest("ch3st07", 5, "coffre", 40,15,3,3),
+							new Chest("ch3st08", 5, "coffre", 45,15,3,3),
+							new Chest("ch3st09", 5, "coffre", 30,25,3,3),
+							new Chest("ch3st010", 5, "coffre", 35,25,3,3),
+							new Chest("ch3st011", 5, "coffre", 40,25,3,3),
+							new Chest("ch3st012", 5, "coffre", 45,25,3,3),
+							new Chest("ch3st013", 5, "coffre", 30,35,3,3),
+							new Chest("ch3st014", 5, "coffre", 35,35,3,3),
+							new Chest("ch3st015", 5, "coffre", 40,35,3,3),
+							new Chest("ch3st016", 5, "coffre", 45,35,3,3),
 							new Collectible("croix", 7, "croix",8,5,5,5),
 							new Collectible("croix", 7, "croix",8,10,5,5),
 							new Collectible("croix", 7, "croix",8,15,5,5),
@@ -1165,7 +1165,7 @@ function Scene () {
 									}
 								}
 								console.log(ar);
-								if (ar==["croix", null, null, null, null, "croix", null, null, null, null, "croix", "croix", null, null, "croix", null]) {scene.collection.push(new Img("message17",5,"message17",30,0,45,45));gui.textBox(["[Camille]","Sasha tu fais quoi ?" ], [], function() {gui.textBox(["[Sasha]","Euh Camille c’est quoi cette histoire ?" ], [], function() {gui.textBox(["[Camille]","Ca ne te CONCERNE PAS !" ], [], function() {gui.textBox(["[Sasha]","Pardon je suis désolé j’aurais pas dû fouiller je…" ], [] , function() {gui.textBox(["[Camille]","Nan. Ok. Peu importe. Laisse tomber. Oublie ça.", "Je suis un peu tendue en ce moment." ], [], function() {scene.unload("enigmeetoile"); scene.chateau2()})})})})})}
+								if (arrayEquals(ar,["croix", null, null, null, null, "croix", null, null, null, null, "croix", "croix", null, null, "croix", null])) {scene.collection.push(new Img("message17",5,"message17",30,0,45,45));gui.textBox(["[Camille]","Sasha tu fais quoi ?" ], [], function() {gui.textBox(["[Sasha]","Euh Camille c’est quoi cette histoire ?" ], [], function() {gui.textBox(["[Camille]","Ca ne te CONCERNE PAS !" ], [], function() {gui.textBox(["[Sasha]","Pardon je suis désolé j’aurais pas dû fouiller je…" ], [] , function() {gui.textBox(["[Camille]","Nan. Ok. Peu importe. Laisse tomber. Oublie ça.", "Je suis un peu tendue en ce moment." ], [], function() {scene.unload("enigmeetoile"); scene.chateau2()})})})})})}
 								else {if (c<15) {gui.stupidity+=3; c+=1}}
 								})];
 		this.sort()
@@ -1178,7 +1178,7 @@ function Scene () {
 		}
 		else {
 		this.collection = [ new Img("Noir",0,"Noir",0,0,100,900/16),
-							new Button("prof",2,"Vide1",0,0,100,900/16,infini,function () {gui.textBox(["[Prof]",": Et c’est ainsi qu’en multipliant par", "l’inégalité de Moivre-Laplace d’ordre 2,", "nous avons démontré le théorème de Novembre."], [], function() {gui.textBox(["[Prof]","Ce sera tout pour aujourd’hui, bon weekend à vous.", "Si vous avez des questions", "n’hésitez pas à m’envoyer un mail"], [], function() {scene.unload("rencontre1"); scene.rencontre2()})})} )];
+							new Button("prof",2,"Vide1",0,0,100,900/16,infini,function () {gui.textBox(["[Prof]","Et c’est ainsi qu’en multipliant par", "l’inégalité de Moivre-Laplace d’ordre 2,", "nous avons démontré le théorème de Novembre."], [], function() {gui.textBox(["[Prof]","Ce sera tout pour aujourd’hui, bon weekend à vous.", "Si vous avez des questions", "n’hésitez pas à m’envoyer un mail"], [], function() {scene.unload("rencontre1"); scene.rencontre2()})})} )];
 		this.sort()
 		}
 	}
@@ -1189,7 +1189,7 @@ function Scene () {
 		}
 		else {
 		this.collection = [ new Img("amphi",0,"amphi",0,0,100,900/16),
-							new Button("rencontre2",2,"Vide1",0,0,100,900/16,infini,function () {gui.textBox(["[Sasha]", "Ouch"], [], function() {scene.collection.push(new Img("camille2",5,"camille2",30,0,45,45));gui.textBox(["Camille : Oh excuse-moi, je ne regardais", "pas où j’allais. Donne-moi ta main,"," je vais t’aider."], [], function() {scene.collection.push(new Img("camille3",5,"camille3",30,0,45,45));supprime("camille2");;gui.textBox(["[Sasha]", "O_O"], [], function() {scene.unload("rencontre2"); scene.amphi2()})})})} )];
+							new Button("rencontre2",2,"Vide1",0,0,100,900/16,infini,function () {gui.textBox(["[Sasha]", "Ouch"], [], function() {scene.collection.push(new Img("camille2",5,"camille2",30,0,48,60));gui.textBox(["[Camille]", "Oh excuse-moi, je ne regardais", "pas où j’allais. Donne-moi ta main,"," je vais t’aider."], [], function() {scene.collection.push(new Img("camille3",5,"camille3",30,10,55,70));supprime("camille2");;gui.textBox(["[Sasha]", "O_O"], [], function() {scene.unload("rencontre2"); scene.amphi2()})})})} )];
 		this.sort()
 		}
 	}
@@ -1200,7 +1200,7 @@ function Scene () {
 		}
 		else {
 		this.collection = [ new Img("amphi",0,"amphi",0,0,100,900/16),
-							new Button("benjamin",2,"benjamin",70,90,5,5,infini,function () {gui.textBox(["[Sasha]","Oh putain mais oui, CAMILLE !", "Comment j’ai pu l’oublier ?"], [], function() {gui.textBox(["[Benjamin Verthe]","Oh Sashaaaaaa ! Merci d’avoir récupéré ma truelle !", "Tu gères ! Eh sinon tu serais pas dispo", "là tout de suite ?"  ], [], function() {gui.textBox(["[Benjamin]","On a besoin de toi pour récupérer les…", "« produits du terroir » du club potager."], [], function() {gui.textBox(["[Benjamin]","Tu sais, on en a pris hier et", "c’est parti un petit peu trop loin." ], [], function() {scene.unload("amphi2"); scene.jardin0()})})})})} )];
+							new Button("benjamin",2,"benjamin",42,20,30,40,infini,function () {gui.textBox(["[Sasha]","Oh putain mais oui, CAMILLE !", "Comment j’ai pu l’oublier ?"], [], function() {gui.textBox(["[Benjamin Verthe]","Oh Sashaaaaaa ! Merci d’avoir récupéré ma truelle !", "Tu gères ! Eh sinon tu serais pas dispo", "là tout de suite ?"  ], [], function() {gui.textBox(["[Benjamin]","On a besoin de toi pour récupérer les…", "« produits du terroir » du club potager."], [], function() {gui.textBox(["[Benjamin]","Tu sais, on en a pris hier et", "c’est parti un petit peu trop loin." ], [], function() {scene.unload("amphi2"); scene.jardin0()})})})})} )];
 		this.sort()
 		}
 	}
@@ -1311,7 +1311,7 @@ function Scene () {
 		else {
 		this.collection = [ new Img("jardin0",0,"jardin0",0,0,100,900/16),
 							new Button("blabla",5,"Vide1",0,0,100,900/16,infini,function () {gui.textBox(["[Benjamin]","Oh fumier, c’est fermé! Il nous faut une clé." ], [], function() {supprime("blabla");gui.textBox(["[Benjamin]","Je crois que le président l’a cachée dans le potager.", "avant de repartir hier soir.", "Par contre où, ça je sais pas..."])})} ),
-							new Button("vjardin01",1,"lumiere",30,30,5,5,infini,function () {scene.unload("jardin0"); scene.jardin5()}),
+							new Button("vjardin01",1,"lumiere",50,50,5,5,infini,function () {scene.unload("jardin0"); scene.jardin5()}),
 							new Button("vjardin0porteserre",2,"lumiere",80,50,5,5,infini,function () {scene.unload("jardin0"); scene.porteserre()})];
 		this.sort()
 		}
@@ -1324,10 +1324,10 @@ function Scene () {
 		else {
 		this.collection = [ new Img("jardin5",0,"jardin5",0,0,100,900/16),
 							new Button("vjardin50",1,"lumiere",80,30,5,5,infini,function () {scene.unload("jardin5"); scene.jardin0()}),
-							new Button("vjardin51",1,"lumiere",30,40,5,5,infini,function () {scene.unload("jardin5"); scene.jardin1()}),
+							new Button("vjardin51",1,"lumiere",20,40,5,5,infini,function () {scene.unload("jardin5"); scene.jardin1()}),
 							new Button("vjardin52",1,"lumiere",70,40,5,5,infini,function () {scene.unload("jardin5"); scene.jardin2()}),
-							new Button("vjardin53",2,"lumiere",20,75,5,5,infini,function () {scene.unload("jardin5"); scene.jardin3()}),
-							new Button("vjardin54",1,"lumiere",80,85,5,5,infini,function () {scene.unload("jardin5"); scene.jardin4()})];
+							new Button("vjardin53",2,"lumiere",3,75,5,5,infini,function () {scene.unload("jardin5"); scene.jardin3()}),
+							new Button("vjardin54",1,"lumiere",85,85,5,5,infini,function () {scene.unload("jardin5"); scene.jardin4()})];
 		this.sort()
 		}
 	}
@@ -1350,7 +1350,7 @@ function Scene () {
 		else {
 		this.collection = [ new Img("jardin3",0,"jardin3",0,0,100,900/16),
 							new Button("vjardin35",1,"lumiere",80,80,5,5,infini,function () {scene.unload("jardin3"); scene.jardin5()}),
-							new Collectible("cleserre",9,"key",30,30,1,1)];
+							new Collectible("cleserre",9,"key",58,30,3,3)];
 		this.sort()
 		}
 	}
@@ -1530,7 +1530,8 @@ function Scene () {
 			this.collection = Array.from(this.total["serre0"])
 		}
 		else {
-		this.collection = [ new Button("vjardin01",1,"lumiere",30,30,5,5,infini,function () {}),
+		this.collection = [ new Img("serre0",0,"serre0",0,0,100,900/16),
+							new Button("vjardin01",1,"lumiere",30,30,5,5,infini,function () {}),
 							new Button("vserre01",1,"lumiere",80,50,5,5,infini,function () {scene.unload("serre0"); scene.serre1()}),
 							new Button("vserre02",1,"lumiere",10,60,5,5,infini,function () {scene.unload("serre0"); scene.serre2()}),
 							new Button("vserre04",1,"lumiere",50,40,5,5,infini,function () {scene.unload("serre0"); scene.serre4()} )];
