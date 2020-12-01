@@ -19,7 +19,7 @@ function Button (id, depth, src, x, y, width, height, clickable, onclick) {
 	this.img = document.getElementById(src);
 
 	this.draw = function() {
-		c.drawImage(this.img,this.x,this.y,this.width,this.height)
+		ctx.drawImage(this.img,this.x,this.y,this.width,this.height)
 	}
 
 	this.resize = function() {
@@ -57,7 +57,7 @@ function Door (id, depth, imgs, x, y, width, height, key, onopen) {
 	this.img = document.getElementById(this.imgs[this.state]);
 
 	this.draw = function() {
-		c.drawImage(this.img,this.x,this.y,this.width,this.height)
+		ctx.drawImage(this.img,this.x,this.y,this.width,this.height)
 	}
 
 	this.resize = function() {
@@ -107,7 +107,7 @@ function Img (id, depth, src, x, y ,width, height) {
 	}
 
 	this.draw = function() {
-		c.drawImage(this.img,this.x,this.y,this.width,this.height)
+		ctx.drawImage(this.img,this.x,this.y,this.width,this.height)
 	}
 
 	this.update = function() {
@@ -147,7 +147,7 @@ function Collectible (id, depth, img, x, y, width, height) {
 	}
 
 	this.draw = function() {
-		c.drawImage(this.img,this.x,this.y,this.width,this.height)
+		ctx.drawImage(this.img,this.x,this.y,this.width,this.height)
 	}
 
 	this.resize = function() {
@@ -226,9 +226,9 @@ function Chest (id, depth, img, x, y, width, height, actio = function () {}) {
 	this.previous = null;
 
 	this.draw = function () {
-		c.drawImage(this.img,this.x,this.y,this.width,this.height);
+		ctx.drawImage(this.img,this.x,this.y,this.width,this.height);
 		if (this.slot !== null) {
-			c.drawImage(this.slot.img,this.x, this.y, this.width, this.height)
+			ctx.drawImage(this.slot.img,this.x, this.y, this.width, this.height)
 		}
 	}
 
@@ -275,9 +275,9 @@ function SplashText (id, depth, x, y, size, color, txt) {
 		var num = Math.floor(canvas.width*this.size/100);
 		var n = num.toString();
 		n = n.concat('', 'px Arial');
-		c.font = n;
-		c.fillStyle = this.color;
-		c.fillText(this.txt, this.x, this.y)
+		ctx.font = n;
+		ctx.fillStyle = this.color;
+		ctx.fillText(this.txt, this.x, this.y)
 	}
 
 	this.update = function() {

@@ -12,7 +12,7 @@ resize();
 function animate() {
 	mouse =  JSON.parse(JSON.stringify(mousetemp));
 	requestAnimationFrame(animate);
-	c.clearRect(0,0,innerWidth,innerHeight);
+	ctx.clearRect(0,0,innerWidth,innerHeight);
 	scene.update();
 	gui.update();
 	if (mouse.click == true) {mouse.click = false; console.log('click'); mousetemp.click = false;};

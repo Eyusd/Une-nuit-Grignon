@@ -12,7 +12,7 @@ else {
 	canvas.height = window.innerHeight;
 	canvas.width = canvas.height*16/9
 }
-var c = canvas.getContext('2d');
+var ctx = canvas.getContext('2d');
 var style = canvas.style;
 style.marginLeft = "auto";
 style.marginRight = "auto";
@@ -105,67 +105,67 @@ function GUI () {
 	this.show = false;
 
 	this.drawinv = function () {
-		c.lineWidth = 4;
+		ctx.lineWidth = 4;
 		for (i=0; i<this.l; i++) {
 			if (this.slots[i] !== null) {
-				c.drawImage(this.slots[i].img,(canvas.width-this.l*this.size)/2+i*this.size, (canvas.height-this.size)*0.9, this.size, this.size)
+				ctx.drawImage(this.slots[i].img,(canvas.width-this.l*this.size)/2+i*this.size, (canvas.height-this.size)*0.9, this.size, this.size)
 			}
-			c.fillStyle = 'rgba(150,150,150,0.7)';
-			c.fillRect((canvas.width-this.l*this.size)/2+i*this.size, (canvas.height-this.size)*0.9, this.size, this.size);
-			c.strokeStyle = "black";
-			c.strokeRect((canvas.width-this.l*this.size)/2+i*this.size, (canvas.height-this.size)*0.9, this.size, this.size);
+			ctx.fillStyle = 'rgba(150,150,150,0.7)';
+			ctx.fillRect((canvas.width-this.l*this.size)/2+i*this.size, (canvas.height-this.size)*0.9, this.size, this.size);
+			ctx.strokeStyle = "black";
+			ctx.strokeRect((canvas.width-this.l*this.size)/2+i*this.size, (canvas.height-this.size)*0.9, this.size, this.size);
 		}
 	}
 
 	this.drawtext = function () {
 			scene.pause = true;
-			c.lineWidth = 4;
-			c.fillStyle = 'rgba(150,150,150,0.7)';
-			c.fillRect(canvas.width*0.1,canvas.height*0.7,canvas.width*0.8,canvas.height*0.25);
-			c.strokeStyle = "black";
-			c.strokeRect(canvas.width*0.1,canvas.height*0.7,canvas.width*0.8,canvas.height*0.25);
-			if (this.index - this.txtlength/4.0 < 0) {c.strokeRect(canvas.width*0.9,canvas.height*0.805,canvas.height*0.05,canvas.height*0.05);}	
+			ctx.lineWidth = 4;
+			ctx.fillStyle = 'rgba(150,150,150,0.7)';
+			ctx.fillRect(canvas.width*0.1,canvas.height*0.7,canvas.width*0.8,canvas.height*0.25);
+			ctx.strokeStyle = "black";
+			ctx.strokeRect(canvas.width*0.1,canvas.height*0.7,canvas.width*0.8,canvas.height*0.25);
+			if (this.index - this.txtlength/4.0 < 0) {ctx.strokeRect(canvas.width*0.9,canvas.height*0.805,canvas.height*0.05,canvas.height*0.05);}	
 			var num = Math.floor(canvas.width/38);
 			var n = num.toString();
 			n = n.concat('', 'px Arial');
-			c.font = n;
+			ctx.font = n;
 			var j=0;
 			while (4*this.index+j < this.txtlength && j<4) {
-				c.fillStyle = 'white';
-				c.fillText(this.texts[4*this.index+j], canvas.width*0.12, canvas.height*0.758+j*1.2*num);
+				ctx.fillStyle = 'white';
+				ctx.fillText(this.texts[4*this.index+j], canvas.width*0.12, canvas.height*0.758+j*1.2*num);
 				j++
 			}
 	}
 
 	this.drawchoices = function() {
 		scene.pause = true;
-		c.lineWidth = 4;
-		c.fillStyle = 'rgba(150,150,150,0.7)';
-		c.fillRect(canvas.width*0.1,canvas.height*0.7,canvas.width*0.8,canvas.height*0.25);
-		c.strokeStyle = "black";
-		c.strokeRect(canvas.width*0.1,canvas.height*0.7,canvas.width*0.8,canvas.height*0.25);
+		ctx.lineWidth = 4;
+		ctx.fillStyle = 'rgba(150,150,150,0.7)';
+		ctx.fillRect(canvas.width*0.1,canvas.height*0.7,canvas.width*0.8,canvas.height*0.25);
+		ctx.strokeStyle = "black";
+		ctx.strokeRect(canvas.width*0.1,canvas.height*0.7,canvas.width*0.8,canvas.height*0.25);
 		var num = Math.floor(canvas.width/38);
 		var n = num.toString();
 		n = n.concat('', 'px Arial');
-		c.font = n;
+		ctx.font = n;
 		var j=0;
 		while (j < this.choices[0].length && j<4) {
-			c.fillStyle = 'white';
-			c.fillText(this.choices[0][j], canvas.width*0.12, canvas.height*0.758+j*1.2*num);
+			ctx.fillStyle = 'white';
+			ctx.fillText(this.choices[0][j], canvas.width*0.12, canvas.height*0.758+j*1.2*num);
 			j++
 		}
 		for (i=1; i<this.choices.length; i++) {
-			c.lineWidth = 4;
-			c.fillStyle = 'rgba(150,150,150,0.7)';
-			c.fillRect(canvas.width*0.7,canvas.height*0.6-(i-0.95)*canvas.height*0.1,canvas.width*0.2,canvas.height*0.08);
-			c.strokeStyle = "black";
-			c.strokeRect(canvas.width*0.7,canvas.height*0.6-(i-0.95)*canvas.height*0.1,canvas.width*0.2,canvas.height*0.08);
-			c.fillStyle = 'white';
+			ctx.lineWidth = 4;
+			ctx.fillStyle = 'rgba(150,150,150,0.7)';
+			ctx.fillRect(canvas.width*0.7,canvas.height*0.6-(i-0.95)*canvas.height*0.1,canvas.width*0.2,canvas.height*0.08);
+			ctx.strokeStyle = "black";
+			ctx.strokeRect(canvas.width*0.7,canvas.height*0.6-(i-0.95)*canvas.height*0.1,canvas.width*0.2,canvas.height*0.08);
+			ctx.fillStyle = 'white';
 			var num = Math.floor(canvas.width/38);
 			var n = num.toString();
 			n = n.concat('', 'px Arial');
-			c.font = n;
-			c.fillText(this.choices[i][0], canvas.width*0.71, canvas.height*0.655-(i-0.95)*canvas.height*0.1);
+			ctx.font = n;
+			ctx.fillText(this.choices[i][0], canvas.width*0.71, canvas.height*0.655-(i-0.95)*canvas.height*0.1);
 		}
 	}
 
@@ -177,16 +177,16 @@ function GUI () {
 				}
 		}
 		if (recthitbox(canvas.width*0.9,canvas.height*0.805,mouse.x,mouse.y,canvas.height*0.05,canvas.height*0.05)) {
-			c.fillStyle = 'black';
-			c.fillRect(canvas.width*0.9,canvas.height*0.805,canvas.height*0.05,canvas.height*0.05)
+			ctx.fillStyle = 'black';
+			ctx.fillRect(canvas.width*0.9,canvas.height*0.805,canvas.height*0.05,canvas.height*0.05)
 		}
 	}
 
 	this.clickcheckchoice = function () {
 		for (i=1; i<this.choices.length; i++) {
 			if (recthitbox(canvas.width*0.7,canvas.height*0.6-(i-0.95)*canvas.height*0.1,mouse.x,mouse.y,canvas.width*0.2,canvas.height*0.08)) {
-				c.fillStyle = 'rgba(255,255,255,0.1)';
-				c.fillRect(canvas.width*0.7,canvas.height*0.6-(i-0.95)*canvas.height*0.1,canvas.width*0.2,canvas.height*0.08)
+				ctx.fillStyle = 'rgba(255,255,255,0.1)';
+				ctx.fillRect(canvas.width*0.7,canvas.height*0.6-(i-0.95)*canvas.height*0.1,canvas.width*0.2,canvas.height*0.08)
 				if (mouse.click == true && mouse.state == 'down') {
 					this.texts = Array.from([]);
 					this.index = 0;
@@ -273,14 +273,14 @@ function GUI () {
 		var num = Math.floor(canvas.width/18);
 		var n = num.toString();
 		n = n.concat('', 'px Arial');
-		c.font = n;
+		ctx.font = n;
 		if (this.time == null) {
 			this.showtime = false;
 		}
 		else {
 			var txt = sec2str(this.time);
-			c.fillStyle = 'red';
-			c.fillText(txt, canvas.width*0.9, canvas.height*0.1);
+			ctx.fillStyle = 'red';
+			ctx.fillText(txt, canvas.width*0.9, canvas.height*0.1);
 		}
 	}
 
@@ -288,9 +288,9 @@ function GUI () {
 		var num = Math.floor(canvas.width/18);
 		var n = num.toString();
 		n = n.concat('', 'px Arial');
-		c.font = n;
-		c.fillStyle = 'red'
-		c.fillText(this.stupidity.toString(), canvas.width*0.05, canvas.height*0.1);
+		ctx.font = n;
+		ctx.fillStyle = 'red'
+		ctx.fillText(this.stupidity.toString(), canvas.width*0.05, canvas.height*0.1);
 	}
 
 
