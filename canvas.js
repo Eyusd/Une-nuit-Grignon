@@ -129,7 +129,7 @@ function GUI () {
 			ctx.lineWidth = 4;
 			ctx.fillStyle = 'rgba(150,150,150,0.7)';
 			ctx.fillRect(canvas.width*0.1,canvas.height*0.7,canvas.width*0.8,canvas.height*0.25);
-			ctx.strokeStyle = "black";
+			ctx.strokeStyle = "rgb(180,180,180)";
 			ctx.strokeRect(canvas.width*0.1,canvas.height*0.7,canvas.width*0.8,canvas.height*0.25);
 			if (this.index - this.txtlength/4.0 < 0) {ctx.strokeRect(canvas.width*0.9,canvas.height*0.805,canvas.height*0.05,canvas.height*0.05);}	
 			var num = Math.floor(canvas.width/38);
