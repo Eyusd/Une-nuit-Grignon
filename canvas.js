@@ -168,7 +168,7 @@ function GUI () {
 			ctx.strokeStyle = "black";
 			ctx.strokeRect(canvas.width*0.7,canvas.height*0.6-(i-0.95)*canvas.height*0.1,canvas.width*0.2,canvas.height*0.08);
 			ctx.fillStyle = 'white';
-			var num = Math.floor(canvas.width/38);
+			var num = Math.floor(canvas.width/90);
 			var n = num.toString();
 			n = n.concat('', 'px Arial');
 			ctx.font = n;
