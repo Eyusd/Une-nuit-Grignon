@@ -83,6 +83,13 @@ function sec2str(t){
     return (d>0?d+'d ':'')+(h>0?h+':':'')+(m>0?m+':':'')+(t>60?s:s+'s');
 }
 
+function arrayEquals(a, b) {
+	return Array.isArray(a) &&
+	  Array.isArray(b) &&
+	  a.length === b.length &&
+	  a.every((val, index) => val === b[index]);
+  }
+
 
 /// GUI
 function GUI () {
