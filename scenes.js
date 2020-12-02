@@ -171,7 +171,7 @@ function Scene () {
 							new Chest("ch3st6", 1, "coffre", 13,42,5,5),
 							new Chest("ch3st7", 1, "coffre", 40,42,5,5),
 							new Chest("ch3st8", 1, "coffre", 70,42,5,5),
-							new Button("valider",3,"valider", 95,55,5,5, infini, function () {var ar=[null, null, null, null, null, null, null, null, null];
+							new Button("valider",3,"valider", 95,15,5,5, infini, function () {var ar=[null, null, null, null, null, null, null, null, null];
 								for (i=0; i<scene.collection.length; i++) {
 									var elt= scene.collection[i];
 									if (elt.id=="ch3st0") {
@@ -1206,7 +1206,7 @@ function Scene () {
 		}
 		else {
 		this.collection = [ new Img("Noir",0,"Noir",0,0,100,900/16),
-							new Button("prof",2,"Vide1",0,0,100,900/16,infini,function () {gui.textBox(["[Prof]","Et c’est ainsi qu’en multipliant par", "l’inégalité de Moivre-Laplace d’ordre 2,", "nous avons démontré le théorème de Novembre."], ["Prof_stat1"], function() {gui.textBox(["[Prof]","Ce sera tout pour aujourd’hui, bon weekend à vous.", "Si vous avez des questions", "n’hésitez pas à m’envoyer un mail"], ["Prof_stat2"], function() {scene.unload("rencontre1"); scene.rencontre2()})})} )];
+							new Button("prof",2,"Vide1",0,0,100,900/16,infini,function () {gui.textBox(["[Prof]","Et c’est ainsi qu’en multipliant par", "l’inégalité de Moivre-Laplace d’ordre 2,", "nous avons démontré le théorème de Novembre."], ["Profstat1"], function() {gui.textBox(["[Prof]","Ce sera tout pour aujourd’hui, bon weekend à vous.", "Si vous avez des questions", "n’hésitez pas à m’envoyer un mail"], ["Profstat2"], function() {scene.unload("rencontre1"); scene.rencontre2()})})} )];
 		this.sort()
 		}
 	}
@@ -1217,7 +1217,18 @@ function Scene () {
 		}
 		else {
 		this.collection = [ new Img("amphi",0,"amphi",0,0,100,900/16),
-							new Button("rencontre2",2,"Vide1",0,0,100,900/16,infini,function () {gui.textBox(["[Sasha]", "Ouch"], [], function() {scene.collection.push(new Img("camille2",5,"camille2",30,0,48,60));gui.textBox(["[Camille]", "Oh excuse-moi, je ne regardais", "pas où j’allais. Donne-moi ta main,"," je vais t’aider."], ["Camille1"], function() {scene.collection.push(new Img("camille3",5,"camille3",30,10,55,70));supprime("camille2");;gui.textBox(["[Sasha]", "O_O"], [], function() {scene.unload("rencontre2"); scene.amphi2()})})})} )];
+							new Button("rencontre2",2,"Vide1",0,0,100,900/16,infini,function () {gui.textBox(["[Sasha]", "Ouch"], [], function() {scene.collection.push(new Img("camille2",5,"camille2",30,0,48,60));gui.textBox(["[Camille]", "Oh excuse-moi, je ne regardais", "pas où j’allais. Donne-moi ta main,"," je vais t’aider."], ["Camille1"], function() {scene.collection.push(new Img("camille3",5,"camille3",30,10,55,70));supprime("camille2");;gui.textBox(["[Sasha]", "O_O"], [], function() {scene.unload("rencontre2"); scene.rencontre3()})})})} )];
+		this.sort()
+		}
+	}
+
+	this.rencontre3= function() {
+		if ("rencontre3" in this.total) {
+			this.collection = Array.from(this.total["rencontre3"])
+		}
+		else {
+		this.collection = [ new Img("Noir",0,"Noir",0,0,100,900/16),
+							new Button("rencontre2",2,"Vide1",0,0,100,900/16,infini,function () {scene.unload("rencontre3"); scene.amphi2()})];
 		this.sort()
 		}
 	}
@@ -1379,7 +1390,7 @@ function Scene () {
 		else {
 		this.collection = [ new Img("jardin3",0,"jardin3",0,0,100,900/16),
 							new Button("vjardin35",1,"lumiere",80,80,5,5,infini,function () {scene.unload("jardin3"); scene.jardin5()}),
-							new Collectible("cleserre",9,"key",58,30,3,3)];
+							new Collectible("cleserre",9,"key",58,30,5,5)];
 		this.sort()
 		}
 	}
