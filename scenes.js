@@ -85,7 +85,7 @@ function Scene () {
 		else {
 		this.collection = [new Img("sophie2",3,"sophie2",20,0,70,90)];
 		this.sort()
-		}""
+		}
 	}
 
 	this.porte1= function() {
@@ -95,7 +95,7 @@ function Scene () {
 		else {
 		this.collection = [ new Img("porte",0,"porte",0,0,100,900/16),
 							new Button("portesasha",1,"lumiere",32,60,5,5,1,function () {gui.textBox(["[Sasha]","Oh putain ça s’ouvre pas…","Qu’est-ce que j’ai foutu de mes clés ?"], ["Sasha2"], function () {gui.textBox(["[Sasha]","Bon. ","Calme-toi Sasha. Réfléchis deux secondes.","Où est-ce que tu aurais pu ranger tes PUTAIN clés ?"], ["Sasha3"], function () {scene.collection.push(new Img("messagealex",5,"messagealex",30,0,45,45)) ; gui.textBox(["Vous avez reçu un message de ALEX"], [], function () {gui.textBox(["[Sasha]","Mais qu’est-ce qu’il raconte ? Soirée ?", "Camille ? J’ai la tête dans le cul,", "je me rappelle plus de rien." ], ["Sasha4"], function () {scene.collection.push(new Img("messageherve",5,"messageherve",30,0,45,45)) ; gui.textBox(["Vous avez reçu un message de ALEXANDRE HERVÉ"], [], function() {supprime("portesasha") ; supprime("messageherve"); supprime("messagealex"); gui.textBox(["[Sasha]","Oh mince, j’étais censé aider à nettoyer le campus ce matin ?", "Je ferais mieux de m’y mettre immédiatement." ], ["Sasha5"])})})} )})}  )}),
-							new Button("portealex",2,"lumiere",68,48,5,5,1,function () {scene.collection.push(new Img("alex",3,"alex1",0,-20,105,135));gui.textBox(["[Alex]","Bah alors Sasha on a la tête dans le cul ce matin ? En même ","temps, t’étais vraiment un déchet hier soir, c’était pas beau à voir."], ["Alex1"], function() {gui.textBox(["[Alex]","Mais trêve de bavardages, une meuf a oublié son éco-cup","chez moi hier. Comme t’es chargé de nettoyage", "et que j’ai la flemme de bouger mon cul, je te la file."], ["Alex2"], function() {scene.collection.push(new Img("alex1",5,"alex1",30,0,50,50)) ;supprime("alex");gui.textBox(["[Sasha]","Eh sans rancune, hein !"], ["Alex3"], function() {supprime("alex1"),gui.textBox(["Sasha","Euuuuuuh... ok ? O_O"], ["Sasha6"], function() {supprime("portealex"); scene.collection.push(new Collectible("ecocup", 10, "ecocup",68,48,5,5))})})})})}), 
+							new Button("portealex",2,"lumiere",68,48,5,5,1,function () {scene.collection.push(new Img("alex",3,"alex1",0,-20,105,135));gui.textBox(["[Alex]","Bah alors Sasha on a la tête dans le cul ce matin ? En même ","temps, t’étais vraiment un déchet hier soir, c’était pas beau à voir."], ["Alex1"], function() {gui.textBox(["[Alex]","Mais trêve de bavardages, une meuf a oublié son éco-cup","chez moi hier. Comme t’es chargé de nettoyage", "et que j’ai la flemme de bouger mon cul, je te la file."], ["Alex2"], function() {supprime("alex");gui.textBox(["[Sasha]","Eh sans rancune, hein !"], ["Alex3"], function() {supprime("alex1"),gui.textBox(["Sasha","Euuuuuuh... ok ? O_O"], ["Sasha6"], function() {supprime("portealex"); scene.collection.push(new Collectible("ecocup", 10, "ecocup",68,48,5,5))})})})})}), 
 							new Button("vporteU",1,"lumiere",80,87,5,5,infini,function () {scene.unload("porte1"); scene.U1()}) ];
 		this.sort()
 		}
@@ -1208,7 +1208,7 @@ function Scene () {
 		}
 		else {
 		this.collection = [ new Img("Noir",0,"Noir",0,0,100,900/16),
-							new Button("prof",2,"Vide1",0,0,100,900/16,infini,function () {gui.textBox(["[Prof]","Et c’est ainsi qu’en multipliant par", "l’inégalité de Moivre-Laplace d’ordre 2,", "nous avons démontré le théorème de Novembre."], ["Profstat1"], function() {gui.textBox(["[Prof]","Ce sera tout pour aujourd’hui, bon weekend à vous.", "Si vous avez des questions", "n’hésitez pas à m’envoyer un mail"], ["Profstat2"], function() {scene.unload("rencontre1"); scene.rencontre2()})})} )];
+							new Button("prof",2,"Vide1",0,0,100,900/16,infini,function () {gui.textBox(["[Prof]","Et c’est ainsi qu’en multipliant par", "l’inégalité de Moivre-Laplace d’ordre 2,", "nous avons démontré le théorème de Novembre."], ["ProfStat1"], function() {gui.textBox(["[Prof]","Ce sera tout pour aujourd’hui, bon weekend à vous.", "Si vous avez des questions", "n’hésitez pas à m’envoyer un mail"], ["ProfStat2"], function() {scene.unload("rencontre1"); scene.rencontre2()})})} )];
 		this.sort()
 		}
 	}
@@ -1241,7 +1241,7 @@ function Scene () {
 		}
 		else {
 		this.collection = [ new Img("amphi",0,"amphi",0,0,100,900/16),
-							new Button("benjamin",2,"benjamin",42,20,30,40,infini,function () {gui.textBox(["[Sasha]","Oh putain mais oui, CAMILLE !", "Comment j’ai pu l’oublier ?"], ["Sasha12"], function() {scene.collection.push(new Img("benjamin",3,"benjamin",20,0,70,90));gui.textBox(["[Benjamin Verthe]","Oh Sashaaaaaa ! Merci d’avoir récupéré ma truelle !", "Tu gères ! Eh sinon tu serais pas dispo", "là tout de suite ?"  ], ["Benjamin1"], function() {gui.textBox(["[Benjamin]","On a besoin de toi pour récupérer les…", "« produits du terroir » du club potager."], ["Benjamin2"], function() {gui.textBox(["[Benjamin]","Tu sais, on en a pris hier et", "c’est parti un petit peu trop loin." ], ["Benjamin3"], function() {scene.unload("amphi2"); scene.jardin0()})})})})} )];
+							new Button("benjamin",2,"benjamin",42,20,30,40,infini,function () {supprime("benjamin");gui.textBox(["[Sasha]","Oh putain mais oui, CAMILLE !", "Comment j’ai pu l’oublier ?"], ["Sasha12"], function() {scene.collection.push(new Img("benjamin",3,"benjamin",20,0,70,90));gui.textBox(["[Benjamin Verthe]","Oh Sashaaaaaa ! Merci d’avoir récupéré ma truelle !", "Tu gères ! Eh sinon tu serais pas dispo", "là tout de suite ?"  ], ["Benjamin1"], function() {gui.textBox(["[Benjamin]","On a besoin de toi pour récupérer les…", "« produits du terroir » du club potager."], ["Benjamin2"], function() {gui.textBox(["[Benjamin]","Tu sais, on en a pris hier et", "c’est parti un petit peu trop loin." ], ["Benjamin3"], function() {scene.unload("amphi2"); scene.jardin0()})})})})} )];
 		this.sort()
 		}
 	}
@@ -1634,7 +1634,7 @@ function Scene () {
 		}
 		else {
 		this.collection = [ new Img("serre5",0,"serre5",0,0,100,900/16),
-							new Button("blabla",7,"lumiere",30,30,5,5,infini,function () {gui.textBox(["[Alex]","Eh mais je sais, c’est la date à laquelle", "les terres et le château de Grignon ont été", "acquis par le roi Charles X."], ["Alex6"], function() {gui.textBox(["[Alex]"," C’est à ce moment-là que notre cher campus est devenu", "le chef-lieu de l’Institution royale Agronomique,", "ancêtre de notre école." ], ["Alex7"], function () {gui.textBox(["[Benjamin]","Sashaaaaa tu les as récupérées !", "T’es vraiment incroyable !"], ["Benjamin8"], function() {scene.collection.push(new Img("etoilem",5,"etoilem",30,0,45,45));gui.textBox(["[Benjamin]","Allez sois pas timide, je sais que t’en veux !" ], ["Benjamin9"], function() {gui.textBox(["[Sasha]","Euh non ça ira, recule, recule Benjamin j’te dis…" ], ["Sasha15"], function() {gui.textBox(["[Sasha]","Il m’a fait tomber dans la mare ce con."], ["Sasha16"], function() {guitextBox(["C’est comme… une impression de déjà vu …", "comme si ça m’était arrivé la nuit dernière …" ], ["Sasha17"], function() {scene.unload("serre5"); scene.souvenir6()})})})})})})})})],
+							new Button("blabla",7,"lumiere",30,30,5,5,infini,function () {gui.textBox(["[Alex]","Eh mais je sais, c’est la date à laquelle", "les terres et le château de Grignon ont été", "acquis par le roi Charles X."], ["Alex6"], function() {gui.textBox(["[Alex]"," C’est à ce moment-là que notre cher campus est devenu", "le chef-lieu de l’Institution royale Agronomique,", "ancêtre de notre école." ], ["Alex7"], function () {gui.textBox(["[Benjamin]","Sashaaaaa tu les as récupérées !", "T’es vraiment incroyable !"], ["Benjamin8"], function() {scene.collection.push(new Img("etoilem",5,"etoilem",30,0,45,45));gui.textBox(["[Benjamin]","Allez sois pas timide, je sais que t’en veux !" ], ["Benjamin9"], function() {gui.textBox(["[Sasha]","Euh non ça ira, recule, recule Benjamin j’te dis…" ], ["Sasha15"], function() {gui.playsound("Plouf");gui.textBox(["[Sasha]","Il m’a fait tomber dans la mare ce con."], ["Sasha16"], function() {gui.textBox(["C’est comme… une impression de déjà vu …", "comme si ça m’était arrivé la nuit dernière …" ], ["Sasha17"], function() {scene.unload("serre5"); scene.souvenir6()})})})})})})})})],
 		this.sort()
 		}
 	}
