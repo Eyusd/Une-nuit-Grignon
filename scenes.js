@@ -2,7 +2,9 @@ var infini = 2**64-1;
 var c = 0;
 var d = 0;
 var f = 0;
-
+var x = 0;
+var y = 0;
+var z = 0;
 
 function Scene () {
 	this.collection = [];
@@ -295,7 +297,7 @@ function Scene () {
 		}
 		else {
 		this.collection = [ new Img("foret5",0,"foret5",0,0,100,900/16),
-							new Button("agression",2,"lumiere",70,90,5,5,infini,function () {gui.textBox(["[???]"," A L’ATTAAAAAQUE !" ], [], function () {scene.unload("combat11"); scene.combat12()}  ) } )];
+							new Button("agression",2,"Vide1",0,0,100,900/16,infini,function () {gui.textBox(["[???]"," A L’ATTAAAAAQUE !" ], [], function () {scene.unload("combat11"); scene.combat12()}  ) } )];
 		this.sort()
 		}
 	}
@@ -306,21 +308,21 @@ function Scene () {
 		}
 		else {
 		this.collection = [ new Img("combat1",0,"combat1",0,0,100,900/16),
-							new Img("viefullg",1,"viefullg",10,20,10,10),
-							new Img("viefulls",1,"viefulls",10,60,10,10),
-							new Button("fight1",2,"fight1",50,70,5,5,infini,function () {gui.choicesBox([["Que faire?"],
-							["lancer le poly de compta", function() {scene.collection.push(new Img("vieforteg",3,"vieforteg",10,20,10,10));gui.stupidity +=30; gui.textBox(["Ce n'est pas très efficace."], [], function () {
+							new Img("viefullg",1,"viefullg",-10,-15,45,45),
+							new Img("viefulls",1,"viefulls",-10,15,45,45),
+							new Button("fight",2,"fight",60,50,17,9,infini,function () {gui.choicesBox([["Que faire?"],
+							["lancer le poly de compta", function() {scene.collection.push(new Img("vieforteg",3,"vieforteg",-10,-15,45,45));gui.stupidity +=30; gui.textBox(["Ce n'est pas très efficace (personne ne l'a vraiment lu)."], [], function () {
 							gui.textBox(["Guillaume contre-attaque à grands coups de lance."], [], function () {
-							scene.collection.push(new Img("viefaibles",3,"viefaibles",10,60,10,10));gui.textBox(["C'est super efficace!"], [], function() {scene.unload("combat12"); scene.combat13() } )} )})}],
-							["BONJOUR BONJOUR", function() {scene.collection.push(new Img("vieforteg",3,"vieforteg",10,20,10,10));gui.stupidity +=60; gui.textBox(["Ce n'est pas très efficace."], [], function () {
+							scene.collection.push(new Img("viefaibles",3,"viefaibles",-10,15,45,45));gui.textBox(["C'est super efficace!"], [], function() {scene.unload("combat12"); scene.combat13() } )} )})}],
+							["BONJOUR BONJOUR", function() {scene.collection.push(new Img("vieforteg",3,"vieforteg",-10,-15,45,45));gui.stupidity +=60; gui.textBox(["Ce n'est pas très efficace."], [], function () {
 								gui.textBox(["Guillaume contre-attaque à grands coups de lance."], [], function () {
-								scene.collection.push(new Img("viefaibles",3,"viefaibles",10,60,10,10));gui.textBox(["C'est super efficace!"], [], function() {scene.unload("combat12"); scene.combat13() } )} )})}],
-							["lui perforer le crâne à coup de pioche laser", function() {scene.collection.push(new Img("vieforteg",3,"vieforteg",10,20,10,10));gui.stupidity +=10; gui.textBox(["Ce n'est pas très efficace."], [], function () {
+								scene.collection.push(new Img("viefaibles",3,"viefaibles",-10,15,45,45));gui.textBox(["C'est super efficace!"], [], function() {scene.unload("combat12"); scene.combat13() } )} )})}],
+							["lui perforer le crâne à coup de pioche laser", function() {scene.collection.push(new Img("vieforteg",3,"vieforteg",-10,-15,45,45));gui.stupidity +=10; gui.textBox(["Ce n'est pas très efficace."], [], function () {
 								gui.textBox(["Guillaume contre-attaque à grands coups de lance."], [], function () {
-								scene.collection.push(new Img("viefaibles",3,"viefaibles",10,60,10,10));gui.textBox(["C'est super efficace!"], [], function() {scene.unload("combat12"); scene.combat13() } )} )})}],
-							["créer un débat sur zimbra", function() {scene.collection.push(new Img("vieforteg",3,"vieforteg",10,20,10,10));gui.stupidity +=120; gui.textBox(["Ce n'est pas très efficace."], [], function () {
+								scene.collection.push(new Img("viefaibles",3,"viefaibles",-10,15,45,45));gui.textBox(["C'est super efficace!"], [], function() {scene.unload("combat12"); scene.combat13() } )} )})}],
+							["créer un débat sur zimbra", function() {scene.collection.push(new Img("vieforteg",3,"vieforteg",-10,-15,45,45));gui.stupidity +=120; gui.textBox(["Ce n'est pas très efficace (tout le monde s'en fout)."], [], function () {
 								gui.textBox(["Guillaume contre-attaque à grands coups de lance."], [], function () {
-								scene.collection.push(new Img("viefaibles",3,"viefaibles",10,60,10,10));gui.textBox(["C'est super efficace!"], [], function() {scene.unload("combat12"); scene.combat13() } )} )})}] ])})];
+								scene.collection.push(new Img("viefaibles",3,"viefaibles",-10,15,45,45));gui.textBox(["C'est super efficace!"], [], function() {scene.unload("combat12"); scene.combat13() } )} )})}] ])})];
 		this.sort()
 		}
 	}
@@ -331,7 +333,7 @@ function Scene () {
 		}
 		else {
 		this.collection = [ new Img("foret5",0,"foret5",0,0,100,900/16),
-							new Button("guillaume1",2,"guillaume1",50,50,15,20,infini,function () {gui.textBox(["[Guillaume]","Oh tu n’étais donc pas le guerrier que je croyais", "que tu étais. Écoute-moi attentivement. "], [], function () {gui.textBox(["[Guillaume]","Il se passe des choses étranges sur ce campus. " ], [], function() {gui.textBox(["[Guillaume]","J’ai surpris toute à l’heure, ton pote là,", "le petit con, Alex en train de faire du forcing sur Camille", "bien pompette, pour qu’elle appelle les flics." ], [], function() {gui.textBox(["[Guillaume]","Quel enfoiré ! Il a l’air de préparer un sale coup…" ], [], function() {gui.textBox(["[Guillaume]","Je l’ai suivi jusqu’à la vieille grange", "abandonnée dans le champ, puis je l’ai perdu", "de vue, le fumier !" ], [], function() {scene.collection.push(new Img("grange5",3,"grange5",20,10,50,50));gui.textBox(["[Guillaume]","J’ai juste pris cette photo, mais on ferait", "mieux de vite le retrouver pour lui régler son compte." ], [], function() {scene.unload("combat13"); scene.gastro2()})})})})})})} )];
+							new Button("guillaume1",2,"guillaume1",20,0,70,95,infini,function () {gui.textBox(["[Guillaume]","Oh tu n’étais donc pas le guerrier que je croyais", "que tu étais. Écoute-moi attentivement. "], [], function () {gui.textBox(["[Guillaume]","Il se passe des choses étranges sur ce campus. " ], [], function() {gui.textBox(["[Guillaume]","J’ai surpris toute à l’heure, ton pote là,", "le petit con, Alex en train de faire du forcing sur Camille", "bien pompette, pour qu’elle appelle les flics." ], [], function() {gui.textBox(["[Guillaume]","Quel enfoiré ! Il a l’air de préparer un sale coup…" ], [], function() {gui.textBox(["[Guillaume]","Je l’ai suivi jusqu’à la vieille grange", "abandonnée dans le champ, puis je l’ai perdu", "de vue, le fumier !" ], [], function() {scene.collection.push(new Img("grange5",3,"grange5",25,5,50,35));gui.textBox(["[Guillaume]","J’ai juste pris cette photo, mais on ferait", "mieux de vite le retrouver pour lui régler son compte." ], [], function() {scene.unload("combat13"); scene.gastro3()})})})})})})} )];
 		this.sort()
 		}
 	}
@@ -342,7 +344,7 @@ function Scene () {
 		}
 		else {
 		this.collection = [ new Img("gastro",0,"gastro",0,0,100,900/16),
-							new Button("vgrange1",2,"lumiere",10,80,5,5,infini,function () {gui.textBox(["[Sasha]","Tout laisse penser que je trouverai plus", "d’indices en me rendant à la grange." ], [], function() {scene.unload("gastro2"); scene.grange1()} )}),
+							new Button("vgrange1",2,"lumiere",10,80,5,5,infini,function () {gui.textBox(["[Sasha]","Tout laisse penser que je trouverai plus", "d’indices en me rendant à la grange." ], [], function() {scene.unload("gastro3"); scene.grange1()} )}),
 							];
 		this.sort()
 		}
@@ -378,7 +380,7 @@ function Scene () {
 		}
 		else {
 		this.collection = [ new Img("grange3",0,"grange3",0,0,100,900/16),
-							new Button("vgrange4",2,"lumiere",50,50,5,5,infini,function () {scene.unload("grange3"); scene.grange4()} ),
+							new Button("vgrange4",2,"lumiere",45,45,5,5,infini,function () {scene.unload("grange3"); scene.grange4()} ),
 							];
 		this.sort()
 		}
@@ -390,7 +392,7 @@ function Scene () {
 		}
 		else {
 		this.collection = [ new Img("grange4",0,"grange4",0,0,100,900/16),
-							new Button("screamer",2,"grange4",0,0,100,900/16,infini,function () {scene.unload("grange4"); scene.grange32()} ),
+							new Button("screamer",2,"grange4",0,0,100,900/16,infini,function () {scene.unload("grange4"); scene.grange43()} ),
 							];
 		this.sort()
 		}
@@ -402,7 +404,7 @@ function Scene () {
 		}
 		else {
 		this.collection = [ new Img("grange3",0,"grange3",0,0,100,900/16),
-							new Button("vieux",2,"vieux",50,50,50,60,infini,function () {gui.textBox(["[Vieil homme]","Bonjour à toi, voyageur !", "Je vois que tu as trouvé mon repère." ], [], function() {gui.textBox(["[Vieil homme]","Excuse-moi si je t’ai fait peur.", "Un jeune homme est venu me menacer hier.", "Je préférais prendre mes précautions." ], [], function() {gui.textBox(["[Vieil homme]","Mais ne parlons pas ici. Résous cette énigme", "et tu trouveras le lieu de notre prochaine rencontre :  " ], [], function() {gui.textBox(["Dessous la terre je me situe,", "et beaucoup ne m’ont jamais vu,", "il se dit que je fus jadis,", "l’antre des fêtes et des vices. Qui suis-je ?" ], [], function() {gui.inputBox(["Dessous la terre je me situe,", "et beaucoup ne m’ont jamais vu,", "il se dit que je fus jadis,", "l’antre des fêtes et des vices. Qui suis-je ?"],5,["k-vo","K-vo"],function () {scene.unload("grange43"); scene.Kvo1()}, function() {if (f<15) {f+=1; gui.stupidity+=35}})})})})})} ),
+							new Button("vieux",2,"vieux",20,15,70,100,infini,function () {gui.textBox(["[Vieil homme]","Bonjour à toi, voyageur !", "Je vois que tu as trouvé mon repère." ], [], function() {gui.textBox(["[Vieil homme]","Excuse-moi si je t’ai fait peur.", "Un jeune homme est venu me menacer hier.", "Je préférais prendre mes précautions." ], [], function() {gui.textBox(["[Vieil homme]","Mais ne parlons pas ici. Résous cette énigme", "et tu trouveras le lieu de notre prochaine rencontre :  " ], [], function() {gui.textBox(["Dessous la terre je me situe,", "et beaucoup ne m’ont jamais vu,", "il se dit que je fus jadis,", "l’antre des fêtes et des vices. Qui suis-je ?" ], [], function() {gui.inputBox(["Dessous la terre je me situe,", "et beaucoup ne m’ont jamais vu,", "il se dit que je fus jadis,", "l’antre des fêtes et des vices. Qui suis-je ?"],infini,["k-vo","K-vo"],function () {scene.unload("grange43"); scene.Kvo1()}, function() {if (f<15) {f+=1; gui.stupidity+=35}})})})})})} ),
 							];
 		this.sort()
 		}
@@ -706,7 +708,7 @@ function Scene () {
 		}
 		else {
 		this.collection = [ new Img("gastro",0,"gastro",0,0,100,900/16),
-							new Button("auriane",2,"auriane",10,80,25,30,infini,function () {gui.textBox(["[Auriane]"," Eh mais t’as vraiment fait des trucs", "de fou toi hier soir." ], [], function() {gui.textBox(["[Sasha]"," En vrai, si ça se trouve,", "j’étais juste en train de délirer." ], [], function() {scene.collection.push(new Img("photosw",5,"photosw",20,0,50,50));gui.textBox(["[Auriane]","Ah au fait, regarde Sasha, c’est une photo", "que j’ai prise hier soir, tu t’en souviens ?" ], [], function() {scene.unload("gastro2"); scene.souvenir7()})})})}),
+							new Button("auriane",2,"auriane",20,0,70,90,infini,function () {gui.textBox(["[Auriane]"," Eh mais t’as vraiment fait des trucs", "de fou toi hier soir." ], [], function() {gui.textBox(["[Sasha]"," En vrai, si ça se trouve,", "j’étais juste en train de délirer." ], [], function() {scene.collection.push(new Img("photosw",5,"photosw",20,0,70,50));gui.textBox(["[Auriane]","Ah au fait, regarde Sasha, c’est une photo", "que j’ai prise hier soir, tu t’en souviens ?" ], [], function() {scene.unload("gastro2"); scene.souvenir7()})})})}),
 							];
 		this.sort()
 		}
@@ -901,7 +903,7 @@ function Scene () {
 		}
 		else {
 		this.collection = [ new Img("foret1",0,"foret1",0,0,100,900/16),
-							new Button("qte1",2,"Vide1",0,0,100,900/16,infini,function () {gui.textBox(["Il faut que je me dépêche!"], [], function() {supprime("qte1");scene.collection.push(new Button("att1",5,"att",90,90,5,5,infini,function () {supprime("att1");scene.collection.push(new Button("att2",5,"att",3,87,5,5,infini,function () {supprime("att2"),scene.collection.push(new Button("att3",5,"att",47,15,5,5,infini,function () {scene.unload("foret1"); scene.foret2()}))}))}));gui.setTimer(7, function () {supprime("qte1");gui.stupidity +=220;gui.textBox(["Trop lent!"], [], function () {scene.unload("foret1"); scene.foret2()})}) })} ),
+							new Button("qte1",2,"Vide1",0,0,100,900/16,infini,function () {gui.textBox(["Il faut que je me dépêche!"], [], function() {supprime("qte1");scene.collection.push(new Button("att1",5,"att",90,90,5,5,infini,function () {supprime("att1");scene.collection.push(new Button("att2",5,"att",3,87,5,5,infini,function () {supprime("att2"),scene.collection.push(new Button("att3",5,"att",47,15,5,5,infini,function () {x=1;scene.unload("foret1"); scene.foret2()}))}))}));gui.setTimer(7, function () {supprime("qte1");if (x==0) {gui.stupidity +=220;gui.textBox(["Trop lent!"], [], function () {scene.unload("foret1"); scene.foret2()})}}) })} ),
 							];
 		this.sort()
 		}
@@ -913,7 +915,7 @@ function Scene () {
 		}
 		else {
 		this.collection = [ new Img("foret2",0,"foret2",0,0,100,900/16),
-							new Button("qte1",2,"Vide1",0,0,100,900/16,infini,function () {gui.textBox(["Plus vite!"], [], function() {supprime("qte1");scene.collection.push(new Button("att1",5,"att",58,7,5,5,infini,function () {supprime("att1");scene.collection.push(new Button("att2",5,"att",7,63,5,5,infini,function () {supprime("att2"),scene.collection.push(new Button("att3",5,"att",10,5,5,5,infini,function () {scene.unload("foret2"); scene.foret3()}))}))}));gui.setTimer(4, function () {gui.stupidity +=170;gui.textBox(["Trop lent!"], [], function () {scene.unload("foret2"); scene.foret3()})}) })} ),
+							new Button("qte1",2,"Vide1",0,0,100,900/16,infini,function () {gui.textBox(["Plus vite!"], [], function() {supprime("qte1");scene.collection.push(new Button("att1",5,"att",58,7,5,5,infini,function () {supprime("att1");scene.collection.push(new Button("att2",5,"att",7,63,5,5,infini,function () {supprime("att2"),scene.collection.push(new Button("att3",5,"att",10,5,5,5,infini,function () {y=1;scene.unload("foret2"); scene.foret3()}))}))}));gui.setTimer(4, function () {if (y==0) {gui.stupidity +=170;gui.textBox(["Trop lent!"], [], function () {scene.unload("foret2"); scene.foret3()})}}) })} ),
 							];
 		this.sort()
 		}
@@ -925,7 +927,7 @@ function Scene () {
 		}
 		else {
 		this.collection = [ new Img("foret3",0,"foret3",0,0,100,900/16),
-							new Button("qte1",2,"Vide1",0,0,100,900/16,infini,function () {gui.textBox(["Et on continue d'accélérer!"], [], function() {supprime("qte1");scene.collection.push(new Button("att1",5,"att",90,35,5,5,infini,function () {supprime("att1");scene.collection.push(new Button("att2",5,"att",7,67,5,5,infini,function () {supprime("att2"),scene.collection.push(new Button("att3",5,"att",36,8,5,5,infini,function () {scene.unload("foret3"); scene.foret4()}))}))}));gui.setTimer(2, function () {gui.stupidity +=120;gui.textBox(["Trop lent!"], [], function () {scene.unload("foret3"); scene.foret4()})}) })} ),
+							new Button("qte1",2,"Vide1",0,0,100,900/16,infini,function () {gui.textBox(["Et on continue d'accélérer!"], [], function() {supprime("qte1");scene.collection.push(new Button("att1",5,"att",90,35,5,5,infini,function () {supprime("att1");scene.collection.push(new Button("att2",5,"att",7,67,5,5,infini,function () {supprime("att2"),scene.collection.push(new Button("att3",5,"att",36,8,5,5,infini,function () {z=1;scene.unload("foret3"); scene.foret4()}))}))}));gui.setTimer(2, function () {if (z==0) {gui.stupidity +=120;gui.textBox(["Trop lent!"], [], function () {scene.unload("foret3"); scene.foret4()})}}) })} ),
 							];
 		this.sort()
 		}
@@ -954,8 +956,8 @@ function Scene () {
 		this.collection = [ new Img("foret5",0,"foret5",0,0,100,900/16),
 							new Img("policier",1,"policier",0,0,100,900/16),
 							new Button("choix",2,"Vide1",0,0,100,900/16,infini,function () {gui.textBox(["[Sasha]", "Me voilà dans de beaux draps.", "Je n'ai plus qu'une solution..."], [], function() {gui.choicesBox([["Que faire?"],
-							["le draguer", function() {gui.stupidity +=350;gui.textBox(["[???]", "Je te tiens!", "Tu n'as nulle part où t'échapper"], [], function() {scene.unload("policier1"); scene.policier2()})}],
-							["le draguer", function() {gui.stupidity +=349;gui.textBox(["[???]", "Je te tiens!", "Tu ne peux plus t'échapper!"], [], function() {scene.unload("policier1"); scene.policier2()})}]
+							["le draguer", function() {gui.stupidity +=350;gui.textBox(["[Sasha]", "On est parti!"], [], function() {scene.unload("policier1"); scene.policier2()})}],
+							["le draguer", function() {gui.stupidity +=349;gui.textBox(["[Sasha]", "On est parti!"], [], function() {scene.unload("policier1"); scene.policier2()})}]
 		                    ])})})];
 		this.sort()
 		}
@@ -1003,10 +1005,10 @@ function Scene () {
 		this.collection = [ new Img("foret5",0,"foret5",0,0,100,900/16),
 							new Button("policier",1,"policier",0,0,100,900/16,infini,function () {gui.choicesBox([["Comment finir?"],
 							["demander les menottes", function() {gui.textBox(["[Sasha]", "Je veux que tu me menottes"], [], function() {gui.stupidity +=98; gui.textBox(["[Policier]","Vous êtes complètement torché, allez vous", "coucher (on n’abuse pas de personnes torchées)"], [], function() {guitextBox(["[Sasha]", "vite une ouverture!"], [], function() {gui.textBox(["*Sasha s'est enfuie*"], [], function() {scene.unload("policier4"); scene.U3()})})})})}],
-							["le comparer au ciel", function() {gui.textBox(["[Sasha]", " Que voyez-vous dans le ciel ? Rien ?", "C’est ma vie avant que je voie vos deltoides"], [], function() {gui.stupidity +=64; gui.textBox(["[Policier]", "Vous aurez l’occasion d’admirer", "les deltoides du fourgon aussi.", "Vous êtes en état d’arrestation"], [], function() {gui.textBox(["*Sasha s'est enfuie*"], [], function() {scene.unload("policier4"); scene.U3()})})})}],
-							["Nique la BAC", function() {gui.textBox(["[Sasha]", "Nik la BAC, vesqui les keufs", "jsais comment faire"], [], function() {gui.stupidity +=103; gui.textBox(["[Policier]", "Développez vos compétences en crochetage", "de serrure alors parce que ça", "va direct au poste"], [], function() {gui.textBox(["*Sasha s'est enfuie*"], [], function() {scene.unload("policier4"); scene.U3()})})})}],
-							["lui proposer un voyage", function() {gui.textBox(["[Sasha]", "Embarquez moi… J’irais au bout du monde avec vous et votre sourire"], [], function() {gui.stupidity +=36; gui.textBox(["[Policier]", "Tu seras au bout de ta vie quand", "tu vas paraître devant le procureur pour", "pull-up et usage de pull-up aussi tkt"], [], function() {gui.textBox(["*Sasha s'est enfuie*"], [], function() {scene.unload("policier4"); scene.U3()})})})}],
-							["l'accuser de vol", function() {gui.textBox(["[Sasha]", "Je n’ai rien fait d’illégal mais vous vous", "avez commis un vol : celui de mon coeur."], [], function() {gui.stupidity +=23; gui.textBox(["[Policier]", "Partons loin ensemble dès demain ! Je connais", "en endroit très bien où on pourrait se cacher", "sans que le FBI nous retrouve !"], [], function() {gui.textBox(["*Sasha s'est enfuie*"], [], function() {scene.unload("policier4"); scene.U3()})})})}]])} ),
+							["le comparer au ciel", function() {gui.textBox(["[Sasha]", " Que voyez-vous dans le ciel ? Rien ?", "C’est ma vie avant que je voie vos deltoides"], [], function() {gui.stupidity +=64; gui.textBox(["[Policier]", "Vous aurez l’occasion d’admirer", "les deltoides du fourgon aussi.", "Vous êtes en état d’arrestation"], [], function() {guitextBox(["[Sasha]", "vite une ouverture!"], [], function() {gui.textBox(["*Sasha s'est enfuie*"], [], function() {scene.unload("policier4"); scene.U3()})})})})}],
+							["Nique la BAC", function() {gui.textBox(["[Sasha]", "Nik la BAC, vesqui les keufs", "jsais comment faire"], [], function() {gui.stupidity +=103; gui.textBox(["[Policier]", "Développez vos compétences en crochetage", "de serrure alors parce que ça", "va direct au poste"], [], function() {gui.textBox(["*Sasha s'est enfuie*"], [], function() {guitextBox(["[Sasha]", "vite une ouverture!"], [], function() {scene.unload("policier4"); scene.U3()})})})})}],
+							["lui proposer un voyage", function() {gui.textBox(["[Sasha]", "Embarquez moi… J’irais au bout du monde avec vous et votre sourire"], [], function() {gui.stupidity +=36; gui.textBox(["[Policier]", "Tu seras au bout de ta vie quand", "tu vas paraître devant le procureur pour", "pull-up et usage de pull-up aussi tkt"], [], function() {guitextBox(["[Sasha]", "vite une ouverture!"], [], function() {gui.textBox(["*Sasha s'est enfuie*"], [], function() {scene.unload("policier4"); scene.U3()})})})})}],
+							["l'accuser de vol", function() {gui.textBox(["[Sasha]", "Je n’ai rien fait d’illégal mais vous vous", "avez commis un vol : celui de mon coeur."], [], function() {gui.stupidity +=23; gui.textBox(["[Policier]", "Partons loin ensemble dès demain ! Je connais", "en endroit très bien où on pourrait se cacher", "sans que le FBI nous retrouve !"], [], function() {guitextBox(["[Sasha]", "vite une ouverture!"], [], function() {gui.textBox(["*Sasha s'est enfuie*"], [], function() {scene.unload("policier4"); scene.U3()})})})})}]])} ),
 						];
 		this.sort()
 		}
@@ -1213,7 +1215,7 @@ function Scene () {
 		}
 		else {
 		this.collection = [ new Img("archive",0,"archive",0,0,100,900/16),
-							new Button("blabla",7,"Vide1",0,0,100,900/16,infini,function () {gui.textBox(["[Sasha]","C’est donc à ça que ressemblent les archives.", "Je ferais bien de me mettre au travail." ], [], function() {gui.textBox(["Tiens..."], [], function() {supprime("blabla");scene.collection.push(new Button("article",5,"article",30,0,45,75, infini, function() {gui.textBox(["[Sasha]","Les serres abandonnées… j’en ai un", "vague souvenir dans mon esprit" ], [], function() {scene.unload("archive1"); scene.souvenir8()})}))})})} ),
+							new Button("blabla",7,"Vide1",0,0,100,900/16,infini,function () {gui.textBox(["[Sasha]","C’est donc à ça que ressemblent les archives.", "Je ferais bien de me mettre au travail." ], [], function() {gui.textBox(["Tiens..."], [], function() {supprime("blabla");scene.collection.push(new Button("article",5,"article",30,0,35,50, infini, function() {gui.textBox(["[Sasha]","Les serres abandonnées… j’en ai un", "vague souvenir dans mon esprit" ], [], function() {scene.unload("archive1"); scene.souvenir8()})}))})})} ),
 							];
 		this.sort()
 		}
@@ -1225,7 +1227,7 @@ function Scene () {
 		}
 		else {
 		this.collection = [ new Img("sa1",0,"sa1",0,0,100,900/16),
-							new Button("recette",2,"lumiere",0,0,5,5,infini,function () {supprime("recette");gui.textBox(["[Sasha]","Nous y voici. A partir de ce point,", "plus de retour en arrière possible." ], [], function() {gui.textBox(["[Sasha]","Tiens, une vieille page","On dirait une cours.." ], [], function() {gui.slots[0]=new Collectible("recette", 10, "recette",30,0,50,80)})} )} ),
+							new Button("recette",2,"lumiere",20,90,5,5,infini,function () {supprime("recette");gui.textBox(["[Sasha]","Nous y voici. A partir de ce point,", "plus de retour en arrière possible." ], [], function() {gui.textBox(["[Sasha]","Tiens, une vieille page","On dirait une cours.." ], [], function() {gui.slots[0]=new Collectible("recette", 10, "recette",30,0,50,80)})} )} ),
 							new Button("vamphicasier",2,"lumiere",50,50,5,5,infini,function () {scene.unload("sa1"); scene.sa2()})];
 		this.sort()
 		}
@@ -1236,11 +1238,12 @@ function Scene () {
 			this.collection = Array.from(this.total["sa2"])
 		}
 		else {
-		this.collection = [ new Img("amphi",0,"amphi",0,0,100,900/16),
-							new Button("Alex",2,"Vide1",0,0,100,900/16,infini,function () {supprime("Alex");gui.textBox(["[Alex]","S-Sasha ?! Mais qu’est ce que tu fous là ?!" ], [], function() {gui.textBox(["[Sasha]","Bonsoir, Alex. Tu comptes faire l’innocent", "encore longtemps ? J’en ai plus qu’assez de", "toi et ton hypocrisie !" ], [], function() {gui.textBox(["[Sasha]","Qu’est-ce qui t’as pris de manipuler Camille", "pour qu’elle appelle les flics ?!", "C’est quoi ton but ?!" ], [], function() {gui.textBox(["[Alex]","Quoi, tu veux la vérité ?", "Mais tu ne pourrais pas la supporter. " ], [], function() {textBox(["[Sasha]","..." ], [], function() {gui.textBox(["[Alex]","Ecoute-moi bien. Sur les terres de notre école", "est caché un trésor inestimable,", "recherché à travers les siècles, en vain." ], [], function () {gui.textBox(["[Alex]","Il remonterait à la Révolution française,", "avant la fondation même de l’école" ], [], function() {gui.textBox(["[Sasha]","Et d’où tu sors tout ça ?" ], [], function() {gui.textBox(["[Alex]","Après l’inté, alors que je découvrais tous les", "lieux mythiques de Grignon, je suis arrivé ici et c’est", "là que j’ai rencontré un homme absolument incroyable." ], [], function() {gui.textBox(["[Alex]","M. Cenfroque. Lui et sa famille recherchent depuis", "des générations le fabuleux trésor de Grignon", "qui porterait chance à quiconque le possèderait." ], [], function() {gui.textBox(["[Sasha]"," Oui, bien sûr. T’es encore défoncé aux étoiles", "de Mario, toi. Et qu’est-ce que Camille", "vient faire là-dedans ?" ], [], function() {gui.textBox(["[Alex]","Mais mêle-toi de tes oignons ! Y a deux jours,", "tu t’intéressais même pas à elle. Ça aurait dû être moi", "en haut du château d’eau avec elle !" ], function() {gui.textBox(["[Alex]","Si tu veux tout savoir, c’est MOI", "qui suis à l’origine de la", "malédiction sur Grignon." ], [], function() {gui.textBox(["[Alex]","Les 341 mails zimbra, les campagnes de fishing,", "les portes volées, les flics, la connexion", "internet sabotée, tout ça c’est moi !" ], [], function() {gui.textBox(["[Alex]","Mais il fallait bien rester dans l’ombre pour", "empêcher Grignon d’être vendu et pour", "continuer à chercher le trésor." ], [], function() {gui.textBox(["[Sasha]","Attends, tu vas me dire que c’est pour", "une raison aussi conne que tu as abusé d’une", "fille aussi douce et admirable que Camille ?!" ], [], function() {gui.choicesBox([["Tu sais ce que tu dois faire."],
-							["lui exploser la gueule", function() {gui.textBox(["[Sasha]","Une bonne chose de faite, il ne me reste plus qu’à", "trouver ce M. Cenfroque. J’entends du bruit", "derrière la porte, c’est sûrement là qu’il se cache." ], [], function() {scene.collection.push(new Button("alex2",5,"alex2",50,40,50,30,infini,function () {supprime("alex2");gui.textBox(["[Sasha]", "Tiens, il avait un papier sur lui", "Il y a des symboles dessus", "On dirait de l'alchimie."], [], function() {gui.slots[1]=new Collectible("elements", 9, "elements",30,0,50,80)})} ))})}],
-							["lui faire manger ses morts", function() {gui.textBox(["[Sasha]","Une bonne chose de faite, il ne me reste plus qu’à", "trouver ce M. Cenfroque. J’entends du bruit", "derrière la porte, c’est sûrement là qu’il se cache." ], [], function() {scene.collection.push(new Button("alex2",5,"alex2",50,40,50,30,infini,function () {supprime("alex2");gui.textBox(["[Sasha]", "Tiens, il avait un papier sur lui", "Il y a des symboles dessus", "On dirait de l'alchimie."], [], function() {gui.slots[1]=new Collectible("elements", 9, "elements",30,0,50,80)})} ))})}]])} )})})})})})})})})})})})})})})})} ),
-							new Button("vsa3",2,"lumiere",50,20,5,5,infini,function () {gui.inputBox("Quel est le code?",5,["TFEA","tfea"],function () {scene.unload("sa2"); scene.sa3()}, function() {if (f<15) {f+=1; gui.stupidity+=35}})} )];
+		this.collection = [ new Img("sa2",0,"sa2",0,0,100,900/16),
+							new Button("Alex",2,"Vide1",0,0,100,900/16,infini,function () {gui.textBox(["[Alex]","S-Sasha ?! Mais qu’est ce que tu fous là ?!" ], [], function() {gui.textBox(["[Sasha]","Bonsoir, Alex. Tu comptes faire l’innocent", "encore longtemps ? J’en ai plus qu’assez de", "toi et ton hypocrisie !" ], [], function() {gui.textBox(["[Sasha]","Qu’est-ce qui t’as pris de manipuler Camille", "pour qu’elle appelle les flics ?!", "C’est quoi ton but ?!" ], [], function() {gui.textBox(["[Alex]","Quoi, tu veux la vérité ?", "Mais tu ne pourrais pas la supporter. " ], [], function() {gui.textBox(["[Sasha]","..." ], [], function() {gui.textBox(["[Alex]","Ecoute-moi bien. Sur les terres de notre école", "est caché un trésor inestimable,", "recherché à travers les siècles, en vain." ], [], function () {gui.textBox(["[Alex]","Il remonterait à la Révolution française,", "avant la fondation même de l’école" ], [], function() {gui.textBox(["[Sasha]","Et d’où tu sors tout ça ?" ], [], function() {gui.textBox(["[Alex]","Après l’inté, alors que je découvrais tous les", "lieux mythiques de Grignon, je suis arrivé ici et c’est", "là que j’ai rencontré un homme absolument incroyable." ], [], function() {gui.textBox(["[Alex]","M. Cenfroque. Lui et sa famille recherchent depuis", "des générations le fabuleux trésor de Grignon", "qui porterait chance à quiconque le possèderait." ], [], function() {gui.textBox(["[Sasha]"," Oui, bien sûr. T’es encore défoncé aux étoiles", "de Mario, toi. Et qu’est-ce que Camille", "vient faire là-dedans ?" ], [], function() {gui.textBox(["[Alex]","Mais mêle-toi de tes oignons ! Y a deux jours,", "tu t’intéressais même pas à elle. Ça aurait dû être moi", "en haut du château d’eau avec elle !" ], [], function() {gui.textBox(["[Alex]","Si tu veux tout savoir, c’est MOI", "qui suis à l’origine de la", "malédiction sur Grignon." ], [], function() {gui.textBox(["[Alex]","Les 341 mails zimbra, les campagnes de fishing,", "les portes volées, les flics, la connexion", "internet sabotée, tout ça c’est moi !" ], [], function() {gui.textBox(["[Alex]","Mais il fallait bien rester dans l’ombre pour", "empêcher Grignon d’être vendu et pour", "continuer à chercher le trésor." ], [], function() {supprime("Alex");gui.textBox(["[Sasha]","Attends, tu vas me dire que c’est pour", "une raison aussi conne que tu as abusé d’une", "fille aussi douce et admirable que Camille ?!" ], [], function() {gui.choicesBox([["Tu sais ce que tu dois faire."],
+							["lui exploser la gueule", function() {gui.textBox(["[Sasha]","Une bonne chose de faite, il ne me reste plus qu’à", "trouver ce M. Cenfroque. J’entends du bruit", "derrière la porte, c’est sûrement là qu’il se cache." ], [], function() {scene.collection.push(new Button("alex2",5,"alex2",33,40,30,22,infini,function () {supprime("alex2");gui.textBox(["[Sasha]", "Tiens, il avait un papier sur lui", "Il y a des symboles dessus", "On dirait de l'alchimie."], [], function() {gui.slots[1]=new Collectible("elements", 9, "elements",30,0,50,80)})} ))})}],
+							["lui faire manger ses morts", function() {gui.textBox(["[Sasha]","Une bonne chose de faite, il ne me reste plus qu’à", "trouver ce M. Cenfroque. J’entends du bruit", "derrière la porte, c’est sûrement là qu’il se cache." ], [], function() {scene.collection.push(new Button("alex2",5,"alex2",33,40,30,22,infini,function () {supprime("alex2");gui.textBox(["[Sasha]", "Tiens, il avait un papier sur lui", "Il y a des symboles dessus", "On dirait de l'alchimie."], [], function() {gui.slots[1]=new Collectible("elements", 9, "elements",30,0,50,80)})} ))})}]])} )})})})})})})})})})})})})})})})} ),
+							new Button("vsa3",2,"lumiere",50,20,5,5,infini,function () {gui.inputBox("Quel est le code?",1,["TFEA","tfea"],function () {scene.unload("sa2"); scene.sa3()}, function() {if (f<15) {f+=1; gui.stupidity+=35}})} ),
+							new Button("vamphicasier",2,"lumiere",5,90,5,5,infini,function () {scene.unload("sa2"); scene.sa1()})];
 		this.sort()
 		}
 	}
@@ -1262,22 +1265,22 @@ function Scene () {
 		}
 		else {
 		this.collection = [ new Img("sa3",0,"sa3",0,0,100,900/16),
-							new Img("gabriel",0,"gabriel",35,20,50,50),
-							new Img("viepleinec",1,"viepleinec",10,20,10,10),
-							new Img("viefullg",1,"viefullg",10,60,10,10),
-							new Button("fight1",2,"fight1",50,70,5,5,infini,function () {gui.choicesBox([["Que faire?"],
+							new Img("gabriel",1,"gabriel",20,0,70,90),
+							new Img("viepleinec",9,"viepleinec",-10,-15,45,45),
+							new Img("viefullg",9,"viefullg",-10,15,45,45),
+							new Button("fight",2,"fight",75,10,17,9,infini,function () {gui.choicesBox([["Que faire?"],
 								["lancer le chat des résidences", function() {gui.stupidity +=130; gui.textBox(["C'est super efficace!","(sur le chat tout du moins)"], [], function () {
 							gui.textBox(["M.Cenfroque utilise 'BBCOLLAB'"], [], function () {
-								scene.collection.push(new Img("viefaibleg",3,"viefaibleg",10,60,10,10));gui.textBox(["C'est super efficace!"], [], function() {gui.textBox(["[Guillaume]","Ah… il est trop fort pour moi…", "Il faut que j’utilise mon attaque secrète.", "J’invoque… LA FAMILLE ROBERT !" ], [], function() {scene.collection.push(new Img("cr",5,"cr",10,60,30,50));scene.collection.push(new Img("mr",6,"mr",30,60,30,50));scene.collection.push(new Img("rr",6,"rr",30,20,30,50));gui.textBox(["[Guillaume]","Chloé Robert, Maxime Robert, Robert Robert, tous avec moi !" ], [], function() {gui.textBox(["[Guillaume]","Chloé Robert, Maxime Robert, Robert Robert, tous avec moi !"], [], function() {scene.collection.push(new Img("vievidec",3,"vievidec",10,20,10,10));gui.textBox(["M.Cenfroque est terrassé par l'attaque!","Il est KO."], [], function() {scene.unload("combat21"); scene.sa4()})})})})} )} )})}],
+								scene.collection.push(new Img("viefaibleg",10,"viefaibleg",-10,15,45,45));gui.textBox(["C'est super efficace!"], [], function() {gui.textBox(["[Guillaume]","Ah… il est trop fort pour moi…", "Il faut que j’utilise mon attaque secrète.", "J’invoque… LA FAMILLE ROBERT !" ], [], function() {scene.collection.push(new Img("cr",5,"cr",60,20,30,50));scene.collection.push(new Img("mr",6,"mr",30,20,30,50));scene.collection.push(new Img("rr",7,"rr",10,20,30,50));gui.textBox(["[Guillaume]","Chloé Robert, Maxime Robert, Robert Robert, tous avec moi !" ], [], function() {gui.textBox(["[Guillaume]","Chloé Robert, Maxime Robert, Robert Robert, tous avec moi !"], [], function() {scene.collection.push(new Img("vievidec",10,"vievidec",-10,-15,45,45));gui.textBox(["M.Cenfroque est terrassé par l'attaque!","Il est KO."], [], function() {scene.unload("combat21"); scene.sa4()})})})})} )} )})}],
 							["Shooting stars", function() {gui.stupidity +=60; gui.textBox(["Ce n'est pas très efficace (mais étoilé)."], [], function () {
 								gui.textBox(["M.Cenfroque utilise 'BBCOLLAB'"], [], function () {
-								scene.collection.push(new Img("viefaibleg",3,"viefaibleg",10,60,10,10));gui.textBox(["C'est super efficace!"], [], function() {gui.textBox(["[Guillaume]","Ah… il est trop fort pour moi…", "Il faut que j’utilise mon attaque secrète.", "J’invoque… LA FAMILLE ROBERT !" ], [], function() {scene.collection.push(new Img("cr",5,"cr",10,60,30,50));scene.collection.push(new Img("mr",6,"mr",30,60,30,50));scene.collection.push(new Img("rr",6,"rr",30,20,30,50));gui.textBox(["[Guillaume]","Chloé Robert, Maxime Robert, Robert Robert, tous avec moi !" ], [], function() {gui.textBox(["[Guillaume]","Chloé Robert, Maxime Robert, Robert Robert, tous avec moi !"], [], function() {scene.collection.push(new Img("vievidec",3,"vievidec",10,20,10,10));gui.textBox(["M.Cenfroque est terrassé par l'attaque!","Il est KO."], [], function() {scene.unload("combat21"); scene.sa4()})})})})} )} )})}],
+								scene.collection.push(new Img("viefaibleg",1,"viefaibleg",-10,15,45,45));gui.textBox(["C'est super efficace!"], [], function() {gui.textBox(["[Guillaume]","Ah… il est trop fort pour moi…", "Il faut que j’utilise mon attaque secrète.", "J’invoque… LA FAMILLE ROBERT !" ], [], function() {scene.collection.push(new Img("cr",5,"cr",60,20,30,50));scene.collection.push(new Img("mr",6,"mr",30,20,30,50));scene.collection.push(new Img("rr",7,"rr",10,20,30,50));gui.textBox(["[Guillaume]","Chloé Robert, Maxime Robert, Robert Robert, tous avec moi !" ], [], function() {gui.textBox(["[Guillaume]","Chloé Robert, Maxime Robert, Robert Robert, tous avec moi !"], [], function() {scene.collection.push(new Img("vievidec",10,"vievidec",-10,-15,45,45));gui.textBox(["M.Cenfroque est terrassé par l'attaque!","Il est KO."], [], function() {scene.unload("combat21"); scene.sa4()})})})})} )} )})}],
 							["lui démonter le crâne à coups de lance-laser", function() {gui.stupidity +=30; gui.textBox(["Ce n'est pas très efficace (mais étoilé)."], [], function () {	
 								gui.textBox(["M.Cenfroque utilise 'BBCOLLAB'"], [], function () {
-								scene.collection.push(new Img("viefaibleg",3,"viefaibleg",10,60,10,10));gui.textBox(["C'est super efficace!"], [], function() {gui.textBox(["[Guillaume]","Ah… il est trop fort pour moi…", "Il faut que j’utilise mon attaque secrète.", "J’invoque… LA FAMILLE ROBERT !" ], [], function() {scene.collection.push(new Img("cr",5,"cr",10,60,30,50));scene.collection.push(new Img("mr",6,"mr",30,60,30,50));scene.collection.push(new Img("rr",6,"rr",30,20,30,50));gui.textBox(["[Guillaume]","Chloé Robert, Maxime Robert, Robert Robert, tous avec moi !" ], [], function() {gui.textBox(["[Guillaume]","Chloé Robert, Maxime Robert, Robert Robert, tous avec moi !"], [], function() {scene.collection.push(new Img("vievidec",3,"vievidec",10,20,10,10));gui.textBox(["M.Cenfroque est terrassé par l'attaque!","Il est KO."], [], function() {scene.unload("combat21"); scene.sa4()})})})})} )} )})}],
+								scene.collection.push(new Img("viefaibleg",10,"viefaibleg",-10,15,45,45));gui.textBox(["C'est super efficace!"], [], function() {gui.textBox(["[Guillaume]","Ah… il est trop fort pour moi…", "Il faut que j’utilise mon attaque secrète.", "J’invoque… LA FAMILLE ROBERT !" ], [], function() {scene.collection.push(new Img("cr",5,"cr",60,20,30,50));scene.collection.push(new Img("mr",6,"mr",30,20,30,50));scene.collection.push(new Img("rr",7,"rr",10,20,30,50));gui.textBox(["[Guillaume]","Chloé Robert, Maxime Robert, Robert Robert, tous avec moi !" ], [], function() {gui.textBox(["[Guillaume]","Chloé Robert, Maxime Robert, Robert Robert, tous avec moi !"], [], function() {scene.collection.push(new Img("vievidec",10,"vievidec",-10,-15,45,45));gui.textBox(["M.Cenfroque est terrassé par l'attaque!","Il est KO."], [], function() {scene.unload("combat21"); scene.sa4()})})})})} )} )})}],
 							["lui le lancer un regard noir", function() {gui.stupidity +=10; gui.textBox(["M. Cenfroque est intimidé","Il ne peut plus fuir"], [], function () {
 								gui.textBox(["M.Cenfroque utilise 'BBCOLLAB'"], [], function () {
-								scene.collection.push(new Img("viefaibleg",3,"viefaibleg",10,60,10,10));gui.textBox(["C'est super efficace!"], [], function() {gui.textBox(["[Guillaume]","Ah… il est trop fort pour moi…", "Il faut que j’utilise mon attaque secrète.", "J’invoque… LA FAMILLE ROBERT !" ], [], function() {scene.collection.push(new Img("cr",5,"cr",10,60,30,50));scene.collection.push(new Img("mr",6,"mr",30,60,30,50));scene.collection.push(new Img("rr",6,"rr",30,20,30,50));gui.textBox(["[Guillaume]","Chloé Robert, Maxime Robert, Robert Robert, tous avec moi !" ], [], function() {gui.textBox(["[Guillaume]","Chloé Robert, Maxime Robert, Robert Robert, tous avec moi !"], [], function() {scene.collection.push(new Img("vievidec",3,"vievidec",10,20,10,10));gui.textBox(["M.Cenfroque est terrassé par l'attaque!","Il est KO."], [], function() {scene.unload("combat21"); scene.sa4()})})})})} )} )})}]])})];
+								scene.collection.push(new Img("viefaibleg",10,"viefaibleg",-10,15,45,45));gui.textBox(["C'est super efficace!"], [], function() {gui.textBox(["[Guillaume]","Ah… il est trop fort pour moi…", "Il faut que j’utilise mon attaque secrète.", "J’invoque… LA FAMILLE ROBERT !" ], [], function() {scene.collection.push(new Img("cr",5,"cr",60,20,30,50));scene.collection.push(new Img("mr",6,"mr",30,20,30,50));scene.collection.push(new Img("rr",7,"rr",10,20,30,50));gui.textBox(["[Guillaume]","Chloé Robert, Maxime Robert, Robert Robert, tous avec moi !" ], [], function() {gui.textBox(["[Guillaume]","Chloé Robert, Maxime Robert, Robert Robert, tous avec moi !"], [], function() {scene.collection.push(new Img("vievidec",10,"vievidec",-10,-15,45,45));gui.textBox(["M.Cenfroque est terrassé par l'attaque!","Il est KO."], [], function() {scene.unload("combat21"); scene.sa4()})})})})} )} )})}]])})];
 		this.sort()
 		}
 	}
@@ -1299,8 +1302,8 @@ function Scene () {
 		}
 		else {
 		this.collection = [ new Img("archive",0,"archive",0,0,100,900/16),
-							new Button("blabla",7,"Vide1",0,0,100,900/16,infini,function () {supprime("blabla");gui.slots[0]=null;gui.slots[1]=null;gui.slots[2]=null;gui.slots[3]=null;gui.slots[4]=null;gui.textBox(["[Sasha]","Sasha : Oh tiens, il y a quelque chose qui dépasse", "de l’étagère. Mais on dirait le ", "second fragment de lettre."  ], [], function () {gui.slots[0]=new Collectible("lettre",3,"lettre",20,5,50,80);gui.slots[0]=new Collectible("photofaluniere",4,"photof",20,5,50,35)})} ),
-							new Button("vcarrière",1,"lumiere",50,50,5,5,infini,function () {gui.inputBox("Où se cacherait donc le trésor?",5,["falunière","faluniere","Faluniere","Falunière","carrière","carriere","Carrière","Carriere"],function () {scene.unload("archive2"); scene.carriere1()}, function() {if (f<15) {f+=1; gui.stupidity+=35}})} )];
+							new Button("blabla",7,"Vide1",0,0,100,900/16,infini,function () {supprime("blabla");gui.slots[0]=null;gui.slots[1]=null;gui.slots[2]=null;gui.slots[3]=null;gui.slots[4]=null;gui.textBox(["[Sasha]","Sasha : Oh tiens, il y a quelque chose qui dépasse", "de l’étagère. Mais on dirait le ", "second fragment de lettre."  ], [], function () {gui.slots[0]=new Collectible("lettre",3,"lettre",20,5,50,80);gui.slots[1]=new Collectible("photofaluniere",5,"photof",20,5,50,35)})} ),
+							new Button("vcarrière",1,"lumiere",90,10,5,5,infini,function () {gui.inputBox("Où se cacherait donc le trésor?",1,["falunière","faluniere","Faluniere","Falunière","carrière","carriere","Carrière","Carriere"],function () {scene.unload("archive2"); scene.carriere1()}, function() {if (f<15) {f+=1; gui.stupidity+=35}})} )];
 		this.sort()
 		}
 	}
@@ -1397,10 +1400,10 @@ function Scene () {
 		}
 		else {
 		this.collection = [ new Img("Kvo1",0,"Kvo1",0,0,100,900/16),
-							new Button("Kvo12",1,"lumiere",70,60,5,5,infini,function () {scene.unload("Kvo1"); scene.Kvo2()}), 
-							new Button("Kvo18",1,"lumiere",20,60,5,5,infini,function () {scene.unload("Kvo1"); scene.Kvo8()} ),
+							new Button("Kvo12",1,"lumiere",80,90,5,5,infini,function () {scene.unload("Kvo1"); scene.Kvo2()}), 
+							new Button("Kvo18",1,"lumiere",5,80,5,5,infini,function () {scene.unload("Kvo1"); scene.Kvo8()} ),
 							new Button("idee",1,"lumiere",20,50,5,5,infini,function () {gui.textBox(["Pour faire un bon Sex On The Beach", "on ajoute la vodka, puis le jus", "de canneberges, puis le jus d'ananas dans le verre."])}), 
-							new Door("verre1", 1, ["verre","verre"],60,60,15,15,"jus1", function() {supprime("verre1");scene.collection.push(new Door("verre2", 1, ["verre","verre"],60,60,15,15,"jus3", function() {supprime("verre3");scene.collection.push(new Door("verre3", 1, ["verre","verre"],60,60,15,15,"jus2", function() {supprime("verre3");scene.collection.push(new Collectible("cocktail", 10, "cocktail",60,60,15,15))}))}))})];
+							new Door("verre1", 1, ["verre","verre"],60,40,10,10,"jus1", function() {supprime("verre1");scene.collection.push(new Door("verre2", 1, ["verre","verre"],60,40,10,10,"jus3", function() {supprime("verre2");scene.collection.push(new Door("verre3", 1, ["verre","verre"],60,40,10,10,"jus2", function() {supprime("verre3");scene.collection.push(new Collectible("cocktail", 10, "cocktail",60,40,10,10))}))}))})];
 		this.sort()
 		}
 	}
@@ -1411,10 +1414,10 @@ function Scene () {
 		}
 		else {
 		this.collection = [ new Img("Kvo2",0,"Kvo2",0,0,100,900/16),
-							new Button("Kvo21",1,"lumiere",10,95,5,5,infini,function () {scene.unload("Kvo2"); scene.Kvo1()}), 
+							new Button("Kvo21",1,"lumiere",10,90,5,5,infini,function () {scene.unload("Kvo2"); scene.Kvo1()}), 
 							new Button("Kvo23",1,"lumiere",80,75,5,5,infini,function () {scene.unload("Kvo2"); scene.Kvo3()}),
-							new Chest("ch3st9", 1, "coffre", 70,50,5,5),
-							new Button("Sophie",1,"sophie1",50,50,15,20,infini,function () {var rc=[null];
+							new Chest("ch3st9", 1, "coffre", 40,50,5,5),
+							new Button("Sophie",1,"sophie1",50,40,23,30,infini,function () {var rc=[null];
 								for (i=0; i<scene.collection.length; i++) {
 									var elt= scene.collection[i];
 									if (elt.id=="ch3st9") {
@@ -1423,7 +1426,7 @@ function Scene () {
 										else {rc[0]=elt.slot.id}
 									}
 								}
-								if (rc[0]=="cocktail") {gui.textBox(["[Petite grande fille]","Oh oui, mon cocktail ! Tiens ", "en échange je t’offre cette clé. Comme ça tu pourras ouvrir", "les toilettes. Le vieux s’est enfermé dedans.", [], function() {supprime("Sophie");scene.collection.push(new Collectible("cletoilettes", 10, "key",50,50,5,5))} ])}
+								if (rc[0]=="cocktail") {gui.textBox(["[Petite grande fille]","Oh oui, mon cocktail ! Tiens ", "en échange je t’offre cette clé. Comme ça tu pourras ouvrir", "les toilettes. Le vieux s’est enfermé dedans."], [], function() {supprime("Sophie");scene.collection.push(new Collectible("cletoilettes", 10, "key",50,50,5,5))} )}
 								else {gui.textBox(["[Petite grande fille]","Salut toi !" ], [], function() {gui.textBox(["[Sasha]","Bonjour… dis-moi, tu n’aurais pas vu", "un vieil homme passer ici ?" ], [], function() {gui.textBox(["[Petite grande fille]","Bien sûr !" ], [], function() {gui.textBox(["[Sasha]","Et tu peux me dire où il est ?" ], [], function() {gui.textBox(["[Petite grande fille]","Ah non ! D’abord tu dois faire", "quelque chose pour moi !" ], [], function() {gui.textBox(["[Sasha]","j’aurais dû m’en douter.", "Qu’est-ce que tu veux ?" ], [], function() {gui.textBox(["[Petite grande fille]","S’il vous plaît, fais-moi un cocktail !" ], [], function() {gui.textBox(["[Sasha]","Pardon ? Mais genre t’as quel âge pour me demander ça ?" ], [], function() {gui.textBox(["[Petite grande fille]","Bah 20 ans pourquoi ? Bon si tu veux pas", "me faire mon cocktail bah je t’aiderai pas, nah !" ], [], function (){gui.textBox(["[Sasha]","Ok, ça va j’ai compris !" ])})})})})})})})})})}
 							})];
 		this.sort()
@@ -1438,8 +1441,8 @@ function Scene () {
 		this.collection = [ new Img("Kvo3",0,"Kvo3",0,0,100,900/16),
 							new Button("Kvo32",1,"lumiere",80,90,5,5,infini,function () {scene.unload("Kvo3"); scene.Kvo2()}), 
 							new Button("Kvo34",1,"lumiere",10,90,5,5,infini,function () {scene.unload("Kvo3"); scene.Kvo4()}),
-							new Button("Kvo35",1,"lumiere",50,40,5,5,infini,function () {scene.unload("Kvo3"); scene.Kvo5()},
-							new Button("Kvo37",1,"lumiere",65,60,5,5,infini,function () {scene.unload("Kvo3"); scene.Kvo7()}) )];
+							new Button("Kvo35",1,"lumiere",30,40,5,5,infini,function () {scene.unload("Kvo3"); scene.Kvo5()}),
+							new Button("Kvo37",1,"lumiere",50,40,5,5,infini,function () {scene.unload("Kvo3"); scene.Kvo7()}) ];
 		this.sort()
 		}
 	}
@@ -1463,7 +1466,7 @@ function Scene () {
 		else {
 		this.collection = [ new Img("Kvo5",0,"Kvo5",0,0,100,900/16),
 							new Button("Kvo53",1,"lumiere",5,50,5,5,infini,function () {scene.unload("Kvo5"); scene.Kvo3()}), 
-							new Button("Kvo56",1,"lumiere",95,95,5,5,infini,function () {scene.unload("Kvo5"); scene.Kvo8()} )];
+							new Button("Kvo56",1,"lumiere",90,90,5,5,infini,function () {scene.unload("Kvo5"); scene.Kvo6()} )];
 		this.sort()
 		}
 	}
@@ -1474,8 +1477,8 @@ function Scene () {
 		}
 		else {
 		this.collection = [ new Img("Kvo6",0,"Kvo6",0,0,100,900/16),
-							new Button("Kvo65",1,"lumiere",20,80,5,5,infini,function () {scene.unload("Kvo6"); scene.Kvo5()}), 
-							new Button("Kvo610",1,"lumiere",68,80,5,5,infini,function () {scene.unload("Kvo6"); scene.Kvo10()} )];
+							new Button("Kvo65",1,"lumiere",15,80,5,5,infini,function () {scene.unload("Kvo6"); scene.Kvo5()}), 
+							new Button("Kvo610",1,"lumiere",50,70,5,5,infini,function () {scene.unload("Kvo6"); scene.Kvo10()} )];
 		this.sort()
 		}
 	}
@@ -1486,8 +1489,8 @@ function Scene () {
 		}
 		else {
 		this.collection = [ new Img("Kvo7",0,"Kvo7",0,0,100,900/16),
-							new Button("Kvo73",1,"lumiere",90,90,5,5,infini,function () {scene.unload("Kvo7"); scene.Kvo2()} ),
-							new Collectible("jus2", 10,"jus2",10,90,10,10)];
+							new Button("Kvo73",1,"lumiere",90,90,5,5,infini,function () {scene.unload("Kvo7"); scene.Kvo3()} ),
+							new Collectible("jus2", 10,"jus2",5,80,10,10)];
 		this.sort()
 		}
 	}
@@ -1510,7 +1513,7 @@ function Scene () {
 		}
 		else {
 		this.collection = [ new Img("Kvo9",0,"Kvo9",0,0,100,900/16),
-							new Button("vieux",2,"vieux",50,50,50,60,infini,function () {gui.textBox(["[[Vieil homme]","Ah, tu m’as retrouvé ! Je disais donc…", "je sais que tu as mené une grande", "bataille la nuit dernière. " ], [], function() {gui.textBox(["[[Vieil homme]","Pendant trop longtemps, nos ennemis,", "cruels, ont souillé les terres de Grignon." ], [], function() {gui.textBox(["[[Vieil homme]","Mais pour te souvenir de cet affrontement,", "il te faudra fouiller les archives", "cachées sous l’amphithéâtre." ], [], function () {gui.textBox(["[[Vieil homme]","Bon nombre de tes questions trouveront ainsi", "leur réponse." ], [], function() {scene.unload("Kvo9"); scene.archive1()})})})})})];
+							new Button("vieux",2,"vieux",20,15,70,100,infini,function () {gui.textBox(["[[Vieil homme]","Ah, tu m’as retrouvé ! Je disais donc…", "je sais que tu as mené une grande", "bataille la nuit dernière. " ], [], function() {gui.textBox(["[[Vieil homme]","Pendant trop longtemps, nos ennemis,", "cruels, ont souillé les terres de Grignon." ], [], function() {gui.textBox(["[[Vieil homme]","Mais pour te souvenir de cet affrontement,", "il te faudra fouiller les archives", "cachées sous l’amphithéâtre." ], [], function () {gui.textBox(["[[Vieil homme]","Bon nombre de tes questions trouveront ainsi", "leur réponse." ], [], function() {scene.unload("Kvo9"); scene.archive1()})})})})})];
 		this.sort()
 		}
 	}
@@ -1521,7 +1524,8 @@ function Scene () {
 		}
 		else {
 		this.collection = [ new Img("Kvo10",0,"Kvo10",0,0,100,900/16),
-							new Button("Kvo106",1,"lumiere",95,95,5,5,infini,function () {scene.unload("Kvo10"); scene.Kvo6()} )];
+							new Collectible("jus3", 10,"jus3",50,55,10,10),
+							new Button("Kvo106",1,"lumiere",90,90,5,5,infini,function () {scene.unload("Kvo10"); scene.Kvo6()} )];
 		this.sort()
 		}
 	}
@@ -1676,8 +1680,8 @@ function Scene () {
 		}
 		else {
 		this.collection = [ new Img("carriere7",0,"carriere7",0,0,100,900/16),
-							new Button("vcarriere2",1,"lumiere",80,85,10,10,infini,function () {scene.unload("carriere7"); scene.carriere6()}), 
-							new Button ("fin",1,"cache",0,77,15,15,infini, function () {scene.collection.push(new Img("peau",5,"peau",30,20,50,30));gui.textBox(["[Madame de Brassac]","Voici mon cher ami la peau du bélier", "primordial de Grignon, j’espère qu’elle", "réalisera vos vœux les plus chers." ], [], function() {scene.unload("carriere7"); scene.porte4()})}) ];
+							new Button("vcarriere2",1,"lumiere",80,85,5,5,infini,function () {scene.unload("carriere7"); scene.carriere6()}), 
+							new Button ("fin",1,"cache",-10,60,20,25,infini, function () {gui.textBox(["[Sasha]", "Tiens, entre les racines de cet hêtre bicentenaire..."], [], function() {scene.collection.push(new Img("peau",5,"peau",30,20,50,30));gui.textBox(["[Madame de Brassac]","Voici mon cher ami la peau du bélier", "primordial de Grignon, j’espère qu’elle", "réalisera vos vœux les plus chers." ], [], function() {scene.unload("carriere7"); scene.porte4()})})}) ];
 		this.sort()
 		}
 	}
@@ -1688,7 +1692,7 @@ function Scene () {
 		}
 		else {
 		this.collection = [ new Img("porte",0,"porte",0,0,100,900/16),
-							new Button("vcarriere2",1,"lumiere",80,85,10,10,infini,function () {gui.textBox(["[Sasha]","Si ce truc pouvait vraiment réaliser les vœux,", "je voudrais bien qu’il retrouve mes clés.", "Je peux toujours pas rentrer chez moi là…" ], [], function() {gui.textBox(["[Pauline]","Ne crains rien Sasha,", "le BDE est là pour toi !", "Voici tes clés !" ], [], function() {gui.textBox(["[Sasha]","Oh merci, grâce à vous je vais", "enfin pouvoir me taper ma meilleure sieste. " ])})})}), ];
+							new Button("vcarriere2",1,"Vide1",0,0,100,900/16,infini,function () {gui.textBox(["[Sasha]","Si ce truc pouvait vraiment réaliser les vœux,", "je voudrais bien qu’il retrouve mes clés.", "Je peux toujours pas rentrer chez moi là…" ], [], function() {gui.textBox(["[Pauline]","Ne crains rien Sasha,", "le BDE est là pour toi !", "Voici tes clés !" ], [], function() {gui.textBox(["[Sasha]","Oh merci, grâce à vous je vais", "enfin pouvoir me taper ma meilleure sieste. " ])})})}), ];
 		this.sort()
 		}
 	}
