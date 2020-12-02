@@ -266,7 +266,7 @@ function GUI () {
 			this.showtimer = false;
 		}
 		else {
-			this.time -= 1;
+			if (this.time !== null) {this.time -= 1;}
 		}
 	}
 
