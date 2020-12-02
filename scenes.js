@@ -684,8 +684,8 @@ function Scene () {
 		}
 		else {
 		this.collection = [ new Img("ct",0,"ct",0,0,100,900/16),
-							new Button("agression",2,"Vide1",0,0,100,900/16,infini,function () {gui.textBox(["[Acolyte de la CT]","Bienvenue à toi, jeune disciple.", "Ici tu ne trouveras que joie et amusement !" ] , [], function() {gui.textBox(["En gros, on perpétue les traditions :", "vin, jambon, saucisson. Joins-toi à nous !" ], [], function() {gui.textBox(["Bon cette fois j’espère qu’elle va entendre." ], [], function() {gui.textBox(["[Acolyte de la CT]","Jeaaaaanne !! Bon bah ça a pas l’air, elle est", "vraiment sourde comme un pot.", "Bon : approche ça va être marrant !" ], [], function() {gui.choicesBox([
-							["Aaaaaah mais oui avec plaisir", function() {gui.stupidity +=20; scene.unload("ct3"); scene.ct4()}]])} )})})})})];
+							new Button("agression",2,"Vide1",0,0,100,900/16,infini,function () {gui.textBox(["[Acolyte de la CT]","Bienvenue à toi, jeune disciple.", "Ici tu ne trouveras que joie et amusement !" ] , [], function() {gui.textBox(["En gros, on perpétue les traditions :", "vin, jambon, saucisson. Joins-toi à nous !" ], [], function() {gui.textBox(["Bon cette fois j’espère qu’elle va entendre." ], [], function() {gui.textBox(["[Acolyte de la CT]","Jeaaaaanne !! Bon bah ça a pas l’air, elle est", "vraiment sourde comme un pot."], [], function() {gui.choicesBox([
+							[ "Bon : approche ça va être marrant !"],["Aaaaaah mais oui avec plaisir", function() {gui.stupidity +=20; scene.unload("ct3"); scene.ct4()}]])} )})})})})];
 		this.sort()
 		}
 	}
