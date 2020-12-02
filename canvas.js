@@ -260,13 +260,13 @@ function GUI () {
 	}
 
 	this.tick = function () {
-		if (this.time <= 0) {
-			this.onTimerEnd()
+		if (this.time !== null && this.time <= 0) {
 			this.time = null
+			this.onTimerEnd()
 			this.showtimer = false;
 		}
 		else {
-			this.time -= 1;
+			if (this.time !== null) {this.time -= 1;}
 		}
 	}
 
