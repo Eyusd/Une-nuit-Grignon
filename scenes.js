@@ -1763,7 +1763,7 @@ function Scene () {
 		}
 		else {
 		this.collection = [ new Img("porte",0,"porte",0,0,100,900/16),
-							new Button("vcarriere2",1,"Vide1",0,0,100,900/16,infini,function () {gui.textBox(["[Sasha]","Si ce truc pouvait vraiment réaliser les vœux,", "je voudrais bien qu’il retrouve mes clés.", "Je peux toujours pas rentrer chez moi là…" ], ["Sasha121"], function() {scene.collection.push(new Img("pauline2",5,"pauline2",10,10,85,70));gui.textBox(["[Pauline]","Ne crains rien Sasha,", "le BDE est là pour toi !", "Voici tes clés !" ], ["Pauline7"], function() {gui.textBox(["[Sasha]","Oh merci, grâce à vous je vais", "enfin pouvoir me taper ma meilleure sieste. " ], ["Sasha122"])})})}), ];
+							new Button("vcarriere2",1,"Vide1",0,0,100,900/16,infini,function () {gui.textBox(["[Sasha]","Si ce truc pouvait vraiment réaliser les vœux,", "je voudrais bien qu’il retrouve mes clés.", "Je peux toujours pas rentrer chez moi là…" ], ["Sasha121"], function() {scene.collection.push(new Img("pauline2",5,"pauline2",10,10,85,70));gui.textBox(["[Pauline]","Ne crains rien Sasha,", "le BDE est là pour toi !", "Voici tes clés !" ], ["Pauline7"], function() {gui.textBox(["[Sasha]","Oh merci, grâce à vous je vais", "enfin pouvoir me taper ma meilleure sieste. "], ["Sasha122"], function() {scene.unload("porte4"); scene.endingscreen()})})})}), ];
 		this.sort()
 		}
 	}
