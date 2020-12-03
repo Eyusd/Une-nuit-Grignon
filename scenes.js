@@ -44,10 +44,11 @@ function Scene () {
 /// Declare Scenes
 
 	this.loadingscreen = function() {
-		this.collection = [ new SplashText("splash1", 10, 11,35,9,'rgb(255,255,255)',"Une Nuit à Grignon"),
+		this.collection = [ new SplashText("splash1", 10, 11,35,9,'rgb(255,255,255)',"Une Nuit à Grignon. "),
 							new SplashText("splash2", 10, 28,55,3,'rgb(0,0,0)', "Un jeu en cours de chargement."),
 							new SplashText("splash3", 10, 10,63,3,'rgb(0,0,0)', "On a environ 100Mo de données à charger, patiente un peu."),
-							new SplashText("splash4", 10, 5,70,2,'rgb(0,0,0)', "Toute ressemblance avec des évenements ou des personnes réelles ne saurait être autre que fortuite"),
+							new SplashText("splash4", 10, 5,70,2,'rgb(0,0,0)', "Toute ressemblance avec des évènements ou des personnes réelles ne saurait être autre que fortuite"),
+							new SplashText("splash4", 10, 28,76,1.5,'rgb(0,0,0)', "N'oubliez pas d'envoyez vos résultats finaux au BDEtoiles sur Fb,Insta ou Zimbra!"),
 							new SplashText("splash5", 10, 40,97,1.5,'rgb(0,0,0)', "Développé par Clément Chardine @CS et Louis Pimont @APT pour le Bureau des Etoiles"),
 							new Img("logo", 0, "logo", 30,-10,40,40)];
 	}
@@ -572,7 +573,7 @@ function Scene () {
 							["proposer de réviser ensemble", function() {supprime("jimmy");gui.textBox(["[Sasha]", "Faut que je révise pour les partiels,", "tu me donnes un coup de main", "pour les TD  de repro?"], [], function() {scene.collection.push(new Img("jimmy2",5,"jimmy2",20,0,70,90));gui.stupidity +=20; gui.textBox(["[Jimmy]", "Ca faut le mériter mon chou"], ["Jimmy8"], function() {gui.textBox(["[Jimmy]", "Bisous ! Passe une soirée !"], ["Jimmy11"], function() {scene.unload("draguej3"); scene.finpullup()})})})}],
 							["être direct", function() {supprime("jimmy");gui.textBox(["[Sasha]", "Salut toi ! Je t’ai cherché des", "yeux pendant toute la soirée."], [], function() {scene.collection.push(new Img("jimmy1",5,"jimmy1",20,0,70,90));gui.stupidity +=0; gui.textBox(["[Jimmy]", "Oh c’est un peu creepy mais je suis flatté !"], ["Jimmy5"], function() {gui.textBox(["[Jimmy]", "Bisous ! Passe une soirée !"], ["Jimmy11"], function() {scene.unload("draguej3"); scene.finpullup()})})})}],
 							["parler de ses fantasmes", function() {supprime("jimmy");gui.textBox(["[Sasha]", "J’ai toujours rêvé de chevaucher un mouton."], [], function() {scene.collection.push(new Img("jimmy4",5,"jimmy4",20,0,70,90));gui.stupidity +=80; gui.textBox(["[Jimmy]", "Ah bah cool pour toi. A +"], ["Jimmy10"], function() {gui.textBox(["[Jimmy]", "Je me barre de là moi."], ["Jimmy12"], function() {scene.unload("draguej3"); scene.finpullup()})})})}],
-							["demander l'heure", function() {supprime("jimmy");gui.textBox(["[Sasha]", "Excuse-moi t’aurais pas l’heure parce que", "depuis que je t’ai vu, j’ai perdu", "la notion du temps."], [], function() {scene.collection.push(new Img("jimmy2",5,"jimmy2",20,0,70,90));gui.stupidity +=10; gui.textBox(["[Jimmy]", "Ah… me voilà gêné "], ["Jimmy7"], function() {gui.textBox(["[Jimmy]"], ["Bisous ! Passe une soirée !"], ["Jimmy11"], function() {scene.unload("draguej3"); scene.finpullup()})})})}]])} ),
+							["demander l'heure", function() {supprime("jimmy");gui.textBox(["[Sasha]", "Excuse-moi t’aurais pas l’heure parce que", "depuis que je t’ai vu, j’ai perdu", "la notion du temps."], [], function() {scene.collection.push(new Img("jimmy2",5,"jimmy2",20,0,70,90));gui.stupidity +=10; gui.textBox(["[Jimmy]", "Ah… me voilà gêné "], ["Jimmy7"], function() {gui.textBox(["[Jimmy]","Bisous ! Passe une soirée !"], ["Jimmy11"], function() {scene.unload("draguej3"); scene.finpullup()})})})}]])} ),
 						];
 		this.sort()
 		}
