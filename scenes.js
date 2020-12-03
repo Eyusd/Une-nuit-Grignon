@@ -676,12 +676,12 @@ function Scene () {
 		else {
 		this.collection = [ new Img("choix",0,"choix",0,0,100,900/16),
 							new Button("reponse",2,"lumiere",50,70,5,5,infini,function () {gui.choicesBox([["4 mentent et 2 disent vrai","Qui est le coupable?"],
-							["Rith", function() {if (d < 4.0) {gui.stupidity +=15;d+=1}}],
-							["Camille", function() {if (d < 4.0) {gui.stupidity +=50;d+=1}}],
-							["Alexia", function() {if (d < 4.0) {gui.stupidity +=15;d+=1}}],
-							["Benjamin", function() {if (d < 4.0) {gui.stupidity +=25;d+=1}}],
+							["Rith"],
+							["Camille"],
+							["Alexia"],
+							["Benjamin", function() {if (d < 4) {gui.stupidity +=25;d+=1;scene.unload("reponse"); scene.reflexion()}}],
 							["Alex", function() {gui.textBox(["[Sasha]","Alex… dis-moi tout. J’attends." ], ["Sasha77"], function() {gui.textBox(["[Alex]","Bon, je voulais pas t’en parler car t’es ma pote", "et je voulais pas te blesser. Mais tu", "vois…Camille…" ], ["Alex20"], function() {gui.textBox(["[Alex]","C’est elle qui a appelé les flics à la soirée", "d’hier. C’est à cause d’elle que tu as subi tout ça." ], ["Alex21"], function() {gui.textBox(["[Sasha]","C-Comment ?" ], ["Sasha78"], function() {scene.unload("reponse"); scene.souvenir3()})})})})}],
-							["Auriane", function() {if (d < 4.0){gui.stupidity +=15;d+=1}}]]) })];
+							["Auriane", function() {if (d < 4){gui.stupidity +=15;d+=1;scene.unload("reponse"); scene.reflexion()}}]]) })];
 							
 		this.sort()
 		}
@@ -1120,7 +1120,10 @@ function Scene () {
 							new Collectible("croix", 7, "croix",8,25,8,8),
 							new Collectible("croix", 7, "croix",8,35,8,8),
 							new Collectible("croix", 7, "croix",8,45,8,8),
-							new Button("indice",9,"lumiere",90,50,5,5,infini,function () {gui.textBox(["[Sasha]", "Hum, Camille est née le 17 juillet", "et adore l'astronomie.","Elle comporte aussi le premier point en haut à gauche.", "Il faut placer les croix "])} ),
+							new Button("att",1,"att",80,20,10,10,infini,function () {gui.choicesBox([["Etes vous surs de vouloir sauter cette énigme? (Pénalité+1)?"],
+							["Oui", function() {g+=1;scene.collection.push(new Img("message17",9,"message17",30,0,45,45));gui.textBox(["[Camille]","Sasha tu fais quoi ?" ], ["Camille15"], function() {gui.textBox(["[Sasha]","Euh Camille c’est quoi cette histoire ?" ], ["Sasha51"], function() {gui.textBox(["[Camille]","Ca ne te CONCERNE PAS !" ], ["Camille16"], function() {gui.textBox(["[Sasha]","Pardon je suis désolé j’aurais pas dû fouiller je…" ], ["Sasha52"] , function() {gui.textBox(["[Camille]","Nan. Ok. Peu importe. Laisse tomber. Oublie ça.", "Je suis un peu tendue en ce moment." ], ["Camille17"], function() {scene.unload("enigmeetoile"); scene.finetoile()})})})})})}],
+							["Non"]])}), 
+							new Button("indice",9,"lumiere",90,50,5,5,infini,function () {gui.textBox(["[Sasha]", "Hum, Camille est née le 17 juillet", "et adore l'astronomie.","Elle comporte aussi le premier point en haut à gauche.", "Il faut placer les croix dans les cases sur les points"])} ),
 							new Button("valider",7,"valider", 50,60,5,5, infini, function () {var ar=[null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null];
 								for (i=0; i<scene.collection.length; i++) {
 									var elt= scene.collection[i];
@@ -1302,7 +1305,10 @@ function Scene () {
 							["lui exploser la gueule", function() {gui.playsound("Baffe");supprime("alex");gui.textBox(["[Sasha]","Une bonne chose de faite, il ne me reste plus qu’à", "trouver ce M. Cenfroque. J’entends du bruit", "derrière la porte, c’est sûrement là qu’il se cache." ], ["Sasha111"], function() {scene.collection.push(new Button("alex2",5,"alex2",33,40,30,22,infini,function () {supprime("alex2");gui.textBox(["[Sasha]", "Tiens, il avait un papier sur lui", "Il y a des symboles dessus", "On dirait de l'alchimie."], [], function() {gui.slots[1]=new Collectible("elements", 9, "elements",30,0,50,80)})} ))})}],
 							["lui faire manger ses morts", function() {gui.playsound("Baffe");supprime("alex");gui.textBox(["[Sasha]","Une bonne chose de faite, il ne me reste plus qu’à", "trouver ce M. Cenfroque. J’entends du bruit", "derrière la porte, c’est sûrement là qu’il se cache." ], ["Sasha111"], function() {scene.collection.push(new Button("alex2",5,"alex2",33,40,30,22,infini,function () {supprime("alex2");gui.textBox(["[Sasha]", "Tiens, il avait un papier sur lui", "Il y a des symboles dessus", "On dirait de l'alchimie."], [], function() {gui.slots[1]=new Collectible("elements", 9, "elements",30,0,50,80)})} ))})}]])} )})})})})})})})})})})})})})})})} ),
 							new Button("vsa3",2,"lumiere",50,20,5,5,infini,function () {gui.inputBox("Quel est le code?",1,["TFEA","tfea"],function () {scene.unload("sa2"); scene.sa3()}, function() {if (f<15) {f+=1; gui.stupidity+=35}})} ),
-							new Button("vamphicasier",2,"lumiere",5,90,5,5,infini,function () {scene.unload("sa2"); scene.sa1()})];
+							new Button("vamphicasier",2,"lumiere",5,90,5,5,infini,function () {scene.unload("sa2"); scene.sa1()}),
+							new Button("att",1,"att",80,20,10,10,infini,function () {gui.choicesBox([["Etes vous surs de vouloir sauter cette énigme? (Pénalité+1)?"],
+							["Oui", function() {g+=1;scene.unload("sa2"); scene.sa3()}],
+							["Non"]])}),];
 		this.sort()
 		}
 	}
@@ -1473,6 +1479,9 @@ function Scene () {
 		}
 		else {
 		this.collection = [ new Img("Kvo2",0,"Kvo2",0,0,100,900/16),
+							new Button("att",1,"att",80,20,10,10,infini,function () {gui.choicesBox([["Etes vous surs de vouloir sauter cette énigme? (Pénalité+1)?"],
+							["Oui", function() {g+=1;scene.unload("Kvo2"); scene.Kvo9()}],
+							["Non"]])}),
 							new Button("Kvo21",1,"lumiere",10,90,5,5,infini,function () {scene.unload("Kvo2"); scene.Kvo1()}), 
 							new Button("Kvo23",1,"lumiere",80,75,5,5,infini,function () {scene.unload("Kvo2"); scene.Kvo3()}),
 							new Chest("ch3st9", 1, "coffre", 40,50,5,5),
@@ -1645,7 +1654,9 @@ function Scene () {
 		this.collection = [ new Img("serre4",0,"serre4",0,0,100,900/16),
 							new Button("blabla",7,"Vide1",0,0,100,900/16,infini,function () {gui.textBox(["[Benjamin]","Oh c’est pas vrai !", "Quelqu’un a verrouillé le placard où on a mis", "le LSD- erm… les étoiles de Mario."], ["Benjamin6"], function() {gui.textBox(["[Benjamin]"," Il faut qu’on les récupère mais la porte", "s’ouvre pas. Il y a un code à 4 chiffres…"], ["Benjamin7"], function() {gui.textBox(["[Alex]","Yo les gars, vous cherchez quoi ?" ], ["Alex4"], function() {gui.textBox(["[Sasha]","Le code du placard là-bas." ], ["Sasha13"], function() {supprime("blabla");gui.textBox(["[Alex]","Ah ouais. De mémoire, c’est une date importante pour l’école."], ["Alex5"])})})})})}),
 							new Button("vserre40",1,"lumiere",20,80,5,5,infini,function () {scene.unload("serre4"); scene.serre0()}), 
-							new Button("att",1,"att",20,80,5,5,infini,function () {gui.textBox([""])}), 
+							new Button("att",1,"att",80,20,10,10,infini,function () {gui.choicesBox([["Etes vous surs de vouloir sauter cette énigme? (Pénalité+1)?"],
+							["Oui", function() {g+=1;scene.unload("serre4"); scene.serre5()}],
+							["Non"]])}), 
 							new Button("vserre45",1,"lumiere",50,50,5,5,infini,function () {gui.inputBox("Quel est le code?",1,["1826"],function () {scene.unload("serre4"); scene.serre5()}, function() {if (f<15) {f+=1; gui.stupidity+=35}})} )];
 		this.sort()
 		}
