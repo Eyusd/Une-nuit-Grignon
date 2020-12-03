@@ -676,12 +676,12 @@ function Scene () {
 		else {
 		this.collection = [ new Img("choix",0,"choix",0,0,100,900/16),
 							new Button("reponse",2,"lumiere",50,70,5,5,infini,function () {gui.choicesBox([["4 mentent et 2 disent vrai","Qui est le coupable?"],
-							["Rith", function() {if (d < 4.0) {gui.stupidity +=15;d+=1.0}}],
-							["Camille", function() {if (d < 4.0) {gui.stupidity +=50;d+=1.0}}],
-							["Alexia", function() {if (d < 4.0) {gui.stupidity +=15;d+=1.0}}],
-							["Benjamin", function() {if (d < 4.0) {gui.stupidity +=25;d+=1.0}}],
+							["Rith", function() {if (d < 4.0) {gui.stupidity +=15;d+=1}}],
+							["Camille", function() {if (d < 4.0) {gui.stupidity +=50;d+=1}}],
+							["Alexia", function() {if (d < 4.0) {gui.stupidity +=15;d+=1}}],
+							["Benjamin", function() {if (d < 4.0) {gui.stupidity +=25;d+=1}}],
 							["Alex", function() {gui.textBox(["[Sasha]","Alex… dis-moi tout. J’attends." ], ["Sasha77"], function() {gui.textBox(["[Alex]","Bon, je voulais pas t’en parler car t’es ma pote", "et je voulais pas te blesser. Mais tu", "vois…Camille…" ], ["Alex20"], function() {gui.textBox(["[Alex]","C’est elle qui a appelé les flics à la soirée", "d’hier. C’est à cause d’elle que tu as subi tout ça." ], ["Alex21"], function() {gui.textBox(["[Sasha]","C-Comment ?" ], ["Sasha78"], function() {scene.unload("reponse"); scene.souvenir3()})})})})}],
-							["Auriane", function() {if (d < 4.0){gui.stupidity +=15;d+=1.0}}]]) })];
+							["Auriane", function() {if (d < 4.0){gui.stupidity +=15;d+=1}}]]) })];
 							
 		this.sort()
 		}
