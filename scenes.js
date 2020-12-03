@@ -915,7 +915,7 @@ function Scene () {
 		}
 		else {
 		this.collection = [ new Img("enigmepain",0,"enigmepain",0,0,100,900/16),
-							new Button("enigme",5,"Vide1",0,0,100,900/16,infini,function () {gui.textBox(["[Sasha]","Je dois trouver un pain qui n’existe qu’en", "UN SEUL exemplaire parmi des pains qui", "vont par PAIRES." ], ["Sasha87"], function() {supprime("enigme")})} ),
+							new Button("enigme",5,"Vide1",0,0,100,900/16,infini,function () {gui.textBox(["[Sasha]","Je dois trouver un pain qui n’existe qu’en", "UN SEUL exemplaire parmi des pains qui", "vont par PAIRES." ], ["Sasha86"], function() {supprime("enigme")})} ),
 							new Button("pain",2,"pain",33,65,10,10,infini,function () {gui.textBox(["[Auriane]","Oh Sasha, merci infiniment !", "Le club Ko-pain a accompli", "sa mission du jour grâce à toi ! " ], ["Auriane8"], function() {gui.textBox(["[Sasha]","Face à ce dur labeur, je crois", "qu’une petite pause s’impose !" ], ["Auriane9"], function() {gui.textBox(["[Auriane]","L’autre jour je suis passé à la ferme et", "j’ai acheté un petit saucisson", "aux herbes dont tu me diras des nouvelles !" ], ["Auriane10"], function() {gui.textBox(["[Sasha]","Mais il est trop bon ton saucisson !", " Aussi bon que celui que j’ai mangé à la CT hier !" ], ["Sasha87"], function() {gui.textBox(["[Auriane]","Tu as mangé du saucisson à la CT hier ?" ], ["Auriane11"], function() {gui.textBox(["[Sasha]"," Bah… je crois bien…" ], ["Sasha88"], function() {scene.unload("enigmepain"); scene.souvenir4()})})})})})})} ),
 							];
 		this.sort()
@@ -928,7 +928,7 @@ function Scene () {
 		}
 		else {
 		this.collection = [ new Img("pullup",0,"pullup",0,0,100,900/16),
-							new Button("vfuite",2,"Vide1",0,0,100,900/16,infini,function () {gui.textBox(["[Sasha]","*soupir* L’alcool commence déjà à redescendre", "et les gens ont arrêté de danser…" ], ["Sasha79"], function() {gui.textBox(["[Sasha]","Si seulement quelqu’un pouvait relancer la machine", "car là, on commence vraiment à s’ennuyer…" ], ["Sasha80"], function() {gui.playsound("Police1"),gui.textBox(["Y a les flics putain. Courez !" ], [], function(){gui.textBox(["Planquez-vous dans la forêt !" ], ["Othilie1"], function() {gui.textBox(["Jeanne, au secours !" ], ["Noémie6"], function() {scene.unload("pullup4"); scene.foret1()})})})})})} )];
+							new Button("vfuite",2,"Vide1",0,0,100,900/16,infini,function () {gui.textBox(["[Sasha]","*soupir* L’alcool commence déjà à redescendre", "et les gens ont arrêté de danser…" ], ["Sasha79"], function() {gui.textBox(["[Sasha]","Si seulement quelqu’un pouvait relancer la machine", "car là, on commence vraiment à s’ennuyer…" ], ["Sasha80"], function() {gui.playsound("Police1"),gui.textBox(["Y a les flics putain. Courez !" ], [], function(){gui.textBox(["Planquez-vous dans la forêt !" ], ["Othilie3"], function() {gui.textBox(["Jeanne, au secours !" ], ["Noémie6"], function() {scene.unload("pullup4"); scene.foret1()})})})})})} )];
 		this.sort()
 		}
 	}
