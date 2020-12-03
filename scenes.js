@@ -371,7 +371,7 @@ function Scene () {
 		}
 		else {
 		this.collection = [ new Img("gastro",0,"gastro",0,0,100,900/16),
-							new Button("vgrange1",2,"lumiere",10,80,5,5,infini,function () {gui.textBox(["[Sasha]","Tout laisse penser que je trouverai plus", "d’indices en me rendant à la grange." ], ["Sasha94"], function() {gui.playsound("Thriller");scene.unload("gastro3"); scene.grange1()} )}),
+							new Button("vgrange1",2,"lumiere",10,80,5,5,infini,function () {gui.playsound("Thriller");gui.textBox(["[Sasha]","Tout laisse penser que je trouverai plus", "d’indices en me rendant à la grange." ], ["Sasha94"], function() {scene.unload("gastro3"); scene.grange1()} )}),
 							];
 		this.sort()
 		}
@@ -1767,6 +1767,19 @@ function Scene () {
 							new Button("vcarriere2",1,"Vide1",0,0,100,900/16,infini,function () {gui.textBox(["[Sasha]","Si ce truc pouvait vraiment réaliser les vœux,", "je voudrais bien qu’il retrouve mes clés.", "Je peux toujours pas rentrer chez moi là…" ], ["Sasha121"], function() {scene.collection.push(new Img("pauline2",5,"pauline2",10,10,85,70));gui.textBox(["[Pauline]","Ne crains rien Sasha,", "le BDE est là pour toi !", "Voici tes clés !" ], ["Pauline7"], function() {gui.textBox(["[Sasha]","Oh merci, grâce à vous je vais", "enfin pouvoir me taper ma meilleure sieste. " ], ["Sasha122"])})})}), ];
 		this.sort()
 		}
+	}
+
+	this.endingscreen = function() {
+		this.collection = [ new SplashText("splash1", 10, 11,35,9,'rgb(255,255,255)',"Une Nuit à Grignon [Crédits]"),
+							new SplashText("splash2", 10, 28,55,3,'rgb(0,0,0)', "Chef de projet: PIMONT Louis"),
+							new SplashText("splash3", 10, 10,63,3,'rgb(0,0,0)', "Développeurs: PIMONT Louis @APT et CHARDINE Clément @CS"),
+							new SplashText("splash4", 10, 5,70,2,'rgb(0,0,0)', "Scénaristes:	AMBRUOSI Sarah / PIMONT Louis / DIB Odile / NELATON Victor / PLYN Noémie / OULERICH Zoé"),
+							new SplashText("splash5", 10, 2,97,1.5,'rgb(0,0,0)', "Dialoguistes AMBRUOSI Sarah / PIMONT Louis / OULERICH Zoé"),
+							new SplashText("splash1", 10, 2,85,9,'rgb(255,255,255)',"Monteurs photo/vidéo :TONG Guillaume / GUIMONT Mathieu /HAK Rith-Théa"),
+							new SplashText("splash1", 10, 2,85,9,'rgb(255,255,255)',"DIB Odile (Sasha) / HENRY Salomé (Camille) /PIMONT Louis (Alex)/ GUIMONT Mathieu  (Benjamin)/ CADENES Jimmy"),
+							new SplashText("splash1", 10, 2,85,9,'rgb(255,255,255)',"GIRARD Pauline / DROMIGNY Manon /BROUAUD Clara/ OULERICH Zoé/ DAUCHOT Gabriel/DELACROIX Auriane"),
+							new SplashText("splash1", 10, 2,85,9,'rgb(255,255,255)',"GAULTIER Alexia / TONG Guillaume /LANDREAU Léo/ PLYN Noémie/ HAK Rith-Théa/ROBERT Guillaume"),							
+							new SplashText("splash1", 10, 2,85,9,'rgb(255,255,255)',"DARETS Sophie / LARCHE Gwenaël /BROUAUD Clara/ NELATON Victor")];					
 	}
 }
 
