@@ -676,12 +676,12 @@ function Scene () {
 		else {
 		this.collection = [ new Img("choix",0,"choix",0,0,100,900/16),
 							new Button("reponse",2,"lumiere",50,70,5,5,infini,function () {gui.choicesBox([["4 mentent et 2 disent vrai","Qui est le coupable?"],
-							["Rith"],
-							["Camille"],
-							["Alexia"],
-							["Benjamin", function() {if (d < 4) {gui.stupidity +=25;d+=1;scene.unload("reponse"); scene.reflexion()}}],
+							["Rith", function() {if (d < 4) {gui.stupidity +=25;d+=1}}],
+							["Camille", function() {if (d < 4) {gui.stupidity +=50;d+=1}}],
+							["Alexia", function() {if (d < 4) {gui.stupidity +=25;d+=1}}],
+							["Benjamin", function() {if (d < 4) {gui.stupidity +=25;d+=1}}],
 							["Alex", function() {gui.textBox(["[Sasha]","Alex… dis-moi tout. J’attends." ], ["Sasha77"], function() {gui.textBox(["[Alex]","Bon, je voulais pas t’en parler car t’es ma pote", "et je voulais pas te blesser. Mais tu", "vois…Camille…" ], ["Alex20"], function() {gui.textBox(["[Alex]","C’est elle qui a appelé les flics à la soirée", "d’hier. C’est à cause d’elle que tu as subi tout ça." ], ["Alex21"], function() {gui.textBox(["[Sasha]","C-Comment ?" ], ["Sasha78"], function() {scene.unload("reponse"); scene.souvenir3()})})})})}],
-							["Auriane", function() {if (d < 4){gui.stupidity +=15;d+=1;scene.unload("reponse"); scene.reflexion()}}]]) })];
+							["Auriane", function() {if (d < 4){gui.stupidity +=15;d+=1}}]]) })];
 							
 		this.sort()
 		}
@@ -993,8 +993,8 @@ function Scene () {
 		this.collection = [ new Img("foret5",0,"foret5",0,0,100,900/16),
 							new Img("policier",1,"policier",0,0,100,900/16),
 							new Button("choix",2,"Vide1",0,0,100,900/16,infini,function () {gui.textBox(["[Sasha]", "Me voilà dans de beaux draps.", "Je n'ai plus qu'une solution..."], [], function() {gui.choicesBox([["Que faire?"],
-							["le draguer", function() {gui.stupidity +=350;gui.textBox(["[Sasha]", "On est parti!"], [], function() {scene.unload("policier1"); scene.policier2()})}],
-							["le draguer", function() {gui.stupidity +=349;gui.textBox(["[Sasha]", "On est parti!"], [], function() {scene.unload("policier1"); scene.policier2()})}]
+							["le draguer", function() {gui.playsound("OhTouchMyTralala");gui.stupidity +=350;gui.textBox(["[Sasha]", "On est parti!"], [], function() {scene.unload("policier1"); scene.policier2()})}],
+							["le draguer", function() {gui.playsound("OhTouchMyTralala");gui.stupidity +=349;gui.textBox(["[Sasha]", "On est parti!"], [], function() {scene.unload("policier1"); scene.policier2()})}]
 		                    ])})})];
 		this.sort()
 		}
@@ -1120,9 +1120,9 @@ function Scene () {
 							new Collectible("croix", 7, "croix",8,25,8,8),
 							new Collectible("croix", 7, "croix",8,35,8,8),
 							new Collectible("croix", 7, "croix",8,45,8,8),
-							new Button("att",1,"att",80,20,10,10,infini,function () {gui.choicesBox([["Etes vous surs de vouloir sauter cette énigme? (Pénalité+1)?"],
-							["Oui", function() {g+=1;scene.collection.push(new Img("message17",9,"message17",30,0,45,45));gui.textBox(["[Camille]","Sasha tu fais quoi ?" ], ["Camille15"], function() {gui.textBox(["[Sasha]","Euh Camille c’est quoi cette histoire ?" ], ["Sasha51"], function() {gui.textBox(["[Camille]","Ca ne te CONCERNE PAS !" ], ["Camille16"], function() {gui.textBox(["[Sasha]","Pardon je suis désolé j’aurais pas dû fouiller je…" ], ["Sasha52"] , function() {gui.textBox(["[Camille]","Nan. Ok. Peu importe. Laisse tomber. Oublie ça.", "Je suis un peu tendue en ce moment." ], ["Camille17"], function() {scene.unload("enigmeetoile"); scene.finetoile()})})})})})}],
-							["Non"]])}), 
+							new Button("att",2,"att",90,10,5,5,infini,function () {gui.choicesBox([["Etes vous surs de vouloir sauter cette énigme? (Pénalité+1)?"],
+							["oui", function() {gui.textBox(["[Sasha]", "C'est l'heure du skip!"], [], function() {g+=1;scene.collection.push(new Img("message17",9,"message17",30,0,45,45));gui.textBox(["[Camille]","Sasha tu fais quoi ?" ], ["Camille15"], function() {gui.textBox(["[Sasha]","Euh Camille c’est quoi cette histoire ?" ], ["Sasha51"], function() {gui.textBox(["[Camille]","Ca ne te CONCERNE PAS !" ], ["Camille16"], function() {gui.textBox(["[Sasha]","Pardon je suis désolé j’aurais pas dû fouiller je…" ], ["Sasha52"] , function() {gui.textBox(["[Camille]","Nan. Ok. Peu importe. Laisse tomber. Oublie ça.", "Je suis un peu tendue en ce moment." ], ["Camille17"], function() {scene.unload("enigmeetoile"); scene.finetoile()})})})})})})}],
+							["non", function() {gui.textBox(["[Sasha]", "..."])}]])}),
 							new Button("indice",9,"lumiere",90,50,5,5,infini,function () {gui.textBox(["[Sasha]", "Hum, Camille est née le 17 juillet", "et adore l'astronomie.","Elle comporte aussi le premier point en haut à gauche.", "Il faut placer les croix dans les cases sur les points"])} ),
 							new Button("valider",7,"valider", 50,60,5,5, infini, function () {var ar=[null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null];
 								for (i=0; i<scene.collection.length; i++) {
@@ -1306,9 +1306,9 @@ function Scene () {
 							["lui faire manger ses morts", function() {gui.playsound("Baffe");supprime("alex");gui.textBox(["[Sasha]","Une bonne chose de faite, il ne me reste plus qu’à", "trouver ce M. Cenfroque. J’entends du bruit", "derrière la porte, c’est sûrement là qu’il se cache." ], ["Sasha111"], function() {scene.collection.push(new Button("alex2",5,"alex2",33,40,30,22,infini,function () {supprime("alex2");gui.textBox(["[Sasha]", "Tiens, il avait un papier sur lui", "Il y a des symboles dessus", "On dirait de l'alchimie."], [], function() {gui.slots[1]=new Collectible("elements", 9, "elements",30,0,50,80)})} ))})}]])} )})})})})})})})})})})})})})})})} ),
 							new Button("vsa3",2,"lumiere",50,20,5,5,infini,function () {gui.inputBox("Quel est le code?",1,["TFEA","tfea"],function () {scene.unload("sa2"); scene.sa3()}, function() {if (f<15) {f+=1; gui.stupidity+=35}})} ),
 							new Button("vamphicasier",2,"lumiere",5,90,5,5,infini,function () {scene.unload("sa2"); scene.sa1()}),
-							new Button("att",1,"att",80,20,10,10,infini,function () {gui.choicesBox([["Etes vous surs de vouloir sauter cette énigme? (Pénalité+1)?"],
-							["Oui", function() {g+=1;scene.unload("sa2"); scene.sa3()}],
-							["Non"]])}),];
+							new Button("att",2,"att",90,10,5,5,infini,function () {gui.choicesBox([["Etes vous surs de vouloir sauter cette énigme? (Pénalité+1)?"],
+							["oui", function() {gui.textBox(["[Sasha]", "C'est l'heure du skip!"], [], function() {g+=1;scene.unload("sa2"); scene.sa3()})}],
+							["non", function() {gui.textBox(["[Sasha]", "..."])}]])})];
 		this.sort()
 		}
 	}
@@ -1337,7 +1337,7 @@ function Scene () {
 								["lancer le chat des résidences", function() {gui.stupidity +=130; gui.textBox(["C'est super efficace!","(sur le chat tout du moins)"], [], function () {
 							gui.textBox(["M.Cenfroque utilise 'BBCOLLAB'"], ["notif"], function () {gui.playsound("notif");
 								scene.collection.push(new Img("viefaibleg",10,"viefaibleg",-10,15,45,45));gui.textBox(["C'est super efficace!"], [], function() {gui.textBox(["[Guillaume]","Ah… il est trop fort pour moi…", "Il faut que j’utilise mon attaque secrète.", "J’invoque… LA FAMILLE ROBERT !" ], ["Guillaume12"], function() {scene.collection.push(new Img("cr",5,"cr",60,20,30,50));scene.collection.push(new Img("mr",6,"mr",30,20,30,50));scene.collection.push(new Img("rr",7,"rr",10,20,30,50));gui.textBox(["[Guillaume]","Chloé Robert, Maxime Robert, Robert Robert, tous avec moi !" ], ["Guillaume13"], function() {gui.textBox(["[Guillaume]","Chloé Robert, Maxime Robert, Robert Robert, tous avec moi !"], [], function() {scene.collection.push(new Img("vievidec",10,"vievidec",-10,-15,45,45));gui.textBox(["M.Cenfroque est terrassé par l'attaque!","Il est KO."], [], function() {scene.unload("combat21"); scene.sa4()})})})})} )} )})}],
-							["Shooting stars", function() {gui.playsound("shootingstars");gui.stupidity +=60; gui.textBox(["Ce n'est pas très efficace (mais étoilé)."], [], function () {
+							["Shooting stars", function() {gui.playsound("shootingstar");gui.stupidity +=60; gui.textBox(["Ce n'est pas très efficace (mais étoilé)."], [], function () {
 								gui.textBox(["M.Cenfroque utilise 'BBCOLLAB'"], ["notif"], function () {gui.playsound("notif");
 								scene.collection.push(new Img("viefaibleg",1,"viefaibleg",-10,15,45,45));gui.textBox(["C'est super efficace!"], [], function() {gui.textBox(["[Guillaume]","Ah… il est trop fort pour moi…", "Il faut que j’utilise mon attaque secrète.", "J’invoque… LA FAMILLE ROBERT !" ], ["Guillaume12"], function() {scene.collection.push(new Img("cr",5,"cr",60,20,30,50));scene.collection.push(new Img("mr",6,"mr",30,20,30,50));scene.collection.push(new Img("rr",7,"rr",10,20,30,50));gui.textBox(["[Guillaume]","Chloé Robert, Maxime Robert, Robert Robert, tous avec moi !" ], ["Guillaume13"], function() {gui.textBox(["[Guillaume]","Chloé Robert, Maxime Robert, Robert Robert, tous avec moi !"], [], function() {scene.collection.push(new Img("vievidec",10,"vievidec",-10,-15,45,45));gui.textBox(["M.Cenfroque est terrassé par l'attaque!","Il est KO."], [], function() {scene.unload("combat21"); scene.sa4()})})})})} )} )})}],
 							["lui démonter le crâne à coups de lance-laser", function() {gui.stupidity +=30; gui.textBox(["Ce n'est pas très efficace."], [], function () {	
@@ -1357,6 +1357,7 @@ function Scene () {
 		else {
 		this.collection = [ new Img("sa3",0,"sa3",0,0,100,900/16),
 							new Button("varchive2",2,"Vide1",0,0,100,900/16,infini,function () {gui.textBox(["[Sasha]","Guillaume, tu as réussi ! Tu l’as vaincu !" ], ["Sasha115"], function() {gui.textBox(["[Sasha]","Tiens un bout de papier sur le sol..."], [], function() {scene.unload("sa4"); scene.archive2()})})} )];
+
 		this.sort()
 		}
 	}
@@ -1367,7 +1368,7 @@ function Scene () {
 		}
 		else {
 		this.collection = [ new Img("archive",0,"archive",0,0,100,900/16),
-							new Button("blabla",7,"Vide1",0,0,100,900/16,infini,function () {supprime("blabla");gui.slots[0]=null;gui.slots[1]=null;gui.slots[2]=null;gui.slots[3]=null;gui.slots[4]=null;guitextBox(["[Sasha]","C'est donc pour ça que j'étais devant la porte", "de ma chambre ce matin."], ["Sasha116"], function() {guitextBox(["[Sasha]", "Oh tiens, il y a quelque chose qui dépasse", "de l’étagère. Mais on dirait le ", "second fragment de lettre."  ], ["Sasha117"], function () {gui.playsound("Zoé1");gui.slots[0]=new Collectible("lettre",3,"lettre",20,5,50,80);gui.slots[1]=new Collectible("photofaluniere",5,"photof",20,5,50,35)})})} ),
+							new Button("blabla",7,"Vide1",0,0,100,900/16,infini,function () {supprime("blabla");gui.slots[0]=null;gui.slots[1]=null;gui.slots[2]=null;gui.slots[3]=null;gui.slots[4]=null;gui.textBox(["[Sasha]","C'est donc pour ça que j'étais devant la porte", "de ma chambre ce matin. C'est Guillaume qui m'a ramené.","Faudra que je lui dises merci"], ["Sasha116"], function() {gui.textBox(["[Sasha]", "Oh tiens, il y a quelque chose qui dépasse", "de l’étagère. Mais on dirait le ", "second fragment de lettre."  ], ["Sasha117"], function () {gui.playsound("Zoé1");gui.slots[0]=new Collectible("lettre",3,"lettre",20,5,50,80);gui.slots[1]=new Collectible("photofaluniere",5,"photof",20,5,50,35)})})} ),
 							new Button("vcarrière",1,"lumiere",90,10,5,5,infini,function () {gui.inputBox("Où se cacherait donc le trésor?",1,["falunière","faluniere","Faluniere","Falunière","carrière","carriere","Carrière","Carriere"],function () {scene.unload("archive2"); scene.carriere1()}, function() {if (f<15) {f+=1; gui.stupidity+=35}})} )];
 		this.sort()
 		}
@@ -1479,9 +1480,9 @@ function Scene () {
 		}
 		else {
 		this.collection = [ new Img("Kvo2",0,"Kvo2",0,0,100,900/16),
-							new Button("att",1,"att",80,20,10,10,infini,function () {gui.choicesBox([["Etes vous surs de vouloir sauter cette énigme? (Pénalité+1)?"],
-							["Oui", function() {g+=1;scene.unload("Kvo2"); scene.Kvo9()}],
-							["Non"]])}),
+							new Button("att",2,"att",90,10,5,5,infini,function () {gui.choicesBox([["Etes vous surs de vouloir sauter cette énigme? (Pénalité+1)?"],
+							["oui", function() {gui.textBox(["[Sasha]", "C'est l'heure du skip!"], [], function() {g+=1;scene.unload("Kvo2"); scene.Kvo9()})}],
+							["non", function() {gui.textBox(["[Sasha]", "..."])}]])}),
 							new Button("Kvo21",1,"lumiere",10,90,5,5,infini,function () {scene.unload("Kvo2"); scene.Kvo1()}), 
 							new Button("Kvo23",1,"lumiere",80,75,5,5,infini,function () {scene.unload("Kvo2"); scene.Kvo3()}),
 							new Chest("ch3st9", 1, "coffre", 40,50,5,5),
@@ -1654,9 +1655,9 @@ function Scene () {
 		this.collection = [ new Img("serre4",0,"serre4",0,0,100,900/16),
 							new Button("blabla",7,"Vide1",0,0,100,900/16,infini,function () {gui.textBox(["[Benjamin]","Oh c’est pas vrai !", "Quelqu’un a verrouillé le placard où on a mis", "le LSD- erm… les étoiles de Mario."], ["Benjamin6"], function() {gui.textBox(["[Benjamin]"," Il faut qu’on les récupère mais la porte", "s’ouvre pas. Il y a un code à 4 chiffres…"], ["Benjamin7"], function() {gui.textBox(["[Alex]","Yo les gars, vous cherchez quoi ?" ], ["Alex4"], function() {gui.textBox(["[Sasha]","Le code du placard là-bas." ], ["Sasha13"], function() {supprime("blabla");gui.textBox(["[Alex]","Ah ouais. De mémoire, c’est une date importante pour l’école."], ["Alex5"])})})})})}),
 							new Button("vserre40",1,"lumiere",20,80,5,5,infini,function () {scene.unload("serre4"); scene.serre0()}), 
-							new Button("att",1,"att",80,20,10,10,infini,function () {gui.choicesBox([["Etes vous surs de vouloir sauter cette énigme? (Pénalité+1)?"],
-							["Oui", function() {g+=1;scene.unload("serre4"); scene.serre5()}],
-							["Non"]])}), 
+							new Button("att",2,"att",90,10,5,5,infini,function () {gui.choicesBox([["Etes vous surs de vouloir sauter cette énigme? (Pénalité+1)?"],
+							["oui", function() {gui.textBox(["[Sasha]", "C'est l'heure du skip!"], [], function() {g+=1;scene.unload("serre4"); scene.serre5()})}],
+							["non", function() {gui.textBox(["[Sasha]", "..."])}]])}),
 							new Button("vserre45",1,"lumiere",50,50,5,5,infini,function () {gui.inputBox("Quel est le code?",1,["1826"],function () {scene.unload("serre4"); scene.serre5()}, function() {if (f<15) {f+=1; gui.stupidity+=35}})} )];
 		this.sort()
 		}
@@ -1752,7 +1753,7 @@ function Scene () {
 		else {
 		this.collection = [ new Img("carriere7",0,"carriere7",0,0,100,900/16),
 							new Button("vcarriere2",1,"lumiere",80,85,5,5,infini,function () {scene.unload("carriere7"); scene.carriere6()}), 
-							new Button ("fin",1,"cache",-10,60,20,25,infini, function () {gui.textBox(["[Sasha]", "Tiens, entre les racines de cet hêtre bicentenaire..."], ["Sasha120"], function() {scene.collection.push(new Img("peau",5,"peau",30,20,50,30));gui.textBox(["[Madame de Brassac]","Voici mon cher ami la peau du bélier", "primordial de Grignon, j’espère qu’elle", "réalisera vos vœux les plus chers." ], ["Zoé 2"], function() {scene.unload("carriere7"); scene.porte4()})})}) ];
+							new Button ("fin",1,"cache",-10,60,20,25,infini, function () {gui.textBox(["[Sasha]", "Tiens, entre les racines de cet hêtre bicentenaire..."], ["Sasha120"], function() {scene.collection.push(new Img("peau",5,"peau",30,20,50,30));gui.textBox(["[Madame de Brassac]","Voici mon cher ami la peau du bélier", "primordial de Grignon, j’espère qu’elle", "réalisera vos vœux les plus chers." ], ["Zoé2"], function() {scene.unload("carriere7"); scene.porte4()})})}) ];
 		this.sort()
 		}
 	}
@@ -1763,7 +1764,7 @@ function Scene () {
 		}
 		else {
 		this.collection = [ new Img("porte",0,"porte",0,0,100,900/16),
-							new Button("vcarriere2",1,"Vide1",0,0,100,900/16,infini,function () {gui.textBox(["[Sasha]","Si ce truc pouvait vraiment réaliser les vœux,", "je voudrais bien qu’il retrouve mes clés.", "Je peux toujours pas rentrer chez moi là…" ], ["Sasha121"], function() {gui.textBox(["[Pauline]","Ne crains rien Sasha,", "le BDE est là pour toi !", "Voici tes clés !" ], ["Pauline8"], function() {gui.textBox(["[Sasha]","Oh merci, grâce à vous je vais", "enfin pouvoir me taper ma meilleure sieste. " ], ["Sasha122"])})})}), ];
+							new Button("vcarriere2",1,"Vide1",0,0,100,900/16,infini,function () {gui.textBox(["[Sasha]","Si ce truc pouvait vraiment réaliser les vœux,", "je voudrais bien qu’il retrouve mes clés.", "Je peux toujours pas rentrer chez moi là…" ], ["Sasha121"], function() {scene.collection.push(new Img("pauline2",5,"pauline2",10,10,85,70));gui.textBox(["[Pauline]","Ne crains rien Sasha,", "le BDE est là pour toi !", "Voici tes clés !" ], ["Pauline7"], function() {gui.textBox(["[Sasha]","Oh merci, grâce à vous je vais", "enfin pouvoir me taper ma meilleure sieste. " ], ["Sasha122"])})})}), ];
 		this.sort()
 		}
 	}
