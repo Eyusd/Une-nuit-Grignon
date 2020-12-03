@@ -694,7 +694,7 @@ function Scene () {
 		else {
 		this.collection = [ new Img("ct",0,"ct",0,0,100,900/16),
 							new Button("agression",2,"Vide1",0,0,100,900/16,infini,function () {scene.collection.push(new Img("gwen1",3,"gwen1",20,0,70,90));gui.textBox(["[Acolyte de la CT]","Parvenue à toi, jaune missile.","Ici tu ne troueras que poix et amochement !" ], ["Victor1"], function() {gui.textBox(["[Acolyte de la CT]","En gros, on perce et tue les traductions :", "fin, bâillon, canasson. Plains-toi à fous !" ], ["Victor2"], function() {gui.textBox(["[Acolyte de la CT]","Jeanne… Jeanne ! Ah cette biche, elle est", "courbe comme un tronc ! Con : accroche,", "ça va être mordant !" ], ["Victor3"], function() {gui.choicesBox([["..."],
-							["Euh...avec plaisir?", function() {gui.stupidity +=15; scene.unload("ct1"); scene.ct4()}],
+							["Euh...avec plaisir?", function() {gui.stupidity +=0;gui.textBox(["[Sasha]", "Avec plaisir."], [], function() {scene.unload("ct1"); scene.ct4()})}],
 							["Tu peux répéter, s'il te plaît?", function() {gui.stupidity +=30;gui.textBox(["[Sasha]", "Hein?"], [], function() {scene.unload("ct1"); scene.ct2()})}]])} )})})} ),
 							];
 		this.sort()
@@ -708,7 +708,7 @@ function Scene () {
 		else {
 		this.collection = [ new Img("ct",0,"ct",0,0,100,900/16),
 							new Button("agression",2,"Vide1",0,0,100,900/16,infini,function () {scene.collection.push(new Img("gwen1",3,"gwen1",20,0,70,90));gui.textBox(["[Acolyte de la CT]","Bienvenue à toi, jaune missile.", "Ici tu ne troueras que joie et amochement !" ], ["Victor4"], function() {gui.textBox(["[Acolyte de la CT]","En gros, on perce et tue les traditions", "vin, bâillon, canasson. Plains-toi à nous !"], ["Victor5"], function() {gui.textBox(["[Acolyte de la CT]","Attends : Jeanne ! Ahlala cette quiche,","toujours courbe comme un pot ! Con :", "approche, ça va être mordant !" ], ["Victor6"], function() {gui.choicesBox([["..."],
-							["Euh...avec plaisir?", function() {gui.stupidity +=30; scene.unload("ct2"); scene.ct4()}],
+							["Euh...avec plaisir?", function() {gui.stupidity +=30;gui.textBox(["[Sasha]", "Avec plaisir."], [], function() {scene.unload("ct2"); scene.ct4()})}],
 							["Tu peux répéter, s'il te plaît?", function() {gui.stupidity +=120;gui.textBox(["[Sasha]", "De quoi?"], [], function() {scene.unload("ct2"); scene.ct3()})}]])} )})})} ),
 							];
 		this.sort()
@@ -722,7 +722,7 @@ function Scene () {
 		else {
 		this.collection = [ new Img("ct",0,"ct",0,0,100,900/16),
 							new Button("agression",2,"Vide1",0,0,100,900/16,infini,function () {scene.collection.push(new Img("gwen1",3,"gwen1",20,0,70,90));gui.textBox(["[Acolyte de la CT]","Bienvenue à toi, jeune disciple.", "Ici tu ne trouveras que joie et amusement !" ] , ["Victor7"], function() {gui.textBox(["En gros, on perpétue les traditions :", "vin, jambon, saucisson. Joins-toi à nous !" ], ["Victor8"], function() {gui.textBox(["Bon cette fois j’espère qu’elle va entendre." ], ["Victor9"], function() {gui.textBox(["[Acolyte de la CT]","Jeaaaaanne !! Bon bah ça a pas l’air, elle est", "vraiment sourde comme un pot."], ["Victor10"], function() {gui.choicesBox([
-							[ "Bon : approche ça va être marrant !"],["Aaaaaah mais oui avec plaisir",["Sasha89"], function() {gui.stupidity +=20; scene.unload("ct3"); scene.ct4()}]])} )})})})})];
+							[ "Bon : approche ça va être marrant !"],["Aaaaaah mais oui avec plaisir", function() {gui.stupidity +=20;gui.textBox(["[Sasha]", "Avec plaisir."], [], function() {scene.unload("ct3"); scene.ct4()})}]])} )})})})})];
 		this.sort()
 		}
 	}
