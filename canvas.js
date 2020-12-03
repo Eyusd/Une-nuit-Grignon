@@ -195,6 +195,7 @@ function GUI () {
 				ctx.fillStyle = 'rgba(255,255,255,0.1)';
 				ctx.fillRect(canvas.width*0.7,canvas.height*0.6-(i-0.95)*canvas.height*0.1,canvas.width*0.2,canvas.height*0.08)
 				if (mouse.click == true && mouse.state == 'down') {
+					scene.pause = false;
 					this.texts = Array.from([]);
 					this.index = 0;
 					this.txtlength = -1;
