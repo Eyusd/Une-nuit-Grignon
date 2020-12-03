@@ -1770,16 +1770,23 @@ function Scene () {
 	}
 
 	this.endingscreen = function() {
-		this.collection = [ new SplashText("splash1", 10, 11,35,9,'rgb(255,255,255)',"Une Nuit à Grignon [Crédits]"),
-							new SplashText("splash2", 10, 28,55,3,'rgb(0,0,0)', "Chef de projet: PIMONT Louis"),
-							new SplashText("splash3", 10, 10,63,3,'rgb(0,0,0)', "Développeurs: PIMONT Louis @APT et CHARDINE Clément @CS"),
-							new SplashText("splash4", 10, 5,70,2,'rgb(0,0,0)', "Scénaristes:	AMBRUOSI Sarah / PIMONT Louis / DIB Odile / NELATON Victor / PLYN Noémie / OULERICH Zoé"),
-							new SplashText("splash5", 10, 2,97,1.5,'rgb(0,0,0)', "Dialoguistes AMBRUOSI Sarah / PIMONT Louis / OULERICH Zoé"),
-							new SplashText("splash1", 10, 2,85,9,'rgb(255,255,255)',"Monteurs photo/vidéo :TONG Guillaume / GUIMONT Mathieu /HAK Rith-Théa"),
-							new SplashText("splash1", 10, 2,85,9,'rgb(255,255,255)',"DIB Odile (Sasha) / HENRY Salomé (Camille) /PIMONT Louis (Alex)/ GUIMONT Mathieu  (Benjamin)/ CADENES Jimmy"),
-							new SplashText("splash1", 10, 2,85,9,'rgb(255,255,255)',"GIRARD Pauline / DROMIGNY Manon /BROUAUD Clara/ OULERICH Zoé/ DAUCHOT Gabriel/DELACROIX Auriane"),
-							new SplashText("splash1", 10, 2,85,9,'rgb(255,255,255)',"GAULTIER Alexia / TONG Guillaume /LANDREAU Léo/ PLYN Noémie/ HAK Rith-Théa/ROBERT Guillaume"),							
-							new SplashText("splash1", 10, 2,85,9,'rgb(255,255,255)',"DARETS Sophie / LARCHE Gwenaël /BROUAUD Clara/ NELATON Victor")];					
+		gui.show = false;
+		var st = gui.stupidity.toString();
+		var sg = g.toString();
+		this.collection = [ new SplashText("splash1", 10, 10,10,6,'rgb(0,0,0)',"Une Nuit à Grignon [Crédits]"),
+							new SplashText("splash2", 10, 2,20,1.8,'rgb(0,0,0)', "Chef de projet: PIMONT Louis"),
+							new SplashText("splash3", 10, 2,25,1.8,'rgb(0,0,0)', "Développeurs: PIMONT Louis @APT et CHARDINE Clément @CS"),
+							new SplashText("splash4", 10, 2,30,1.8,'rgb(0,0,0)', "Scénaristes:	AMBRUOSI Sarah / PIMONT Louis / DIB Odile / NELATON Victor / PLYN Noémie / OULERICH Zoé"),
+							new SplashText("splash5", 10, 2,35,1.8,'rgb(0,0,0)', "Dialoguistes AMBRUOSI Sarah / PIMONT Louis / OULERICH Zoé"),
+							new SplashText("splash1", 10, 2,40,1.8,'rgb(0,0,0)',"Monteurs photo/vidéo :TONG Guillaume / GUIMONT Mathieu /HAK Rith-Théa"),
+							new SplashText("splash1", 10, 2,45,1.8,'rgb(0,0,0)',"DIB Odile (Sasha) / HENRY Salomé (Camille) /PIMONT Louis (Alex)/ GUIMONT Mathieu  (Benjamin)/ CADENES Jimmy"),
+							new SplashText("splash1", 10, 2,50,1.8,'rgb(0,0,0)',"GIRARD Pauline / DROMIGNY Manon /BROUAUD Clara/ OULERICH Zoé/ DAUCHOT Gabriel/DELACROIX Auriane"),
+							new SplashText("splash1", 10, 2,55,1.8,'rgb(0,0,0)',"GAULTIER Alexia / TONG Guillaume /LANDREAU Léo/ PLYN Noémie/ HAK Rith-Théa/ROBERT Guillaume"),							
+							new SplashText("splash1", 10, 2,60,1.8,'rgb(0,0,0)',"DARETS Sophie / LARCHE Gwenaël /BROUAUD Clara/ NELATON Victor"),
+							new SplashText("splash1", 10, 2,60,1.8,'rgb(0,0,0)',"DARETS Sophie / LARCHE Gwenaël /BROUAUD Clara/ NELATON Victor"),
+							new SplashText("splash1", 10, 8,80,5,'rgb(255,0,0)',"Stupidité: "+st),
+							new SplashText("splash1", 10, 55,80,5,'rgb(255,0,0)',"Skips utilisés: "+sg)
+						];					
 	}
 }
 

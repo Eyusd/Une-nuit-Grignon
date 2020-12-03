@@ -260,8 +260,8 @@ function Chest (id, depth, img, x, y, width, height, actio = function () {}) {
 function SplashText (id, depth, x, y, size, color, txt) {
 	this.id = id
 	this.depth = depth;
-	this.x = x;
-	this.y = y;
+	this.x = x*canvas.width/100;
+	this.y = y*canvas.height/100;
 	this.size =size;
 	this.color = color;
 	this.txt = txt;
