@@ -1776,7 +1776,7 @@ function Scene () {
 							new SplashText("splash4", 10, 5,70,2,'rgb(0,0,0)', "Scénaristes:	AMBRUOSI Sarah / PIMONT Louis / DIB Odile / NELATON Victor / PLYN Noémie / OULERICH Zoé"),
 							new SplashText("splash5", 10, 2,97,1.5,'rgb(0,0,0)', "Dialoguistes AMBRUOSI Sarah / PIMONT Louis / OULERICH Zoé"),
 							new SplashText("splash1", 10, 2,85,9,'rgb(255,255,255)',"Monteurs photo/vidéo :TONG Guillaume / GUIMONT Mathieu /HAK Rith-Théa"),
-							new SplashText("splash1", 10, 2,85,9,'rgb(255,255,255)',"DIB Odile (Sasha) / HENRY Salomé (Camille) /PIMONT Louis (Alex)/ GUIMONT Mathieu  (Benjamin)/ CADENES Jimmy"),
+							new SplashText("splash1", 10, 2,85,9,'rgb(255,255,255)',"Doubleurs/Acteurs : DIB Odile (Sasha) / HENRY Salomé (Camille) /PIMONT Louis (Alex)/ GUIMONT Mathieu  (Benjamin)/ CADENES Jimmy"),
 							new SplashText("splash1", 10, 2,85,9,'rgb(255,255,255)',"GIRARD Pauline / DROMIGNY Manon /BROUAUD Clara/ OULERICH Zoé/ DAUCHOT Gabriel/DELACROIX Auriane"),
 							new SplashText("splash1", 10, 2,85,9,'rgb(255,255,255)',"GAULTIER Alexia / TONG Guillaume /LANDREAU Léo/ PLYN Noémie/ HAK Rith-Théa/ROBERT Guillaume"),							
 							new SplashText("splash1", 10, 2,85,9,'rgb(255,255,255)',"DARETS Sophie / LARCHE Gwenaël /BROUAUD Clara/ NELATON Victor")];					
