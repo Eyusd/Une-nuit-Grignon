@@ -122,7 +122,7 @@ function Scene () {
 		}
 		else {
 		this.collection = [ new Img("dep",0,"dep",0,0,100,900/16),
-							new Button("vdepu",1,"lumiere",20,85,5,5,infini,function () {scene.unload("dep1"); scene.U1()}),
+							new Button("vdepu",1,"lumiere",5,90,5,5,infini,function () {scene.unload("dep1"); scene.U1()}),
 							new Collectible("portable", 10, "portable",10,75,5,5),
 							new Button("vdepamphitheatre",2,"lumiere",60,60,5,5,infini,function () {scene.unload("dep1"); scene.amphitheatre1()} ),
 							new Button("manon",2,"manon",20,50,12,17,infini,function () {scene.collection.push(new Img("manon",3,"manon",20,0,70,90));gui.textBox(["[Manon]","hey Sasha, tu tombes bien! Hier j’ai trouvé","ce bob abandonné au bassin, tu pourrais le ramener", "à son propriétaire ?" ], ["Manon1"], function () {gui.textBox(["[Sasha]","Oui, bien sûr. Je suis censé m’occuper du nettoyage", "de Grignon de toute façon." ], ["Sasha8"], function() {gui.textBox(["[Manon]","Ah cool merci ! Au fait, je sais pas si t’as ouvert zimbra","ce matin, mais on a encore reçu 341 mails…","5 jours de suite..." ], ["Manon2"], function() {gui.textBox(["[Sasha]","Chaud..." ], ["Sasha9"], function () {supprime("manon");scene.collection.push(new Collectible("bob", 10, "bob",20,50,5,5))})})})} )} )];
